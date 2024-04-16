@@ -1,20 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   ft_lstclear_bonus.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lgernido <lgernido@student.42.fr>          +#+  +:+       +#+        */
+/*   By: vlevy <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/04/16 11:50:31 by lgernido          #+#    #+#             */
-/*   Updated: 2024/04/16 12:46:21 by lgernido         ###   ########.fr       */
+/*   Created: 2023/11/09 17:21:31 by vlevy             #+#    #+#             */
+/*   Updated: 2023/11/10 19:15:01 by vlevy            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "cub.h"
+#include "libft.h"
 
-int	main(int argc, char **argv)
+void	ft_lstclear(t_list **lst, void (*del)(void *))
 {
-	t_data data;
-	check_params(argc, argv);
-	data = ft_mlx_init(&data);
+	t_list	*p;
+	t_list	*tmp;
+
+	if (!lst || !del)
+		return ;
+	p = *lst;
+	while (p)
+	{
+		del(p->content);
+		tmp = p->next;
+		free(p);
+		p = tmp;
+	}
+	*lst = NULL;
+	return ;
 }

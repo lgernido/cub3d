@@ -1,20 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   ft_strlen.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lgernido <lgernido@student.42.fr>          +#+  +:+       +#+        */
+/*   By: vlevy <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/04/16 11:50:31 by lgernido          #+#    #+#             */
-/*   Updated: 2024/04/16 12:46:21 by lgernido         ###   ########.fr       */
+/*   Created: 2023/11/06 14:00:08 by vlevy             #+#    #+#             */
+/*   Updated: 2023/11/07 09:43:25 by vlevy            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "cub.h"
+#include "libft.h"
 
-int	main(int argc, char **argv)
+size_t	ft_strlen(const char *s)
 {
-	t_data data;
-	check_params(argc, argv);
-	data = ft_mlx_init(&data);
+	size_t	i;
+
+	i = 0;
+	while (s[i])
+		i++;
+	return (i);
 }
+
+/*#include <stdio.h>
+int	main(void)
+{
+	unsigned int a = ft_strlen("Salut wesh");
+	printf("%d\n", a);
+}*/

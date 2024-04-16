@@ -1,20 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   ft_putendl_fd.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lgernido <lgernido@student.42.fr>          +#+  +:+       +#+        */
+/*   By: vlevy <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/04/16 11:50:31 by lgernido          #+#    #+#             */
-/*   Updated: 2024/04/16 12:46:21 by lgernido         ###   ########.fr       */
+/*   Created: 2023/11/07 17:05:49 by vlevy             #+#    #+#             */
+/*   Updated: 2023/11/08 16:09:49 by vlevy            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "cub.h"
+#include "libft.h"
 
-int	main(int argc, char **argv)
+void	ft_putendl_fd(char *s, int fd)
 {
-	t_data data;
-	check_params(argc, argv);
-	data = ft_mlx_init(&data);
+	ft_putstr_fd(s, fd);
+	ft_putchar_fd('\n', fd);
+	return ;
 }
+
+/*#include <stdio.h>
+int	main(void)
+{
+	char *str = "Souvenir souvenir me rappele";
+	ft_putendl_fd(str, 1);
+}*/

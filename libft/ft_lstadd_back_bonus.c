@@ -1,20 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   ft_lstadd_back_bonus.c                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lgernido <lgernido@student.42.fr>          +#+  +:+       +#+        */
+/*   By: vlevy <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/04/16 11:50:31 by lgernido          #+#    #+#             */
-/*   Updated: 2024/04/16 12:46:21 by lgernido         ###   ########.fr       */
+/*   Created: 2023/11/09 16:00:16 by vlevy             #+#    #+#             */
+/*   Updated: 2023/11/10 10:36:26 by vlevy            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "cub.h"
+#include "libft.h"
 
-int	main(int argc, char **argv)
+void	ft_lstadd_back(t_list **lst, t_list *new)
 {
-	t_data data;
-	check_params(argc, argv);
-	data = ft_mlx_init(&data);
+	t_list	*tmp;
+
+	if (!new)
+		return ;
+	if (!*lst)
+	{
+		*lst = new;
+		return ;
+	}
+	tmp = *lst;
+	while (tmp && tmp->next)
+		tmp = tmp->next;
+	tmp->next = new;
+	return ;
 }

@@ -1,20 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   ft_putstr_fd.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lgernido <lgernido@student.42.fr>          +#+  +:+       +#+        */
+/*   By: vlevy <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/04/16 11:50:31 by lgernido          #+#    #+#             */
-/*   Updated: 2024/04/16 12:46:21 by lgernido         ###   ########.fr       */
+/*   Created: 2023/11/07 16:57:59 by vlevy             #+#    #+#             */
+/*   Updated: 2023/11/08 16:38:11 by vlevy            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "cub.h"
+#include "libft.h"
 
-int	main(int argc, char **argv)
+void	ft_putstr_fd(char *s, int fd)
 {
-	t_data data;
-	check_params(argc, argv);
-	data = ft_mlx_init(&data);
+	if (!s)
+		return ;
+	write(fd, s, ft_strlen(s));
 }
+
+/*#include <stdio.h>
+int	main(void)
+{
+	char	*str = "Mauvais bail";
+	ft_putstr(str, 1);
+	return (0);
+}*/

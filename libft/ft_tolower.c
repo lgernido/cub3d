@@ -1,20 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   ft_tolower.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lgernido <lgernido@student.42.fr>          +#+  +:+       +#+        */
+/*   By: vlevy <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/04/16 11:50:31 by lgernido          #+#    #+#             */
-/*   Updated: 2024/04/16 12:46:21 by lgernido         ###   ########.fr       */
+/*   Created: 2023/11/06 12:18:40 by vlevy             #+#    #+#             */
+/*   Updated: 2023/11/06 12:34:47 by vlevy            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "cub.h"
+#include "libft.h"
 
-int	main(int argc, char **argv)
+int	ft_tolower(int c)
 {
-	t_data data;
-	check_params(argc, argv);
-	data = ft_mlx_init(&data);
+	if (c >= 'A' && c <= 'Z')
+		return (c + 32);
+	return (c);
 }
+
+/*#include <stdio.h>
+
+int	main(void)
+{
+	int a = ft_tolower(44);
+	printf("%d\n", a);
+}*/

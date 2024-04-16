@@ -1,20 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   ft_isprint.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lgernido <lgernido@student.42.fr>          +#+  +:+       +#+        */
+/*   By: vlevy <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/04/16 11:50:31 by lgernido          #+#    #+#             */
-/*   Updated: 2024/04/16 12:46:21 by lgernido         ###   ########.fr       */
+/*   Created: 2023/11/06 11:16:48 by vlevy             #+#    #+#             */
+/*   Updated: 2023/11/08 11:08:06 by vlevy            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "cub.h"
+//#include <stdio.h>
+#include "libft.h"
 
-int	main(int argc, char **argv)
+int	ft_isprint(int c)
 {
-	t_data data;
-	check_params(argc, argv);
-	data = ft_mlx_init(&data);
+	if (c >= 32 && c <= 126)
+		return (1);
+	return (0);
 }
+
+/*int main(void)
+{
+	int a = ft_isprint(118);
+	printf("%d\n", a);
+	return (0);
+}*/

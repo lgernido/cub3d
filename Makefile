@@ -4,7 +4,7 @@
 SRC_FOLDER	= srcs/
 SRC_FOLDER_BONUS = srcs/bonus/
 
-SRC_FILES	= main.c mlx_init.c
+SRC_FILES	= main.c mlx_init.c parse_file.c
 
 SRC_FILES_BONUS = 
 BUILD = build/
@@ -58,13 +58,13 @@ clean :
 	@rm -rf ${BUILD}
 	@#@rm -f *.txt
 	@rm -f *.o ${OBJ_FILES_BONUS}
-	@make clean -C $(LIBFT_PATH) --no-print-directory -s
+	# @make clean -C $(LIBFT_PATH) --no-print-directory -s
 	@make clean -C $(MLX_PATH) --no-print-directory -s
 	@echo "$(CYAN) Nettoyage des fichiers intermédiaires $(RESET)"
 
 fclean : clean
 	@rm -f ${NAME}
-	#@make fclean -C $(LIBFT_PATH) --no-print-directory -s
+	# @make fclean -C $(LIBFT_PATH) --no-print-directory -s
 	@echo "$(GREEN) Nettoyage terminé $(RESET)"
 
 bonus : $(OBJ_FILES_BONUS)
