@@ -62,7 +62,7 @@ typedef struct s_data
 typedef struct s_cub {
 	t_img	texture[4]; // All textures should be stored here as images
 	t_point	pos; // First position of the player.
-	t_dir		p_dir; // Start position of the player.
+	t_dir		p_dir; // Start directon of the player.
 	t_point	dir; // Not relevant for parsing.
 	t_point	camera; // not relevant for parsing.	
 	int			floor; // Color of the floor.
