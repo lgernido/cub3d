@@ -6,7 +6,7 @@
 /*   By: lgernido <lgernido@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/16 11:43:27 by lgernido          #+#    #+#             */
-/*   Updated: 2024/04/16 14:24:53 by lgernido         ###   ########.fr       */
+/*   Updated: 2024/04/16 14:59:20 by lgernido         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@
 # include <X11/keysym.h>
 # include <fcntl.h>
 # include <math.h>
-# include <mlx.h>
+# include "mlx.h"
 # include <stdio.h>
 # include <stdlib.h>
 # include <sys/stat.h>
@@ -34,14 +34,17 @@
 //==========================================================================//
 /*STRUCTURES && ENUMS*/
 
-typedef enum e_orientation
-{
-	NO = 1,
-	SO = 2,
-	WE = 3,
-	EA = 4
+typedef enum e_dir {
+	NORTH,
+	SOUTH,
+	EAST,
+	WEST
+}						t_dir;
 
-}					t_orientation;
+typedef struct s_point {
+	double	x;
+	double	y;
+}								t_point;
 
 typedef struct s_img
 {
@@ -52,22 +55,25 @@ typedef struct s_img
 	int				endian;
 }					t_img;
 
-
-typedef struct s_map_infos
-{
-	char			**infos;
-	double			x;
-	double			y;
-	t_orientation	orientation;
-}					t_map_infos;
-
 typedef struct s_data
 {
-	void			*mlx;
-	void			*win;
-	t_img			img;
-	t_map_infos		start;
-}					t_data;
+	void	*mlx;
+	void	*win;
+}			t_data;
+
+typedef struct s_cub {
+	t_img	texture[4]; // All textures should be stored here as images
+	t_img	*main_img; // Not relevant for parsing
+	t_data	*display; // Not relevant for parsing.
+	t_point	pos; // First position of the player.
+	t_dir		p_dir; // Start directon of the player.
+	t_point	dir; // Not relevant for parsing.
+	t_point	camera; // not relevant for parsing.	
+	int			floor; // Color of the floor.
+	int			ceiling; // color of the ceiling.
+	int		*map[]; // Last row should be NULL. After last valid member of row, 
+	// one more shoul be set as -1.
+}								t_cub;
 
 //==========================================================================//
 /*PROTOTYPES*/
