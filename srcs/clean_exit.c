@@ -52,20 +52,17 @@ void	clean_map(int	**map)
 	free(map);
 }
 
-void	clean_all(t_cub *cub)
+void	clean_all(t_cub *cub, int error_code)
 {
-	clean_texture(cub->texture, cub->display);
+	clean_texture(cub->texture, &cub->display);
 	if (cub->main_img.img != NULL)
 	{
-		mlx_destroy_image(cub->display->mlx, cub->main_img.img);
+		mlx_destroy_image(cub->display.mlx, cub->main_img.img);
 	}
 	if (cub->map != NULL)
 	{
 		clean_map(cub->map);
 	}
-	if (cub->display != NULL)
-	{
-		clean_display(cub->display);
-		free(cub->display);
-	}
+	clean_display(&cub->display);
+	exit(error_code);
 }

@@ -1,19 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   exec_init.c                                        :+:      :+:    :+:   */
+/*   ft_strlcpy.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: purmerinos <purmerinos@protonmail.com>     +#+  +:+       +#+        */
+/*   By: vlevy <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/04/16 13:51:05 by purmerinos        #+#    #+#             */
-/*   Updated: 2024/04/16 13:51:06 by purmerinos       ###   ########.fr       */
+/*   Created: 2023/11/06 18:11:15 by vlevy             #+#    #+#             */
+/*   Updated: 2023/11/08 13:01:27 by vlevy            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "cub.h"
+#include "libft.h"
 
-void	exec_init(t_cub	*cub)
+size_t	ft_strlcpy(char *dst, const char *src, size_t size)
 {
-	cub->display->mlx = mlx_init();
-	if (cub->display->mlx == NULL)
+	size_t	i;
+
+	i = 0;
+	if (size > 0)
+	{
+		while (i < size - 1 && src[i])
+		{
+			dst[i] = src[i];
+			i++;
+		}
+		dst[i] = 0;
+	}
+	return (ft_strlen(src));
 }

@@ -4,7 +4,7 @@
 SRC_FOLDER	= srcs/
 SRC_FOLDER_BONUS = srcs/bonus/
 
-SRC_FILES	= main.c mlx_init.c
+SRC_FILES	= main.c exec_init.c clean_exit.c drawing_utils.c
 
 SRC_FILES_BONUS = 
 BUILD = build/
@@ -26,7 +26,7 @@ INCLUDE		=
 INCLUDE_BONUS = 
 INCLUDE_PATH = includes/
 MLX_PATH	= mini_libx/
-MLX_INCLUDE = -Lmlx -lmlx -L/usr/lib/X11 -lXext -lX11
+MLX_INCLUDE = mini_libx/libmlx_Linux.a -L/usr/lib/X11 -lXext -lX11
 
 RED		=	\033[0;31m
 GREEN	=	\033[0;32m
@@ -43,7 +43,7 @@ RESET	=	\033[0m
 $(NAME): $(OBJ_FILES) $(INCLUDES)
 	# @make -C $(LIBFT_PATH) --no-print-directory -s
 	@make -C $(MLX_PATH) --no-print-directory -s
-	@$(CC) $(CFLAGS) $(OBJ_FILES) $(MLX_INCLUDE) -o $(NAME)
+	@$(CC) $(CFLAGS) $(OBJ_FILES) libft.a $(MLX_INCLUDE) -o $(NAME)
 	@echo "$(MAGENTA)Les fichiers modifiés sont: $?$(RESET)"
 	@echo "$(GREEN)Compilation réussie !$(RESET)"
 
