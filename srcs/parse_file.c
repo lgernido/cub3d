@@ -6,7 +6,7 @@
 /*   By: lgernido <lgernido@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/16 12:09:34 by lgernido          #+#    #+#             */
-/*   Updated: 2024/04/16 14:15:24 by lgernido         ###   ########.fr       */
+/*   Updated: 2024/04/16 15:40:19 by lgernido         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,8 +41,9 @@ char	**read_file(int file)
 	infos = (char **)malloc(sizeof(char *) * 100);
 	if (!infos)
 		error_exit("MALLOC\n");
-	while (get_next_line(file, &line) != NULL)
+	while (get_next_line(file) != NULL)
 	{
+		// a debug
 		infos[i] = ft_strdup(line);
 		free(line);
 		i++;
@@ -52,11 +53,11 @@ char	**read_file(int file)
 
 void	check_params(int argc, char **argv)
 {
-	int			map;
-	t_map_infos	*infos;
-	int			i;
+	int		map;
+	t_cub	*infos;
+	int		i;
 
-	infos = malloc(sizeof(t_map_infos));
+	infos = malloc(sizeof(t_cub));
 	if (!infos)
 		error_exit("MALLOC\n");
 	if (argc == 2)
@@ -68,9 +69,9 @@ void	check_params(int argc, char **argv)
 		infos->infos = read_file(map);
 	}
 	i = 0;
-	while (infos->infos[i])
+	while (infos->tab[i])
 	{
-		printf("%s\n", infos->infos[i]);
+		printf("%s\n", infos->tab[i]);
 		i++;
 	}
 }
