@@ -41,7 +41,7 @@ RESET	=	\033[0m
 #### RULES
 
 $(NAME): $(OBJ_FILES) $(INCLUDES)
-	# @make -C $(LIBFT_PATH) --no-print-directory -s
+	@make -C $(LIBFT_PATH) --no-print-directory -s
 	@make -C $(MLX_PATH) --no-print-directory -s
 	@$(CC) $(CFLAGS) $(OBJ_FILES) $(MLX_INCLUDE) -o $(NAME)
 	@echo "$(MAGENTA)Les fichiers modifiés sont: $?$(RESET)"
@@ -58,7 +58,7 @@ clean :
 	@rm -rf ${BUILD}
 	@#@rm -f *.txt
 	@rm -f *.o ${OBJ_FILES_BONUS}
-	# @make clean -C $(LIBFT_PATH) --no-print-directory -s
+	@make clean -C $(LIBFT_PATH) --no-print-directory -s
 	@make clean -C $(MLX_PATH) --no-print-directory -s
 	@echo "$(CYAN) Nettoyage des fichiers intermédiaires $(RESET)"
 
