@@ -12,10 +12,10 @@
 
 #include "cub.h"
 
-int	handle_error(void)
+int	handle_error(t_cub *cub)
 {
 	printf("Erreur avec la MLX\n");
-	exit(1);
+	clean_all(cub);
 }
 
 t_data	ft_mlx_init(t_data *data)

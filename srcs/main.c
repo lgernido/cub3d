@@ -15,5 +15,6 @@
 int	main(void)
 {
 	t_data data;
-	data = ft_mlx_init(&data);
+	// data = ft_mlx_init(&data); --> Not necessary at min, will be done
+	// after parsing.
 }

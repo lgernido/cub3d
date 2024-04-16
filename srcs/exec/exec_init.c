@@ -14,5 +14,6 @@
 
 void	exec_init(t_cub	*cub)
 {
-	
+	cub->display->mlx = mlx_init();
+	if (cub->display->mlx == NULL)
 }
