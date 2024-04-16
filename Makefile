@@ -25,7 +25,7 @@ LIBFT		= $(LIBFT_PATH)libft.a
 INCLUDE		= 
 INCLUDE_BONUS = 
 INCLUDE_PATH = includes/
-MLX_PATH	= mlx/
+MLX_PATH	= mini_libx/
 MLX_INCLUDE = -Lmlx -lmlx -L/usr/lib/X11 -lXext -lX11
 
 RED		=	\033[0;31m

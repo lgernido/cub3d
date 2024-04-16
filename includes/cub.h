@@ -20,7 +20,7 @@
 # include <X11/X.h>
 # include <X11/keysym.h>
 # include <math.h>
-# include <mlx.h>
+# include "mlx.h"
 # include <stdio.h>
 # include <stdlib.h>
 # include <unistd.h>
@@ -30,6 +30,11 @@
 
 //==========================================================================//
 /*STRUCTURES*/
+
+typedef struct s_point {
+	double	x;
+	double	y;
+}								t_point;
 
 typedef struct s_img
 {
