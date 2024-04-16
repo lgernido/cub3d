@@ -56,11 +56,12 @@ typedef struct s_data
 {
 	void	*mlx;
 	void	*win;
-	t_img	img;
 }			t_data;
 
 typedef struct s_cub {
 	t_img	texture[4]; // All textures should be stored here as images
+	t_img	*main_img; // Not relevant for parsing
+	t_data	*display; // Not relevant for parsing.
 	t_point	pos; // First position of the player.
 	t_dir		p_dir; // Start directon of the player.
 	t_point	dir; // Not relevant for parsing.
