@@ -25,8 +25,8 @@
 # include <stdlib.h>
 # include <unistd.h>
 
-# define WIDTH 800
-# define HEIGHT 800
+# define WIDTH 1150
+# define HEIGHT 920
 
 //==========================================================================//
 /*STRUCTURES*/
@@ -68,6 +68,7 @@ typedef struct s_raycaster {
 	t_raw_point	box; // The locaton on the map in a raw value.
 	t_raw_point	step; // Only 1 or -1. Indicate the direction a vector should move.
 	t_point				dist_to_next_side; // Represent the lenght the vector 
+	int						side;
 	//need to be increment to reach the next side.
 	t_point				dist_between_sides; // Distance for translating one side to another.
 	double				wall_to_cam_plane;
@@ -95,10 +96,12 @@ int			main(void);
 
 // mlx_init.c
 t_data		ft_mlx_init(t_data *data);
+void		compute_image(t_cub *cub);
 int			handle_error(t_cub *cub);
 void		clean_all(t_cub *cub, int error_code);
 void		exec_init(t_cub	*cub);
 void		draw_line(t_img *img, int x, int *y_range, int color);
 int			colormap(int t, int r, int g, int b);
+int			handle_key(int key, t_cub *cub);
 
 #endif

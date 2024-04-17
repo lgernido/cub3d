@@ -4,7 +4,7 @@
 SRC_FOLDER	= srcs/
 SRC_FOLDER_BONUS = srcs/bonus/
 
-SRC_FILES	= main.c exec_init.c clean_exit.c drawing_utils.c
+SRC_FILES	= main.c exec_init.c clean_exit.c drawing_utils.c handle_events.c
 
 SRC_FILES_BONUS = 
 BUILD = build/
@@ -26,7 +26,7 @@ INCLUDE		=
 INCLUDE_BONUS = 
 INCLUDE_PATH = includes/
 MLX_PATH	= mini_libx/
-MLX_INCLUDE = mini_libx/libmlx_Linux.a -L/usr/lib/X11 -lXext -lX11
+MLX_INCLUDE = mini_libx/libmlx_Linux.a -L/usr/lib/X11 -lXext -lX11 -lm -lz
 
 RED		=	\033[0;31m
 GREEN	=	\033[0;32m
