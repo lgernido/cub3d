@@ -6,7 +6,7 @@
 /*   By: lgernido <lgernido@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/17 09:37:18 by lgernido          #+#    #+#             */
-/*   Updated: 2024/04/17 15:28:53 by lgernido         ###   ########.fr       */
+/*   Updated: 2024/04/17 16:01:09 by lgernido         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,7 +71,7 @@ void	fill_map(char *str, t_cub *infos)
 
 void	check_map(t_cub *infos, char **tab)
 {
-	int i;
+	int	i;
 
 	i = 0;
 	infos->map_str = (char **)malloc(sizeof(char *) * 100);
@@ -86,4 +86,23 @@ void	check_map(t_cub *infos, char **tab)
 		i++;
 	}
 	printf("map ok\n");
+}
+int	**fill_map(char **map, t_cub *infos)
+{
+	int i;
+
+	int **real_map;
+	int map_size;
+
+	i = 0;
+	map_size = // faire une fonction de con;
+		real_map = (int **)malloc(sizeof(int *) * map_size);
+	if (!real_map)
+		error_exit("MALLOC\n");
+	while (map[i])
+	{
+		real_map[i] = atoi(map[i]);
+		i++;
+	}
+	return (real_map);
 }

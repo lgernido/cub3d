@@ -6,7 +6,7 @@
 /*   By: lgernido <lgernido@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/17 11:15:03 by lgernido          #+#    #+#             */
-/*   Updated: 2024/04/17 15:30:55 by lgernido         ###   ########.fr       */
+/*   Updated: 2024/04/17 15:42:32 by lgernido         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,5 +73,7 @@ t_cub	*fill_struct(t_cub *infos, char *str)
 	else if (check_id(str, infos) == 4)
 		files->east = check_file(str, 3, infos);
 	infos->texture_files = files;
+    else 
+        treat_colors(infos, str);
 	return (infos);
 }

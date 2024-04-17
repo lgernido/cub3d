@@ -6,7 +6,7 @@
 /*   By: lgernido <lgernido@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/16 11:43:27 by lgernido          #+#    #+#             */
-/*   Updated: 2024/04/17 15:29:27 by lgernido         ###   ########.fr       */
+/*   Updated: 2024/04/17 15:52:58 by lgernido         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -119,6 +119,9 @@ void		fill_map(char *str, t_cub *infos);
 int			check_id(char *str, t_cub *infos);
 int			check_file(char *str, int i, t_cub *infos);
 t_cub		*fill_struct(t_cub *infos, char *str);
+
+// parse_colors.c
+
 
 // clean_all.c
 

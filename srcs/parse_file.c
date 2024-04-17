@@ -6,7 +6,7 @@
 /*   By: lgernido <lgernido@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/16 12:09:34 by lgernido          #+#    #+#             */
-/*   Updated: 2024/04/17 15:28:24 by lgernido         ###   ########.fr       */
+/*   Updated: 2024/04/17 16:02:08 by lgernido         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,5 +72,6 @@ void	check_params(int argc, char **argv)
 		if (!infos->tab)
 			error_exit("MALLOC\n", infos);
 		check_map(infos, infos->tab);
+		infos->map = fill_map(infos->map_str, infos);
 	}
 }
