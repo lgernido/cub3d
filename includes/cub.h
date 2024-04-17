@@ -27,7 +27,7 @@
 
 # define WIDTH 1150
 # define HEIGHT 920
-# define TEXTURE_SIZE 64
+# define TEXTURE_SIZE 256
 
 //==========================================================================//
 /*STRUCTURES*/

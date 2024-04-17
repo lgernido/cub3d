@@ -16,29 +16,29 @@
 
 void	go_ns(t_cub *cub, double dir)
 {
-	if (cub->map[(int)(cub->pos.x + ((0.1 * cub->dir.x) * dir))]
+	if (cub->map[(int)(cub->pos.x + ((0.8 * cub->dir.x) * dir))]
 			[(int)cub->pos.y] == 0)
 	{
 		cub->pos.x += (0.1 * cub->dir.x) * dir;
-	}
-	if (cub->map[(int)cub->pos.x]
-		[(int)(cub->pos.y + ((0.1 * cub->dir.y) * dir))] == 0)
-	{
-		cub->pos.y += (0.1 * cub->dir.y) * dir;
+		if (cub->map[(int)cub->pos.x]
+				[(int)(cub->pos.y + ((0.8 * cub->dir.y) * dir))] == 0)
+		{
+			cub->pos.y += (0.1 * cub->dir.y) * dir;
+		}
 	}
 }
 
 void	go_ew(t_cub *cub, double dir)
 {
-	if (cub->map[(int)(cub->pos.x + ((0.1 * cub->fov.x) * dir))]
+	if (cub->map[(int)(cub->pos.x + ((0.8 * cub->fov.x) * dir))]
 			[(int)cub->pos.y] == 0)
 	{
 		cub->pos.x += (0.1 * cub->fov.x) * dir;
-	}
-	if (cub->map[(int)cub->pos.x]
-		[(int)(cub->pos.y + ((0.1 * cub->fov.x) * dir))] == 0)
-	{
-		cub->pos.y += (0.1 * cub->fov.y) * dir;
+		if (cub->map[(int)cub->pos.x]
+				[(int)(cub->pos.y + ((0.8 * cub->fov.x) * dir))] == 0)
+		{
+			cub->pos.y += (0.1 * cub->fov.y) * dir;
+		}
 	}
 }
 

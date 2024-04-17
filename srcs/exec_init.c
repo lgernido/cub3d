@@ -59,6 +59,8 @@ void	init_cub_var(t_cub *cub)
 	cub->dir.y = 0.00000000001;
 	cub->fov.x = 0;
 	cub->fov.y = 0.66;
+	cub->floor = colormap(0, 173, 43, 217);
+	cub->ceiling = colormap(0, 163, 137, 3);
 }
 
 void init_map(t_cub *cub)
@@ -80,8 +82,8 @@ void	init_texture(t_cub *cub)
 
 	while (i < 4)
 	{
-		cub->texture[i].line_length = 64;
-		cub->texture[i].endian = 64;
+		cub->texture[i].line_length = 256;
+		cub->texture[i].endian = 256;
 		cub->texture[i].bits_per_pixel = 32;
 		++i;
 	}
@@ -212,8 +214,8 @@ void	get_y_range(t_raycaster *current_values)
 {
 	int	line_height;
 
-	if (current_values->wall_to_cam_plane == 0)
-		current_values->wall_to_cam_plane += 0.1;
+	// if (current_values->wall_to_cam_plane == 0)
+	// 	current_values->wall_to_cam_plane += 0.1;
 	line_height = (int)(HEIGHT / current_values->wall_to_cam_plane);
 	current_values->line_size[0] = -line_height / 2 + HEIGHT / 2 + 100;
 	if (current_values->line_size[0] < 0)
@@ -239,7 +241,6 @@ void	draw_wall(t_raycaster *current_values, t_dir wall_face, t_cub *cub, int x)
 	line_height = (int)(HEIGHT / current_values->wall_to_cam_plane);
 	step_in_texture = 1.0 * TEXTURE_SIZE / line_height;
 	position_in_texture = 0.;
-	printf("%lf\n", position_in_texture);
 	while (current_values->line_size[0] != current_values->line_size[1])
 	{
 		current_values->texCoord.y = (int)position_in_texture;
@@ -314,12 +315,42 @@ void	clear_image(t_cub *cub)
 	}
 }
 
+void	draw_floor_and_ceilling(t_cub *cub)
+{
+	int	i;
+	int	j;
+
+	i = 0;
+	while (i < WIDTH)
+	{
+		j = 0;
+		while (j < HEIGHT / 2)
+		{
+			my_pixel_put(&cub->main_img, i, j, cub->floor);
+			++j;
+		}
+		++i;
+	}
+	i = 0;
+	while (i < WIDTH)
+	{
+		j =  HEIGHT / 2;
+		while (j < HEIGHT)
+		{
+			my_pixel_put(&cub->main_img, i, j, cub->ceiling);
+			++j;
+		}
+		++i;
+	}
+}
+
 void	compute_image(t_cub *cub)
 {
 	t_raycaster	current_values;
 	int			i;
 
 	i = 0;
+	// draw_floor_and_ceilling(cub);
 	while (i < WIDTH)
 	{
 		init_current_values(cub, &current_values, i);

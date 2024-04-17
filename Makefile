@@ -18,7 +18,7 @@ OBJ_FILES_BONUS = $(addprefix $(SRC_FOLDER_BONUS), $(SRC_FILES_BONUS:%.c=%.o))
 
 NAME		= cub3D
 CC			= cc
-CFLAGS		= -Wall -Werror -Wextra  -g3
+CFLAGS		= -Wall -Werror -Wextra
 
 LIBFT_PATH	= libft/
 LIBFT		= $(LIBFT_PATH)libft.a
