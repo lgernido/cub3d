@@ -74,6 +74,31 @@ void init_map(t_cub *cub)
 	return ;
 }
 
+void	init_texture(t_cub *cub)
+{
+	int	i = 0;
+
+	while (i < 4)
+	{
+		cub->texture[i].line_length = 64;
+		cub->texture[i].endian = 64;
+		cub->texture[i].bits_per_pixel = 32;
+		++i;
+	}
+	cub->texture[0].img = mlx_xpm_file_to_image(cub->display.mlx, "textures/jul1.xpm",
+			&cub->texture[0].line_length, &cub->texture[0].endian);
+	cub->texture[0].addr = mlx_get_data_addr(cub->texture[0].img, &cub->texture[0].bits_per_pixel, &cub->texture[0].line_length, &cub->texture[0].endian);
+	cub->texture[1].img = mlx_xpm_file_to_image(cub->display.mlx, "textures/jul2.xpm",
+			&cub->texture[1].line_length, &cub->texture[1].endian);
+	cub->texture[1].addr = mlx_get_data_addr(cub->texture[1].img, &cub->texture[1].bits_per_pixel, &cub->texture[1].line_length, &cub->texture[1].endian);
+	cub->texture[2].img = mlx_xpm_file_to_image(cub->display.mlx, "textures/jul3.xpm",
+			&cub->texture[2].line_length, &cub->texture[2].endian);
+	cub->texture[2].addr = mlx_get_data_addr(cub->texture[2].img, &cub->texture[2].bits_per_pixel, &cub->texture[2].line_length, &cub->texture[2].endian);
+	cub->texture[3].img = mlx_xpm_file_to_image(cub->display.mlx, "textures/jul4.xpm",
+			&cub->texture[3].line_length, &cub->texture[3].endian);
+	cub->texture[3].addr = mlx_get_data_addr(cub->texture[3].img, &cub->texture[3].bits_per_pixel, &cub->texture[3].line_length, &cub->texture[3].endian);
+}
+
 void	exec_init(t_cub	*cub)
 {
 	init_map(cub);
@@ -84,6 +109,7 @@ void	exec_init(t_cub	*cub)
 	if (cub->main_img.img == NULL)
 		clean_all(cub, 1);
 	cub->main_img.addr = mlx_get_data_addr(cub->main_img.img, &cub->main_img.bits_per_pixel, &cub->main_img.line_length, &cub->main_img.endian);
+	init_texture(cub);
 	init_cub_var(cub);
 	compute_image(cub);
 	mlx_hook(cub->display.win, KeyPress, KeyPressMask, handle_key, cub);
@@ -212,8 +238,8 @@ void	draw_wall(t_raycaster *current_values, t_dir wall_face, t_cub *cub, int x)
 
 	line_height = (int)(HEIGHT / current_values->wall_to_cam_plane);
 	step_in_texture = 1.0 * TEXTURE_SIZE / line_height;
-	position_in_texture = (current_values->line_size[0]
-			- (double)HEIGHT / 2 + (double)line_height / 2) * step_in_texture;
+	position_in_texture = 0.;
+	printf("%lf\n", position_in_texture);
 	while (current_values->line_size[0] != current_values->line_size[1])
 	{
 		current_values->texCoord.y = (int)position_in_texture;
