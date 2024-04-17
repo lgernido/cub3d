@@ -182,48 +182,95 @@ void	compute_vector_length(t_raycaster *current_values)
 	return ;
 }
 
-void	get_y_range(t_raycaster *current_values, int *y_range)
+void	get_y_range(t_raycaster *current_values)
 {
 	int	line_height;
 
 	if (current_values->wall_to_cam_plane == 0)
 		current_values->wall_to_cam_plane += 0.1;
 	line_height = (int)(HEIGHT / current_values->wall_to_cam_plane);
-	y_range[0] = -line_height / 2 + HEIGHT / 2;
-	if (y_range[0] < 0)
+	current_values->line_size[0] = -line_height / 2 + HEIGHT / 2 + 100;
+	if (current_values->line_size[0] < 0)
 	{
-		y_range[0] = 0;
+		current_values->line_size[0] = 0;
 	}
-	y_range[1] = line_height / 2 + HEIGHT / 2;
-	if (y_range[1] >= HEIGHT || y_range[1] < y_range[0])
+	current_values->line_size[1] = line_height / 2 + HEIGHT / 2 + 100;
+	if (current_values->line_size[1] >= HEIGHT || current_values->line_size[1]
+		< current_values->line_size[0])
 	{
-		y_range[1] = HEIGHT - 1;
+		current_values->line_size[1] = HEIGHT - 1;
 	}
 	return ;
 }
 
-void	push_line(t_cub *cub, t_raycaster *current_values, int *y_range, int x)
+void	draw_wall(t_raycaster *current_values, t_dir wall_face, t_cub *cub, int x)
 {
-	if (current_values->side == 0 && current_values->vector_direction.x >= 0)
+	int					line_height;
+	double				step_in_texture;
+	double				position_in_texture;
+	unsigned int		color;
+
+	line_height = (int)(HEIGHT / current_values->wall_to_cam_plane);
+	step_in_texture = 1.0 * TEXTURE_SIZE / line_height;
+	position_in_texture = (current_values->line_size[0]
+			- (double)HEIGHT / 2 + (double)line_height / 2) * step_in_texture;
+	while (current_values->line_size[0] != current_values->line_size[1])
 	{
-		draw_line(&cub->main_img, x, y_range, colormap(0, 255, 0, 0));
+		current_values->texCoord.y = (int)position_in_texture;
+		if ((current_values->texCoord.y) >= TEXTURE_SIZE)
+			current_values->texCoord.y = TEXTURE_SIZE - 1;
+		position_in_texture += step_in_texture;
+		color = retrieve_color_from_texture(&cub->texture[wall_face],
+				&current_values->texCoord);
+		my_pixel_put(&cub->main_img, x, current_values->line_size[0], color);
+		current_values->line_size[0]++;
 	}
-	else if (current_values->side == 0 && current_values->vector_direction.x < 0)
+}
+
+void	get_texture_x_axis(t_cub *cub, t_raycaster *current_values, int x)
+{
+	current_values->relative_coord_in_wall = cub->pos.y + current_values
+		->wall_to_cam_plane * current_values->vector_direction.y;
+	current_values->relative_coord_in_wall
+		-= floor(current_values->relative_coord_in_wall);
+	current_values->texCoord.x = (int)(current_values
+			->relative_coord_in_wall * (double)TEXTURE_SIZE);
+	if (current_values->vector_direction.x > 0)
+		current_values->texCoord.x = TEXTURE_SIZE
+			- current_values->texCoord.x - 1;
+	if (current_values->vector_direction.x > 0)
+		draw_wall(current_values, SOUTH, cub, x);
+	else
+		draw_wall(current_values, NORTH, cub, x);
+}
+
+void	get_texture_y_axis(t_cub *cub, t_raycaster *current_values, int x)
+{
+	current_values->relative_coord_in_wall = cub->pos.x + current_values
+		->wall_to_cam_plane * current_values->vector_direction.x;
+	current_values->relative_coord_in_wall
+		-= floor(current_values->relative_coord_in_wall);
+	current_values->texCoord.x = (int)(current_values
+			->relative_coord_in_wall * (double)TEXTURE_SIZE);
+	if (current_values->vector_direction.y < 0)
+		current_values->texCoord.x = TEXTURE_SIZE
+			- current_values->texCoord.x - 1;
+	if (current_values->vector_direction.y > 0)
 	{
-		draw_line(&cub->main_img, x, y_range, colormap(0, 0, 0, 255));
-	}
-	else if (current_values->side == 1 && current_values->vector_direction.y > 0)
-	{
-		draw_line(&cub->main_img, x, y_range, colormap(0, 255, 255, 255));
-	}
-	else if (current_values->side == 1 && current_values->vector_direction.y == 0)
-	{
-		draw_line(&cub->main_img, x, y_range, colormap(0, 255, 0, 0));
+		draw_wall(current_values, WEST, cub, x);
 	}
 	else
 	{
-		draw_line(&cub->main_img, x, y_range, colormap(0, 0, 255, 0));
+		draw_wall(current_values, EAST, cub, x);
 	}
+}
+
+void	push_line(t_cub *cub, t_raycaster *current_values, int x)
+{
+	if (current_values->side == 0)
+		get_texture_x_axis(cub, current_values, x);
+	else
+		get_texture_y_axis(cub, current_values, x);
 }
 
 void	clear_image(t_cub *cub)
@@ -245,7 +292,6 @@ void	compute_image(t_cub *cub)
 {
 	t_raycaster	current_values;
 	int			i;
-	int			y_range[2];
 
 	i = 0;
 	while (i < WIDTH)
@@ -254,8 +300,8 @@ void	compute_image(t_cub *cub)
 		compute_steps_dir(cub, &current_values);
 		go_to_hit(cub, &current_values);
 		compute_vector_length(&current_values);
-		get_y_range(&current_values, y_range);
-		push_line(cub, &current_values, y_range, i);
+		get_y_range(&current_values);
+		push_line(cub, &current_values, i);
 		++i;
 	}
 	mlx_put_image_to_window(cub->display.mlx, cub->display.win,

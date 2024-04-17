@@ -27,6 +27,7 @@
 
 # define WIDTH 1150
 # define HEIGHT 920
+# define TEXTURE_SIZE 64
 
 //==========================================================================//
 /*STRUCTURES*/
@@ -71,7 +72,10 @@ typedef struct s_raycaster {
 	int						side;
 	//need to be increment to reach the next side.
 	t_point				dist_between_sides; // Distance for translating one side to another.
+	t_raw_point				texCoord;
 	double				wall_to_cam_plane;
+	double				relative_coord_in_wall;
+	int					line_size[2];
 }							t_raycaster;
 
 typedef struct s_cub {
@@ -92,16 +96,17 @@ typedef struct s_cub {
 /*PROTOTYPES*/
 
 // main.c
-int			main(void);
 
 // mlx_init.c
-t_data		ft_mlx_init(t_data *data);
-void		compute_image(t_cub *cub);
-int			handle_error(t_cub *cub);
-void		clean_all(t_cub *cub, int error_code);
-void		exec_init(t_cub	*cub);
-void		draw_line(t_img *img, int x, int *y_range, int color);
-int			colormap(int t, int r, int g, int b);
-int			handle_key(int key, t_cub *cub);
+t_data			ft_mlx_init(t_data *data);
+void			compute_image(t_cub *cub);
+int				handle_error(t_cub *cub);
+void			clean_all(t_cub *cub, int error_code);
+void			exec_init(t_cub	*cub);
+void			draw_line(t_img *img, int x, int *y_range, int color);
+int				colormap(int t, int r, int g, int b);
+int				handle_key(int key, t_cub *cub);
+unsigned int	retrieve_color_from_texture(t_img *img, t_raw_point *coord);
+void			my_pixel_put(t_img *img, int x, int y, unsigned int color);
 
 #endif
