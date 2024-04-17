@@ -6,11 +6,10 @@
 /*   By: lgernido <lgernido@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/16 12:09:34 by lgernido          #+#    #+#             */
-/*   Updated: 2024/04/17 09:13:43 by lgernido         ###   ########.fr       */
+/*   Updated: 2024/04/17 10:46:35 by lgernido         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../libft/includes/libft.h"
 #include "cub.h"
 
 void	error_exit(char *str)
@@ -20,7 +19,7 @@ void	error_exit(char *str)
 	exit(1);
 }
 
-void	check_map_format(char *str)
+void	check_file_format(char *str)
 {
 	int	i;
 
@@ -57,23 +56,17 @@ void	check_params(int argc, char **argv)
 {
 	int		map;
 	t_cub	*infos;
-	int		i;
 
 	infos = malloc(sizeof(t_cub));
 	if (!infos)
 		error_exit("MALLOC\n");
 	if (argc == 2)
 	{
-		check_map_format(argv[1]);
+		check_file_format(argv[1]);
 		map = open(argv[1], O_RDONLY);
 		if (map == -1)
 			error_exit("Map couldn't be opened\n");
 		infos->tab = read_file(map);
-	}
-	i = 0;
-	while (infos->tab[i])
-	{
-		printf("%s", infos->tab[i]);
-		i++;
+		check_map(infos, infos->tab);
 	}
 }

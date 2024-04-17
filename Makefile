@@ -2,11 +2,9 @@
 #### SOURCES
 
 SRC_FOLDER	= srcs/
-SRC_FOLDER_BONUS = srcs/bonus/
 
-SRC_FILES	= main.c mlx_init.c parse_file.c
+SRC_FILES	= main.c mlx_init.c parse_file.c check_map.c fill_struct.c
 
-SRC_FILES_BONUS = 
 BUILD = build/
 
 
@@ -56,7 +54,6 @@ all : $(NAME)
 
 clean :
 	@rm -rf ${BUILD}
-	@rm -f *.txt
 	@rm -f *.o ${OBJ_FILES_BONUS}
 	@make clean -C $(LIBFT_PATH) --no-print-directory -s
 	@make clean -C $(MLX_PATH) --no-print-directory -s
@@ -67,14 +64,6 @@ fclean : clean
 	@make fclean -C $(LIBFT_PATH) --no-print-directory -s
 	@echo "$(GREEN) Nettoyage terminé $(RESET)"
 
-bonus : $(OBJ_FILES_BONUS)
-	@make -C $(LIBFT_PATH) --no-print-directory -s
-	@make -C $(MLX_PATH) --no-print-directory -s
-	@$(CC) $(CFLAGS) $(OBJ_FILES_BONUS) -o $(NAME)
-	@echo "$(MAGENTA)Les fichiers modifiés sont: $?$(RESET)"
-	@echo "$(GREEN)Compilation réussie !$(RESET)"
-
- 
 re : fclean all
 
 .PHONY : all clean fclean re
