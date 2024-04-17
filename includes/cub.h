@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   cub.h                                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lgernido <lgernido@student.42.fr>          +#+  +:+       +#+        */
+/*   By: luciegernidos <luciegernidos@student.42    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/16 11:43:27 by lgernido          #+#    #+#             */
-/*   Updated: 2024/04/17 15:52:58 by lgernido         ###   ########.fr       */
+/*   Updated: 2024/04/17 18:40:48 by luciegernid      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -122,6 +122,9 @@ t_cub		*fill_struct(t_cub *infos, char *str);
 
 // parse_colors.c
 
+void treat_colors(t_cub *infos, char *str);
+int parse_color(char *str, int i);
+int		give_me_color(char *str, int i);
 
 // clean_all.c
 
