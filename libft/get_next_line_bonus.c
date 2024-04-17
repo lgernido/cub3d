@@ -6,7 +6,7 @@
 /*   By: lgernido <lgernido@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/16 19:03:27 by vlevy             #+#    #+#             */
-/*   Updated: 2024/04/16 14:17:32 by lgernido         ###   ########.fr       */
+/*   Updated: 2024/04/17 09:00:56 by lgernido         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -119,7 +119,7 @@ char	*read_till_eol(char *str, char *stash, t_clist *lst, int fd)
 	return (str);
 }
 
-char	*get_next_line(int fd, char *line)
+char	*get_next_line(int fd)
 {
 	char		*str;
 	static char	stash[FD_CAP][BUFFER_SIZE + 1];

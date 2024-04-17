@@ -25,7 +25,7 @@ LIBFT		= $(LIBFT_PATH)libft.a
 INCLUDE		= 
 INCLUDE_BONUS = 
 INCLUDE_PATH = includes/
-MLX_PATH	= mini_libx/
+MLX_PATH	= mlx/
 MLX_INCLUDE = -Lmlx -lmlx -L/usr/lib/X11 -lXext -lX11
 
 RED		=	\033[0;31m
@@ -43,7 +43,7 @@ RESET	=	\033[0m
 $(NAME): $(OBJ_FILES) $(INCLUDES)
 	@make -C $(LIBFT_PATH) --no-print-directory -s
 	@make -C $(MLX_PATH) --no-print-directory -s
-	@$(CC) $(CFLAGS) $(OBJ_FILES) $(MLX_INCLUDE) -o $(NAME)
+	@$(CC) $(CFLAGS) $(OBJ_FILES) $(MLX_INCLUDE) $(LIBFT) -o $(NAME)
 	@echo "$(MAGENTA)Les fichiers modifiés sont: $?$(RESET)"
 	@echo "$(GREEN)Compilation réussie !$(RESET)"
 
@@ -56,7 +56,7 @@ all : $(NAME)
 
 clean :
 	@rm -rf ${BUILD}
-	@#@rm -f *.txt
+	@rm -f *.txt
 	@rm -f *.o ${OBJ_FILES_BONUS}
 	@make clean -C $(LIBFT_PATH) --no-print-directory -s
 	@make clean -C $(MLX_PATH) --no-print-directory -s
@@ -64,7 +64,7 @@ clean :
 
 fclean : clean
 	@rm -f ${NAME}
-	# @make fclean -C $(LIBFT_PATH) --no-print-directory -s
+	@make fclean -C $(LIBFT_PATH) --no-print-directory -s
 	@echo "$(GREEN) Nettoyage terminé $(RESET)"
 
 bonus : $(OBJ_FILES_BONUS)

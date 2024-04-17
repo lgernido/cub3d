@@ -6,10 +6,11 @@
 /*   By: lgernido <lgernido@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/16 12:09:34 by lgernido          #+#    #+#             */
-/*   Updated: 2024/04/16 15:40:19 by lgernido         ###   ########.fr       */
+/*   Updated: 2024/04/17 09:13:43 by lgernido         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include "../libft/includes/libft.h"
 #include "cub.h"
 
 void	error_exit(char *str)
@@ -41,13 +42,14 @@ char	**read_file(int file)
 	infos = (char **)malloc(sizeof(char *) * 100);
 	if (!infos)
 		error_exit("MALLOC\n");
-	while (get_next_line(file) != NULL)
+	line = get_next_line(file);
+	while (line != NULL)
 	{
-		// a debug
-		infos[i] = ft_strdup(line);
-		free(line);
+		infos[i] = line;
 		i++;
+		line = get_next_line(file);
 	}
+	infos[i] = NULL;
 	return (infos);
 }
 
@@ -66,12 +68,12 @@ void	check_params(int argc, char **argv)
 		map = open(argv[1], O_RDONLY);
 		if (map == -1)
 			error_exit("Map couldn't be opened\n");
-		infos->infos = read_file(map);
+		infos->tab = read_file(map);
 	}
 	i = 0;
 	while (infos->tab[i])
 	{
-		printf("%s\n", infos->tab[i]);
+		printf("%s", infos->tab[i]);
 		i++;
 	}
 }

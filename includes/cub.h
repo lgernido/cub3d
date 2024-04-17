@@ -6,7 +6,7 @@
 /*   By: lgernido <lgernido@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/16 11:43:27 by lgernido          #+#    #+#             */
-/*   Updated: 2024/04/16 15:02:36 by lgernido         ###   ########.fr       */
+/*   Updated: 2024/04/17 08:59:34 by lgernido         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,10 +74,10 @@ typedef struct s_cub
 	t_point camera;   // not relevant for parsing.
 	int floor;        // Color of the floor.
 	int ceiling;      // color of the ceiling.
-	int *map[];      
-		// Last row should be NULL. After last valid member of row,
+						// Last row should be NULL. After last valid member of row,
 	// one more shoul be set as -1.
 	char	**tab;
+	int		*map[];
 }			t_cub;
 
 //==========================================================================//
