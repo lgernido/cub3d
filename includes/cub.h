@@ -6,7 +6,7 @@
 /*   By: lgernido <lgernido@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/16 11:43:27 by lgernido          #+#    #+#             */
-/*   Updated: 2024/04/17 13:18:44 by lgernido         ###   ########.fr       */
+/*   Updated: 2024/04/17 15:29:27 by lgernido         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,6 +42,14 @@ typedef enum e_dir
 	WEST
 }			t_dir;
 
+typedef struct s_text
+{
+	int		north;
+	int		south;
+	int		west;
+	int		east;
+}			t_text;
+
 typedef struct s_point
 {
 	double	x;
@@ -76,6 +84,7 @@ typedef struct s_cub
 	int ceiling;      // color of the ceiling.
 						// Last row should be NULL. After last valid member of row,
 	// one more shoul be set as -1.
+	t_text	*texture_files;
 	char	**tab;
 	char	**map_str;
 	int		*map[];
@@ -92,22 +101,32 @@ t_data		ft_mlx_init(t_data *data);
 int			handle_error(void);
 
 // parse_file.c
-void		check_file_format(char *str);
-void		error_exit(char *str);
+void		check_file_format(char *str, t_cub *infos);
+void		error_exit(char *str, t_cub *cub);
 void		check_params(int argc, char **argv);
 char		**read_file(int file);
 
 // check_map.c
 
-int			check_id(char *str, t_cub *infos);
 int			valid_map(char c);
 void		check_map(t_cub *infos, char **tab);
-
-// fill_struct.c
-
-int			check_file(char *str, int i);
 int			check_side_wall(char *str);
 int			check_walls(char *str);
 void		fill_map(char *str, t_cub *infos);
+
+// fill_struct.c
+
+int			check_id(char *str, t_cub *infos);
+int			check_file(char *str, int i, t_cub *infos);
+t_cub		*fill_struct(t_cub *infos, char *str);
+
+// clean_all.c
+
+void		clean_all(t_cub *infos);
+void		clean_map_str(t_cub *infos);
+void		clean_tab(t_cub *infos);
+
+// utils.c
+void		handle_space(char **map);
 
 #endif

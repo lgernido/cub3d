@@ -6,44 +6,45 @@
 /*   By: lgernido <lgernido@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/17 11:15:03 by lgernido          #+#    #+#             */
-/*   Updated: 2024/04/17 14:01:32 by lgernido         ###   ########.fr       */
+/*   Updated: 2024/04/17 15:30:55 by lgernido         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub.h"
 
-int	check_walls(char *str)
+int	check_id(char *str, t_cub *infos)
 {
 	int	i;
 
 	i = 0;
-	while (str[i] && str[i] == ' ')
-		i++;
-	while (str[i] && str[i] == '1')
-		i++;
-	if (str[i] && str[i] == '\0')
-		return (1);
+	if (str && str[i])
+	{
+		if (str[i] == ' ' || str[i] == '\n')
+			return (8);
+		else if (str[i] == 'N' && str[i + 1] == 'O')
+			return (1);
+		else if (str[i] == 'S' && str[i + 1] == 'O')
+			return (2);
+		else if (str[i] == 'W' && str[i + 1] == 'E')
+			return (3);
+		else if (str[i] == 'E' && str[i + 1] == 'A')
+			return (4);
+		else if (str[i] == 'F' && str[i + 1] == ' ')
+			return (5);
+		else if (str[i] == 'C' && str[i + 1] == ' ')
+			return (6);
+		else if (valid_map(str[i]) == 0)
+		{
+			fill_map(str, infos);
+			return (7);
+		}
+		else
+			return (0);
+	}
 	return (0);
 }
 
-int	check_side_wall(char *str)
-{
-	int	i;
-
-	i = 0;
-	while (str[i] && str[i] == ' ')
-		i++;
-	if (str[i] && str[i] != '1')
-		return (1);
-	while (str[i])
-		i++;
-	i--;
-	if (str[i] != '1')
-		return (1);
-	return (0);
-}
-
-int	check_file(char *str, int i)
+int	check_file(char *str, int i, t_cub *infos)
 {
 	int	fd;
 
@@ -51,29 +52,26 @@ int	check_file(char *str, int i)
 	if (fd == -1)
 	{
 		close(fd);
-		error_exit("Can't open texture file\n");
+		error_exit("Can't open texture file\n", infos);
 	}
 	close(fd);
-	return (0);
+	return (fd);
 }
-
-void	fill_map(char *str, t_cub *infos)
+t_cub	*fill_struct(t_cub *infos, char *str)
 {
-	int	i;
+	t_text *files;
 
-	i = 0;
-	while (infos->map_str[i] != NULL)
-		i++;
-	infos->map_str[i] = ft_strdup(str);
-	if (i == 0)
-	{
-		if (check_walls(str) == 1)
-			error_exit("Invalid map\n");
-	}
-	else if (check_side_wall(str) == 1 && check_walls(str) == 1)
-		error_exit("Invalid map\n");
+	files = malloc(sizeof(t_text));
+	if (!files)
+		error_exit("MALLOC\n", infos);
+	if (check_id(str, infos) == 1)
+		files->north = check_file(str, 3, infos);
+	else if (check_id(str, infos) == 2)
+		files->south = check_file(str, 3, infos);
+	else if (check_id(str, infos) == 3)
+		files->west = check_file(str, 3, infos);
+	else if (check_id(str, infos) == 4)
+		files->east = check_file(str, 3, infos);
+	infos->texture_files = files;
+	return (infos);
 }
-
-// t_cub	*fill_struct(t_cub *infos, char **tab)
-// {
-// }

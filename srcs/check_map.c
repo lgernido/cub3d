@@ -6,7 +6,7 @@
 /*   By: lgernido <lgernido@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/17 09:37:18 by lgernido          #+#    #+#             */
-/*   Updated: 2024/04/17 13:48:48 by lgernido         ###   ########.fr       */
+/*   Updated: 2024/04/17 15:28:53 by lgernido         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,36 +21,52 @@ int	valid_map(char c)
 		return (0);
 }
 
-int	check_id(char *str, t_cub *infos)
+int	check_walls(char *str)
 {
 	int	i;
 
 	i = 0;
-	if (str && str[i])
-	{
-		if (str[i] == ' ' || str[i] == '\n')
-			return (8);
-		else if (str[i] == 'N' && str[i + 1] == 'O')
-			return (1);
-		else if (str[i] == 'S' && str[i + 1] == 'O')
-			return (2);
-		else if (str[i] == 'W' && str[i + 1] == 'E')
-			return (3);
-		else if (str[i] == 'E' && str[i + 1] == 'A')
-			return (4);
-		else if (str[i] == 'F' && str[i + 1] == ' ')
-			return (5);
-		else if (str[i] == 'C' && str[i + 1] == ' ')
-			return (6);
-		else if (valid_map(str[i]) == 0)
-		{
-			fill_map(str, infos);
-			return (7);
-		}
-		else
-			return (0);
-	}
+	while (str[i] && str[i] == ' ')
+		i++;
+	while (str[i] && str[i] == '1')
+		i++;
+	if (str[i] && str[i] == '\0')
+		return (1);
 	return (0);
+}
+
+int	check_side_wall(char *str)
+{
+	int	i;
+
+	i = 0;
+	while (str[i] && str[i] == ' ')
+		i++;
+	if (str[i] && str[i] != '1')
+		return (1);
+	while (str[i])
+		i++;
+	i--;
+	if (str[i] != '1')
+		return (1);
+	return (0);
+}
+
+void	fill_map(char *str, t_cub *infos)
+{
+	int	i;
+
+	i = 0;
+	while (infos->map_str[i] != NULL)
+		i++;
+	infos->map_str[i] = ft_strdup(str);
+	if (i == 0)
+	{
+		if (check_walls(str) == 1)
+			error_exit("Invalid map\n", infos);
+	}
+	else if (check_side_wall(str) == 1 && check_walls(str) == 1)
+		error_exit("Invalid map\n", infos);
 }
 
 void	check_map(t_cub *infos, char **tab)
@@ -60,11 +76,13 @@ void	check_map(t_cub *infos, char **tab)
 	i = 0;
 	infos->map_str = (char **)malloc(sizeof(char *) * 100);
 	if (!infos->map_str)
-		error_exit("MALLOC\n");
+		error_exit("MALLOC\n", infos);
 	while (tab[i] != NULL)
 	{
 		if (check_id(tab[i], infos) == 0)
-			error_exit("Invalid map file\n");
+			error_exit("Invalid map file\n", infos);
+		else
+			fill_struct(infos, tab[i]);
 		i++;
 	}
 	printf("map ok\n");
