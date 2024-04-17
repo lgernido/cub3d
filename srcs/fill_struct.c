@@ -6,7 +6,7 @@
 /*   By: lgernido <lgernido@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/17 11:15:03 by lgernido          #+#    #+#             */
-/*   Updated: 2024/04/17 13:18:15 by lgernido         ###   ########.fr       */
+/*   Updated: 2024/04/17 14:01:32 by lgernido         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,6 +65,13 @@ void	fill_map(char *str, t_cub *infos)
 	while (infos->map_str[i] != NULL)
 		i++;
 	infos->map_str[i] = ft_strdup(str);
+	if (i == 0)
+	{
+		if (check_walls(str) == 1)
+			error_exit("Invalid map\n");
+	}
+	else if (check_side_wall(str) == 1 && check_walls(str) == 1)
+		error_exit("Invalid map\n");
 }
 
 // t_cub	*fill_struct(t_cub *infos, char **tab)
