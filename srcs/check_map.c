@@ -6,7 +6,7 @@
 /*   By: lgernido <lgernido@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/17 09:37:18 by lgernido          #+#    #+#             */
-/*   Updated: 2024/04/18 13:45:53 by lgernido         ###   ########.fr       */
+/*   Updated: 2024/04/18 14:03:52 by lgernido         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -80,12 +80,16 @@ void	fill_map(char *str, t_parser *infos)
 t_parser	*check_map(t_parser *infos, char **tab)
 {
 	int		i;
+	int		j;
 	t_dir	dir;
 
 	i = 0;
+	j = 0;
 	infos->map = (char **)malloc(sizeof(char *) * 100);
 	if (!infos->map)
 		error_exit("MALLOC\n", infos);
+	while (j < 100)
+		infos->map[j++] = NULL;
 	while (tab[i] != NULL)
 	{
 		if (check_id(tab[i]) == 7)
