@@ -6,7 +6,7 @@
 /*   By: lgernido <lgernido@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/17 09:37:18 by lgernido          #+#    #+#             */
-/*   Updated: 2024/04/18 14:14:06 by lgernido         ###   ########.fr       */
+/*   Updated: 2024/04/18 15:44:54 by lgernido         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,11 +36,13 @@ int	check_walls(char *str)
 	i = 0;
 	while (str[i] && str[i] == ' ')
 		i++;
-	while (str[i] && str[i] == '1')
+	while (str[i])
+	{
+		if (str[i] != '1' && str[i] != ' ' && str[i] != '\n')
+			return (0);
 		i++;
-	if (str[i] && str[i] == '\0')
-		return (1);
-	return (0);
+	}
+	return (1);
 }
 
 int	check_side_wall(char *str)
@@ -55,12 +57,12 @@ int	check_side_wall(char *str)
 	while (str[i])
 		i++;
 	i--;
-	if (str[i] != '1')
+	if (str[i--] != '1')
 		return (1);
 	return (0);
 }
 
-void	fill_map(char *str, t_parser *infos)
+void	fill_map(char *str, t_parser *infos, int state)
 {
 	int	i;
 
@@ -68,8 +70,16 @@ void	fill_map(char *str, t_parser *infos)
 	while (infos->map[i] != NULL)
 		i++;
 	infos->map[i] = ft_strdup(str);
-	if (check_side_wall(str) == 1 || check_walls(str) == 1)
-		error_exit("Invalid map\n", infos);
+	if (state == 0)
+	{
+		if (!check_walls(str))
+			error_exit("Invalid map\n", infos);
+	}
+	else
+	{
+		if (!check_side_wall(str))
+			error_exit("Invalid map\n", infos);
+	}
 }
 
 t_parser	*check_map(t_parser *infos, char **tab)
@@ -93,7 +103,10 @@ t_parser	*check_map(t_parser *infos, char **tab)
 				error_exit("Invalid map file\n", infos);
 			else
 			{
-				fill_map(tab[i], infos);
+				if (i == 7 || i == 20)
+					fill_map(tab[i], infos, 0);
+				else
+					fill_map(tab[i], infos, 1);
 			}
 		}
 		else
