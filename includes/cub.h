@@ -98,15 +98,72 @@ typedef struct s_cub {
 // main.c
 
 // mlx_init.c
-t_data			ft_mlx_init(t_data *data);
-void			compute_image(t_cub *cub);
-int				handle_error(t_cub *cub);
-void			clean_all(t_cub *cub, int error_code);
+// t_data			ft_mlx_init(t_data *data);
+// int				handle_error(t_cub *cub);
+
+//==========================================================================//
+//exec_init.c
+
 void			exec_init(t_cub	*cub);
-void			draw_line(t_img *img, int x, int *y_range, int color);
+
+void			compute_image(t_cub *cub);
+
+//==========================================================================//
+
+// Raycaster.c 
+
+// Define the value to increase vector to reach next border of a cube
+void			compute_steps_dir(t_cub *cub, t_raycaster *current_values);
+
+// Let vector advance until it touch a wall. Return where wall was hit 
+// and from which side
+void			go_to_hit(t_cub *cub, t_raycaster *current_value);
+
+// Return vector lenght
+void			compute_vector_length(t_raycaster *current_values);
+
+// Return the range in which the wall should be displayed on screen.
+void			get_y_range(t_raycaster *current_values);
+
+//==========================================================================//
+
+// draw_line.c -- All the function in this files are used to draw the wall  
+// to its place once the raycasting is done 
+
+// Init for drawingline.
+void			push_line(t_cub *cub, t_raycaster *current_values, int x);
+
+//==========================================================================//
+//drawing_utlis.c
+
+// Take transparency, r, g, b, as charcode and combine them in an int.
 int				colormap(int t, int r, int g, int b);
-int				handle_key(int key, t_cub *cub);
-unsigned int	retrieve_color_from_texture(t_img *img, t_raw_point *coord);
+
+// push the given color on the specified pixel of the image.
 void			my_pixel_put(t_img *img, int x, int y, unsigned int color);
+
+// return the color of a pixel at the given coord of the specified image. 
+unsigned int	retrieve_color_from_texture(t_img *img, t_raw_point *coord);
+
+//==========================================================================//
+// handle_keyboard.c
+
+// Entry point for parsing keyboard input
+int				handle_key(int key, t_cub *cub);
+
+// Rotate cam
+void			cam_rot(t_cub *cub, double rot_index);
+
+// Close window
+int				kill_cross(t_cub *param);
+
+//==========================================================================//
+//clean_exit.c
+void			clean_all(t_cub *cub, int error_code);
+
+// Functon for testing solo exec
+void	init_cub_var(t_cub *cub);
+void init_map(t_cub *cub);
+void	init_texture(t_cub *cub);
 
 #endif

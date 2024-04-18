@@ -4,7 +4,8 @@
 SRC_FOLDER	= srcs/
 SRC_FOLDER_BONUS = srcs/bonus/
 
-SRC_FILES	= main.c exec_init.c clean_exit.c drawing_utils.c handle_events.c
+SRC_FILES	= main.c exec_init.c clean_exit.c drawing_utils.c handle_keyboard.c\
+						draw_line.c exec_solo.c raycaster.c
 
 SRC_FILES_BONUS = 
 BUILD = build/
@@ -18,7 +19,7 @@ OBJ_FILES_BONUS = $(addprefix $(SRC_FOLDER_BONUS), $(SRC_FILES_BONUS:%.c=%.o))
 
 NAME		= cub3D
 CC			= cc
-CFLAGS		= -Wall -Werror -Wextra
+CFLAGS		= -Wall -Werror -Wextra -O3
 
 LIBFT_PATH	= libft/
 LIBFT		= $(LIBFT_PATH)libft.a

@@ -24,20 +24,12 @@ unsigned int	retrieve_color_from_texture(t_img *img, t_raw_point *coord)
 {
 	char	*src;
 
-	src = img->addr + (coord->y * img->line_length + coord->x * (img->bits_per_pixel / 8));
+	src = img->addr + (coord->y * img->line_length + coord->x
+			* (img->bits_per_pixel / 8));
 	return (*(unsigned int *)src);
 }
 
 int	colormap(int t, int r, int g, int b)
 {
 	return (t << 24 | r << 16 | g << 8 | b);
-}
-
-void	draw_line(t_img *img, int x, int *y_range, int color)
-{
-	while (y_range[0] != y_range[1])
-	{
-		my_pixel_put(img, x, y_range[0], color);
-		y_range[0]++;
-	}
 }

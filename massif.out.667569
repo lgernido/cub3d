@@ -1,0 +1,1225 @@
+desc: (none)
+cmd: ./cub3D
+time_unit: i
+#-----------
+snapshot=0
+#-----------
+time=0
+mem_heap_B=0
+mem_heap_extra_B=0
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=1
+#-----------
+time=1446224
+mem_heap_B=334889
+mem_heap_extra_B=1015
+mem_stacks_B=0
+heap_tree=peak
+n8: 334889 (heap allocation functions) malloc/new/new[], --alloc-fns, etc.
+ n1: 262144 0x405494: mlx_int_parse_xpm (in /home/vlevy/42_projects/cub3d/cub3D)
+  n1: 262144 0x405B61: mlx_xpm_file_to_image (in /home/vlevy/42_projects/cub3d/cub3D)
+   n1: 262144 0x4027DF: init_texture (in /home/vlevy/42_projects/cub3d/cub3D)
+    n1: 262144 0x40294E: exec_init (in /home/vlevy/42_projects/cub3d/cub3D)
+     n0: 262144 0x40256C: main (in /home/vlevy/42_projects/cub3d/cub3D)
+ n1: 21168 0x4CFC204: xcb_connect_to_fd (in /usr/lib/x86_64-linux-gnu/libxcb.so.1.1.0)
+  n1: 21168 0x4CFCE6B: xcb_connect_to_display_with_auth_info (in /usr/lib/x86_64-linux-gnu/libxcb.so.1.1.0)
+   n1: 21168 0x48BEEE9: _XConnectXCB (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
+    n1: 21168 0x48AEB68: XOpenDisplay (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
+     n1: 21168 0x404497: mlx_init (in /home/vlevy/42_projects/cub3d/cub3D)
+      n0: 21168 0x40254A: main (in /home/vlevy/42_projects/cub3d/cub3D)
+ n1: 16384 0x48AEEBE: XOpenDisplay (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
+  n1: 16384 0x404497: mlx_init (in /home/vlevy/42_projects/cub3d/cub3D)
+   n0: 16384 0x40254A: main (in /home/vlevy/42_projects/cub3d/cub3D)
+ n1: 12768 0x48AF290: XOpenDisplay (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
+  n1: 12768 0x404497: mlx_init (in /home/vlevy/42_projects/cub3d/cub3D)
+   n0: 12768 0x40254A: main (in /home/vlevy/42_projects/cub3d/cub3D)
+ n0: 6629 in 45 places, all below massif's threshold (1.00%)
+ n1: 5684 0x4CFC4FB: xcb_connect_to_fd (in /usr/lib/x86_64-linux-gnu/libxcb.so.1.1.0)
+  n1: 5684 0x4CFCE6B: xcb_connect_to_display_with_auth_info (in /usr/lib/x86_64-linux-gnu/libxcb.so.1.1.0)
+   n1: 5684 0x48BEEE9: _XConnectXCB (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
+    n1: 5684 0x48AEB68: XOpenDisplay (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
+     n1: 5684 0x404497: mlx_init (in /home/vlevy/42_projects/cub3d/cub3D)
+      n0: 5684 0x40254A: main (in /home/vlevy/42_projects/cub3d/cub3D)
+ n1: 5408 0x48C0FAE: _XEnq (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
+  n1: 5408 0x48C3BB6: ??? (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
+   n0: 5408 in 3 places, all below massif's threshold (1.00%)
+ n1: 4704 0x48AEB31: XOpenDisplay (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
+  n1: 4704 0x404497: mlx_init (in /home/vlevy/42_projects/cub3d/cub3D)
+   n0: 4704 0x40254A: main (in /home/vlevy/42_projects/cub3d/cub3D)
+#-----------
+snapshot=2
+#-----------
+time=321450279
+mem_heap_B=83689
+mem_heap_extra_B=1663
+mem_stacks_B=0
+heap_tree=detailed
+n13: 83689 (heap allocation functions) malloc/new/new[], --alloc-fns, etc.
+ n1: 21168 0x4CFC204: xcb_connect_to_fd (in /usr/lib/x86_64-linux-gnu/libxcb.so.1.1.0)
+  n1: 21168 0x4CFCE6B: xcb_connect_to_display_with_auth_info (in /usr/lib/x86_64-linux-gnu/libxcb.so.1.1.0)
+   n1: 21168 0x48BEEE9: _XConnectXCB (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
+    n1: 21168 0x48AEB68: XOpenDisplay (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
+     n1: 21168 0x404497: mlx_init (in /home/vlevy/42_projects/cub3d/cub3D)
+      n0: 21168 0x40254A: main (in /home/vlevy/42_projects/cub3d/cub3D)
+ n1: 16384 0x48AEEBE: XOpenDisplay (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
+  n1: 16384 0x404497: mlx_init (in /home/vlevy/42_projects/cub3d/cub3D)
+   n0: 16384 0x40254A: main (in /home/vlevy/42_projects/cub3d/cub3D)
+ n1: 12768 0x48AF290: XOpenDisplay (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
+  n1: 12768 0x404497: mlx_init (in /home/vlevy/42_projects/cub3d/cub3D)
+   n0: 12768 0x40254A: main (in /home/vlevy/42_projects/cub3d/cub3D)
+ n1: 5684 0x4CFC4FB: xcb_connect_to_fd (in /usr/lib/x86_64-linux-gnu/libxcb.so.1.1.0)
+  n1: 5684 0x4CFCE6B: xcb_connect_to_display_with_auth_info (in /usr/lib/x86_64-linux-gnu/libxcb.so.1.1.0)
+   n1: 5684 0x48BEEE9: _XConnectXCB (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
+    n1: 5684 0x48AEB68: XOpenDisplay (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
+     n1: 5684 0x404497: mlx_init (in /home/vlevy/42_projects/cub3d/cub3D)
+      n0: 5684 0x40254A: main (in /home/vlevy/42_projects/cub3d/cub3D)
+ n1: 5616 0x48C0FAE: _XEnq (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
+  n3: 5616 0x48C3BB6: ??? (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
+   n2: 2912 0x48C4F01: _XReadEvents (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
+    n1: 2080 0x48C51D0: XWindowEvent (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
+     n1: 2080 0x4049C5: mlx_int_wait_first_expose (in /home/vlevy/42_projects/cub3d/cub3D)
+      n1: 2080 0x40470D: mlx_new_window (in /home/vlevy/42_projects/cub3d/cub3D)
+       n1: 2080 0x4028D3: exec_init (in /home/vlevy/42_projects/cub3d/cub3D)
+        n0: 2080 0x40256C: main (in /home/vlevy/42_projects/cub3d/cub3D)
+    n0: 832 in 1 place, below massif's threshold (1.00%)
+   n2: 1664 0x48C4EC0: _XReadEvents (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
+    n1: 1456 0x48C51D0: XWindowEvent (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
+     n1: 1456 0x4049C5: mlx_int_wait_first_expose (in /home/vlevy/42_projects/cub3d/cub3D)
+      n1: 1456 0x40470D: mlx_new_window (in /home/vlevy/42_projects/cub3d/cub3D)
+       n1: 1456 0x4028D3: exec_init (in /home/vlevy/42_projects/cub3d/cub3D)
+        n0: 1456 0x40256C: main (in /home/vlevy/42_projects/cub3d/cub3D)
+    n0: 208 in 1 place, below massif's threshold (1.00%)
+   n1: 1040 0x48C540C: _XReply (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
+    n1: 1040 0x48C577E: XSync (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
+     n1: 1040 0x404C17: mlx_int_new_xshm_image (in /home/vlevy/42_projects/cub3d/cub3D)
+      n1: 1040 0x404E52: mlx_new_image (in /home/vlevy/42_projects/cub3d/cub3D)
+       n0: 1040 in 2 places, all below massif's threshold (1.00%)
+ n0: 4845 in 49 places, all below massif's threshold (1.00%)
+ n1: 4704 0x48AEB31: XOpenDisplay (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
+  n1: 4704 0x404497: mlx_init (in /home/vlevy/42_projects/cub3d/cub3D)
+   n0: 4704 0x40254A: main (in /home/vlevy/42_projects/cub3d/cub3D)
+ n1: 4096 0x490D13E: _XkbReadGetMapReply (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
+  n1: 4096 0x490D41E: XkbGetUpdatedMap (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
+   n1: 4096 0x490D4F4: XkbGetMap (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
+    n1: 4096 0x490D542: ??? (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
+     n1: 4096 0x490D8AF: XkbKeycodeToKeysym (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
+      n1: 4096 0x406037: mlx_int_param_KeyPress (in /home/vlevy/42_projects/cub3d/cub3D)
+       n1: 4096 0x404895: mlx_loop (in /home/vlevy/42_projects/cub3d/cub3D)
+        n0: 4096 0x40256C: main (in /home/vlevy/42_projects/cub3d/cub3D)
+ n1: 2304 0x402659: init_map (in /home/vlevy/42_projects/cub3d/cub3D)
+  n1: 2304 0x4028B8: exec_init (in /home/vlevy/42_projects/cub3d/cub3D)
+   n0: 2304 0x40256C: main (in /home/vlevy/42_projects/cub3d/cub3D)
+ n1: 2048 0x490C914: _XkbReadGetMapReply (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
+  n1: 2048 0x490D41E: XkbGetUpdatedMap (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
+   n1: 2048 0x490D4F4: XkbGetMap (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
+    n1: 2048 0x490D542: ??? (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
+     n1: 2048 0x490D8AF: XkbKeycodeToKeysym (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
+      n1: 2048 0x406037: mlx_int_param_KeyPress (in /home/vlevy/42_projects/cub3d/cub3D)
+       n1: 2048 0x404895: mlx_loop (in /home/vlevy/42_projects/cub3d/cub3D)
+        n0: 2048 0x40256C: main (in /home/vlevy/42_projects/cub3d/cub3D)
+ n1: 2016 0x490C7DD: _XkbReadGetMapReply (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
+  n1: 2016 0x490D41E: XkbGetUpdatedMap (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
+   n1: 2016 0x490D4F4: XkbGetMap (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
+    n1: 2016 0x490D542: ??? (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
+     n1: 2016 0x490D8AF: XkbKeycodeToKeysym (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
+      n1: 2016 0x406037: mlx_int_param_KeyPress (in /home/vlevy/42_projects/cub3d/cub3D)
+       n1: 2016 0x404895: mlx_loop (in /home/vlevy/42_projects/cub3d/cub3D)
+        n0: 2016 0x40256C: main (in /home/vlevy/42_projects/cub3d/cub3D)
+ n1: 1120 0x4912619: XkbAllocClientMap (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
+  n1: 1120 0x490CEB7: _XkbReadGetMapReply (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
+   n1: 1120 0x490D41E: XkbGetUpdatedMap (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
+    n1: 1120 0x490D4F4: XkbGetMap (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
+     n1: 1120 0x490D542: ??? (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
+      n1: 1120 0x490D8AF: XkbKeycodeToKeysym (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
+       n1: 1120 0x406037: mlx_int_param_KeyPress (in /home/vlevy/42_projects/cub3d/cub3D)
+        n1: 1120 0x404895: mlx_loop (in /home/vlevy/42_projects/cub3d/cub3D)
+         n0: 1120 0x40256C: main (in /home/vlevy/42_projects/cub3d/cub3D)
+ n1: 936 0x404630: mlx_new_window (in /home/vlevy/42_projects/cub3d/cub3D)
+  n1: 936 0x4028D3: exec_init (in /home/vlevy/42_projects/cub3d/cub3D)
+   n0: 936 0x40256C: main (in /home/vlevy/42_projects/cub3d/cub3D)
+#-----------
+snapshot=3
+#-----------
+time=763329070
+mem_heap_B=83665
+mem_heap_extra_B=1647
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=4
+#-----------
+time=1270187711
+mem_heap_B=83665
+mem_heap_extra_B=1647
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=5
+#-----------
+time=1688342365
+mem_heap_B=83825
+mem_heap_extra_B=1679
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=6
+#-----------
+time=2112895732
+mem_heap_B=83825
+mem_heap_extra_B=1679
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=7
+#-----------
+time=2550767896
+mem_heap_B=83825
+mem_heap_extra_B=1679
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=8
+#-----------
+time=3089868072
+mem_heap_B=83689
+mem_heap_extra_B=1663
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=9
+#-----------
+time=3551598077
+mem_heap_B=83665
+mem_heap_extra_B=1647
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=10
+#-----------
+time=4052899965
+mem_heap_B=83665
+mem_heap_extra_B=1647
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=11
+#-----------
+time=4685778628
+mem_heap_B=83689
+mem_heap_extra_B=1663
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=12
+#-----------
+time=5203787680
+mem_heap_B=83665
+mem_heap_extra_B=1647
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=13
+#-----------
+time=5646266457
+mem_heap_B=83689
+mem_heap_extra_B=1663
+mem_stacks_B=0
+heap_tree=detailed
+n13: 83689 (heap allocation functions) malloc/new/new[], --alloc-fns, etc.
+ n1: 21168 0x4CFC204: xcb_connect_to_fd (in /usr/lib/x86_64-linux-gnu/libxcb.so.1.1.0)
+  n1: 21168 0x4CFCE6B: xcb_connect_to_display_with_auth_info (in /usr/lib/x86_64-linux-gnu/libxcb.so.1.1.0)
+   n1: 21168 0x48BEEE9: _XConnectXCB (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
+    n1: 21168 0x48AEB68: XOpenDisplay (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
+     n1: 21168 0x404497: mlx_init (in /home/vlevy/42_projects/cub3d/cub3D)
+      n0: 21168 0x40254A: main (in /home/vlevy/42_projects/cub3d/cub3D)
+ n1: 16384 0x48AEEBE: XOpenDisplay (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
+  n1: 16384 0x404497: mlx_init (in /home/vlevy/42_projects/cub3d/cub3D)
+   n0: 16384 0x40254A: main (in /home/vlevy/42_projects/cub3d/cub3D)
+ n1: 12768 0x48AF290: XOpenDisplay (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
+  n1: 12768 0x404497: mlx_init (in /home/vlevy/42_projects/cub3d/cub3D)
+   n0: 12768 0x40254A: main (in /home/vlevy/42_projects/cub3d/cub3D)
+ n1: 5684 0x4CFC4FB: xcb_connect_to_fd (in /usr/lib/x86_64-linux-gnu/libxcb.so.1.1.0)
+  n1: 5684 0x4CFCE6B: xcb_connect_to_display_with_auth_info (in /usr/lib/x86_64-linux-gnu/libxcb.so.1.1.0)
+   n1: 5684 0x48BEEE9: _XConnectXCB (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
+    n1: 5684 0x48AEB68: XOpenDisplay (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
+     n1: 5684 0x404497: mlx_init (in /home/vlevy/42_projects/cub3d/cub3D)
+      n0: 5684 0x40254A: main (in /home/vlevy/42_projects/cub3d/cub3D)
+ n1: 5616 0x48C0FAE: _XEnq (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
+  n3: 5616 0x48C3BB6: ??? (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
+   n2: 2912 0x48C4F01: _XReadEvents (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
+    n1: 2080 0x48C51D0: XWindowEvent (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
+     n1: 2080 0x4049C5: mlx_int_wait_first_expose (in /home/vlevy/42_projects/cub3d/cub3D)
+      n1: 2080 0x40470D: mlx_new_window (in /home/vlevy/42_projects/cub3d/cub3D)
+       n1: 2080 0x4028D3: exec_init (in /home/vlevy/42_projects/cub3d/cub3D)
+        n0: 2080 0x40256C: main (in /home/vlevy/42_projects/cub3d/cub3D)
+    n0: 832 in 1 place, below massif's threshold (1.00%)
+   n2: 1664 0x48C4EC0: _XReadEvents (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
+    n1: 1456 0x48C51D0: XWindowEvent (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
+     n1: 1456 0x4049C5: mlx_int_wait_first_expose (in /home/vlevy/42_projects/cub3d/cub3D)
+      n1: 1456 0x40470D: mlx_new_window (in /home/vlevy/42_projects/cub3d/cub3D)
+       n1: 1456 0x4028D3: exec_init (in /home/vlevy/42_projects/cub3d/cub3D)
+        n0: 1456 0x40256C: main (in /home/vlevy/42_projects/cub3d/cub3D)
+    n0: 208 in 1 place, below massif's threshold (1.00%)
+   n1: 1040 0x48C540C: _XReply (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
+    n1: 1040 0x48C577E: XSync (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
+     n1: 1040 0x404C17: mlx_int_new_xshm_image (in /home/vlevy/42_projects/cub3d/cub3D)
+      n1: 1040 0x404E52: mlx_new_image (in /home/vlevy/42_projects/cub3d/cub3D)
+       n0: 1040 in 2 places, all below massif's threshold (1.00%)
+ n0: 4845 in 49 places, all below massif's threshold (1.00%)
+ n1: 4704 0x48AEB31: XOpenDisplay (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
+  n1: 4704 0x404497: mlx_init (in /home/vlevy/42_projects/cub3d/cub3D)
+   n0: 4704 0x40254A: main (in /home/vlevy/42_projects/cub3d/cub3D)
+ n1: 4096 0x490D13E: _XkbReadGetMapReply (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
+  n1: 4096 0x490D41E: XkbGetUpdatedMap (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
+   n1: 4096 0x490D4F4: XkbGetMap (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
+    n1: 4096 0x490D542: ??? (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
+     n1: 4096 0x490D8AF: XkbKeycodeToKeysym (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
+      n1: 4096 0x406037: mlx_int_param_KeyPress (in /home/vlevy/42_projects/cub3d/cub3D)
+       n1: 4096 0x404895: mlx_loop (in /home/vlevy/42_projects/cub3d/cub3D)
+        n0: 4096 0x40256C: main (in /home/vlevy/42_projects/cub3d/cub3D)
+ n1: 2304 0x402659: init_map (in /home/vlevy/42_projects/cub3d/cub3D)
+  n1: 2304 0x4028B8: exec_init (in /home/vlevy/42_projects/cub3d/cub3D)
+   n0: 2304 0x40256C: main (in /home/vlevy/42_projects/cub3d/cub3D)
+ n1: 2048 0x490C914: _XkbReadGetMapReply (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
+  n1: 2048 0x490D41E: XkbGetUpdatedMap (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
+   n1: 2048 0x490D4F4: XkbGetMap (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
+    n1: 2048 0x490D542: ??? (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
+     n1: 2048 0x490D8AF: XkbKeycodeToKeysym (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
+      n1: 2048 0x406037: mlx_int_param_KeyPress (in /home/vlevy/42_projects/cub3d/cub3D)
+       n1: 2048 0x404895: mlx_loop (in /home/vlevy/42_projects/cub3d/cub3D)
+        n0: 2048 0x40256C: main (in /home/vlevy/42_projects/cub3d/cub3D)
+ n1: 2016 0x490C7DD: _XkbReadGetMapReply (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
+  n1: 2016 0x490D41E: XkbGetUpdatedMap (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
+   n1: 2016 0x490D4F4: XkbGetMap (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
+    n1: 2016 0x490D542: ??? (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
+     n1: 2016 0x490D8AF: XkbKeycodeToKeysym (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
+      n1: 2016 0x406037: mlx_int_param_KeyPress (in /home/vlevy/42_projects/cub3d/cub3D)
+       n1: 2016 0x404895: mlx_loop (in /home/vlevy/42_projects/cub3d/cub3D)
+        n0: 2016 0x40256C: main (in /home/vlevy/42_projects/cub3d/cub3D)
+ n1: 1120 0x4912619: XkbAllocClientMap (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
+  n1: 1120 0x490CEB7: _XkbReadGetMapReply (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
+   n1: 1120 0x490D41E: XkbGetUpdatedMap (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
+    n1: 1120 0x490D4F4: XkbGetMap (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
+     n1: 1120 0x490D542: ??? (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
+      n1: 1120 0x490D8AF: XkbKeycodeToKeysym (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
+       n1: 1120 0x406037: mlx_int_param_KeyPress (in /home/vlevy/42_projects/cub3d/cub3D)
+        n1: 1120 0x404895: mlx_loop (in /home/vlevy/42_projects/cub3d/cub3D)
+         n0: 1120 0x40256C: main (in /home/vlevy/42_projects/cub3d/cub3D)
+ n1: 936 0x404630: mlx_new_window (in /home/vlevy/42_projects/cub3d/cub3D)
+  n1: 936 0x4028D3: exec_init (in /home/vlevy/42_projects/cub3d/cub3D)
+   n0: 936 0x40256C: main (in /home/vlevy/42_projects/cub3d/cub3D)
+#-----------
+snapshot=14
+#-----------
+time=6158448655
+mem_heap_B=83689
+mem_heap_extra_B=1663
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=15
+#-----------
+time=6737879337
+mem_heap_B=83689
+mem_heap_extra_B=1663
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=16
+#-----------
+time=7400599488
+mem_heap_B=83689
+mem_heap_extra_B=1663
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=17
+#-----------
+time=7932574133
+mem_heap_B=84313
+mem_heap_extra_B=1703
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=18
+#-----------
+time=8570660474
+mem_heap_B=86601
+mem_heap_extra_B=1807
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=19
+#-----------
+time=9028396766
+mem_heap_B=86601
+mem_heap_extra_B=1807
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=20
+#-----------
+time=9334126714
+mem_heap_B=86601
+mem_heap_extra_B=1807
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=21
+#-----------
+time=9773102953
+mem_heap_B=86601
+mem_heap_extra_B=1807
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=22
+#-----------
+time=10256224183
+mem_heap_B=86601
+mem_heap_extra_B=1807
+mem_stacks_B=0
+heap_tree=detailed
+n13: 86601 (heap allocation functions) malloc/new/new[], --alloc-fns, etc.
+ n1: 21168 0x4CFC204: xcb_connect_to_fd (in /usr/lib/x86_64-linux-gnu/libxcb.so.1.1.0)
+  n1: 21168 0x4CFCE6B: xcb_connect_to_display_with_auth_info (in /usr/lib/x86_64-linux-gnu/libxcb.so.1.1.0)
+   n1: 21168 0x48BEEE9: _XConnectXCB (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
+    n1: 21168 0x48AEB68: XOpenDisplay (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
+     n1: 21168 0x404497: mlx_init (in /home/vlevy/42_projects/cub3d/cub3D)
+      n0: 21168 0x40254A: main (in /home/vlevy/42_projects/cub3d/cub3D)
+ n1: 16384 0x48AEEBE: XOpenDisplay (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
+  n1: 16384 0x404497: mlx_init (in /home/vlevy/42_projects/cub3d/cub3D)
+   n0: 16384 0x40254A: main (in /home/vlevy/42_projects/cub3d/cub3D)
+ n1: 12768 0x48AF290: XOpenDisplay (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
+  n1: 12768 0x404497: mlx_init (in /home/vlevy/42_projects/cub3d/cub3D)
+   n0: 12768 0x40254A: main (in /home/vlevy/42_projects/cub3d/cub3D)
+ n1: 8528 0x48C0FAE: _XEnq (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
+  n3: 8528 0x48C3BB6: ??? (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
+   n1: 3952 0x48C540C: _XReply (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
+    n1: 3952 0x48C577E: XSync (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
+     n1: 3952 0x404C17: mlx_int_new_xshm_image (in /home/vlevy/42_projects/cub3d/cub3D)
+      n2: 3952 0x404E52: mlx_new_image (in /home/vlevy/42_projects/cub3d/cub3D)
+       n2: 3120 0x402DC9: compute_image (in /home/vlevy/42_projects/cub3d/cub3D)
+        n1: 2912 0x40424B: handle_key (in /home/vlevy/42_projects/cub3d/cub3D)
+         n1: 2912 0x404895: mlx_loop (in /home/vlevy/42_projects/cub3d/cub3D)
+          n0: 2912 0x40256C: main (in /home/vlevy/42_projects/cub3d/cub3D)
+        n0: 208 in 1 place, below massif's threshold (1.00%)
+       n0: 832 in 1 place, below massif's threshold (1.00%)
+   n2: 2912 0x48C4F01: _XReadEvents (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
+    n1: 2080 0x48C51D0: XWindowEvent (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
+     n1: 2080 0x4049C5: mlx_int_wait_first_expose (in /home/vlevy/42_projects/cub3d/cub3D)
+      n1: 2080 0x40470D: mlx_new_window (in /home/vlevy/42_projects/cub3d/cub3D)
+       n1: 2080 0x4028D3: exec_init (in /home/vlevy/42_projects/cub3d/cub3D)
+        n0: 2080 0x40256C: main (in /home/vlevy/42_projects/cub3d/cub3D)
+    n0: 832 in 1 place, below massif's threshold (1.00%)
+   n2: 1664 0x48C4EC0: _XReadEvents (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
+    n1: 1456 0x48C51D0: XWindowEvent (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
+     n1: 1456 0x4049C5: mlx_int_wait_first_expose (in /home/vlevy/42_projects/cub3d/cub3D)
+      n1: 1456 0x40470D: mlx_new_window (in /home/vlevy/42_projects/cub3d/cub3D)
+       n1: 1456 0x4028D3: exec_init (in /home/vlevy/42_projects/cub3d/cub3D)
+        n0: 1456 0x40256C: main (in /home/vlevy/42_projects/cub3d/cub3D)
+    n0: 208 in 1 place, below massif's threshold (1.00%)
+ n1: 5684 0x4CFC4FB: xcb_connect_to_fd (in /usr/lib/x86_64-linux-gnu/libxcb.so.1.1.0)
+  n1: 5684 0x4CFCE6B: xcb_connect_to_display_with_auth_info (in /usr/lib/x86_64-linux-gnu/libxcb.so.1.1.0)
+   n1: 5684 0x48BEEE9: _XConnectXCB (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
+    n1: 5684 0x48AEB68: XOpenDisplay (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
+     n1: 5684 0x404497: mlx_init (in /home/vlevy/42_projects/cub3d/cub3D)
+      n0: 5684 0x40254A: main (in /home/vlevy/42_projects/cub3d/cub3D)
+ n0: 4845 in 49 places, all below massif's threshold (1.00%)
+ n1: 4704 0x48AEB31: XOpenDisplay (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
+  n1: 4704 0x404497: mlx_init (in /home/vlevy/42_projects/cub3d/cub3D)
+   n0: 4704 0x40254A: main (in /home/vlevy/42_projects/cub3d/cub3D)
+ n1: 4096 0x490D13E: _XkbReadGetMapReply (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
+  n1: 4096 0x490D41E: XkbGetUpdatedMap (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
+   n1: 4096 0x490D4F4: XkbGetMap (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
+    n1: 4096 0x490D542: ??? (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
+     n1: 4096 0x490D8AF: XkbKeycodeToKeysym (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
+      n1: 4096 0x406037: mlx_int_param_KeyPress (in /home/vlevy/42_projects/cub3d/cub3D)
+       n1: 4096 0x404895: mlx_loop (in /home/vlevy/42_projects/cub3d/cub3D)
+        n0: 4096 0x40256C: main (in /home/vlevy/42_projects/cub3d/cub3D)
+ n1: 2304 0x402659: init_map (in /home/vlevy/42_projects/cub3d/cub3D)
+  n1: 2304 0x4028B8: exec_init (in /home/vlevy/42_projects/cub3d/cub3D)
+   n0: 2304 0x40256C: main (in /home/vlevy/42_projects/cub3d/cub3D)
+ n1: 2048 0x490C914: _XkbReadGetMapReply (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
+  n1: 2048 0x490D41E: XkbGetUpdatedMap (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
+   n1: 2048 0x490D4F4: XkbGetMap (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
+    n1: 2048 0x490D542: ??? (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
+     n1: 2048 0x490D8AF: XkbKeycodeToKeysym (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
+      n1: 2048 0x406037: mlx_int_param_KeyPress (in /home/vlevy/42_projects/cub3d/cub3D)
+       n1: 2048 0x404895: mlx_loop (in /home/vlevy/42_projects/cub3d/cub3D)
+        n0: 2048 0x40256C: main (in /home/vlevy/42_projects/cub3d/cub3D)
+ n1: 2016 0x490C7DD: _XkbReadGetMapReply (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
+  n1: 2016 0x490D41E: XkbGetUpdatedMap (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
+   n1: 2016 0x490D4F4: XkbGetMap (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
+    n1: 2016 0x490D542: ??? (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
+     n1: 2016 0x490D8AF: XkbKeycodeToKeysym (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
+      n1: 2016 0x406037: mlx_int_param_KeyPress (in /home/vlevy/42_projects/cub3d/cub3D)
+       n1: 2016 0x404895: mlx_loop (in /home/vlevy/42_projects/cub3d/cub3D)
+        n0: 2016 0x40256C: main (in /home/vlevy/42_projects/cub3d/cub3D)
+ n1: 1120 0x4912619: XkbAllocClientMap (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
+  n1: 1120 0x490CEB7: _XkbReadGetMapReply (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
+   n1: 1120 0x490D41E: XkbGetUpdatedMap (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
+    n1: 1120 0x490D4F4: XkbGetMap (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
+     n1: 1120 0x490D542: ??? (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
+      n1: 1120 0x490D8AF: XkbKeycodeToKeysym (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
+       n1: 1120 0x406037: mlx_int_param_KeyPress (in /home/vlevy/42_projects/cub3d/cub3D)
+        n1: 1120 0x404895: mlx_loop (in /home/vlevy/42_projects/cub3d/cub3D)
+         n0: 1120 0x40256C: main (in /home/vlevy/42_projects/cub3d/cub3D)
+ n1: 936 0x404630: mlx_new_window (in /home/vlevy/42_projects/cub3d/cub3D)
+  n1: 936 0x4028D3: exec_init (in /home/vlevy/42_projects/cub3d/cub3D)
+   n0: 936 0x40256C: main (in /home/vlevy/42_projects/cub3d/cub3D)
+#-----------
+snapshot=23
+#-----------
+time=10815859331
+mem_heap_B=86601
+mem_heap_extra_B=1807
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=24
+#-----------
+time=11373827538
+mem_heap_B=86601
+mem_heap_extra_B=1807
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=25
+#-----------
+time=11839424099
+mem_heap_B=87849
+mem_heap_extra_B=1871
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=26
+#-----------
+time=12326900281
+mem_heap_B=88265
+mem_heap_extra_B=1887
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=27
+#-----------
+time=12701612633
+mem_heap_B=88265
+mem_heap_extra_B=1887
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=28
+#-----------
+time=13171800553
+mem_heap_B=88265
+mem_heap_extra_B=1887
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=29
+#-----------
+time=13793812974
+mem_heap_B=88265
+mem_heap_extra_B=1887
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=30
+#-----------
+time=14437176374
+mem_heap_B=88241
+mem_heap_extra_B=1871
+mem_stacks_B=0
+heap_tree=detailed
+n13: 88241 (heap allocation functions) malloc/new/new[], --alloc-fns, etc.
+ n1: 21168 0x4CFC204: xcb_connect_to_fd (in /usr/lib/x86_64-linux-gnu/libxcb.so.1.1.0)
+  n1: 21168 0x4CFCE6B: xcb_connect_to_display_with_auth_info (in /usr/lib/x86_64-linux-gnu/libxcb.so.1.1.0)
+   n1: 21168 0x48BEEE9: _XConnectXCB (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
+    n1: 21168 0x48AEB68: XOpenDisplay (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
+     n1: 21168 0x404497: mlx_init (in /home/vlevy/42_projects/cub3d/cub3D)
+      n0: 21168 0x40254A: main (in /home/vlevy/42_projects/cub3d/cub3D)
+ n1: 16384 0x48AEEBE: XOpenDisplay (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
+  n1: 16384 0x404497: mlx_init (in /home/vlevy/42_projects/cub3d/cub3D)
+   n0: 16384 0x40254A: main (in /home/vlevy/42_projects/cub3d/cub3D)
+ n1: 12768 0x48AF290: XOpenDisplay (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
+  n1: 12768 0x404497: mlx_init (in /home/vlevy/42_projects/cub3d/cub3D)
+   n0: 12768 0x40254A: main (in /home/vlevy/42_projects/cub3d/cub3D)
+ n1: 10192 0x48C0FAE: _XEnq (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
+  n3: 10192 0x48C3BB6: ??? (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
+   n1: 5616 0x48C540C: _XReply (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
+    n1: 5616 0x48C577E: XSync (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
+     n1: 5616 0x404C17: mlx_int_new_xshm_image (in /home/vlevy/42_projects/cub3d/cub3D)
+      n2: 5616 0x404E52: mlx_new_image (in /home/vlevy/42_projects/cub3d/cub3D)
+       n2: 4784 0x402DC9: compute_image (in /home/vlevy/42_projects/cub3d/cub3D)
+        n1: 4576 0x40424B: handle_key (in /home/vlevy/42_projects/cub3d/cub3D)
+         n1: 4576 0x404895: mlx_loop (in /home/vlevy/42_projects/cub3d/cub3D)
+          n0: 4576 0x40256C: main (in /home/vlevy/42_projects/cub3d/cub3D)
+        n0: 208 in 1 place, below massif's threshold (1.00%)
+       n0: 832 in 1 place, below massif's threshold (1.00%)
+   n2: 2912 0x48C4F01: _XReadEvents (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
+    n1: 2080 0x48C51D0: XWindowEvent (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
+     n1: 2080 0x4049C5: mlx_int_wait_first_expose (in /home/vlevy/42_projects/cub3d/cub3D)
+      n1: 2080 0x40470D: mlx_new_window (in /home/vlevy/42_projects/cub3d/cub3D)
+       n1: 2080 0x4028D3: exec_init (in /home/vlevy/42_projects/cub3d/cub3D)
+        n0: 2080 0x40256C: main (in /home/vlevy/42_projects/cub3d/cub3D)
+    n0: 832 in 1 place, below massif's threshold (1.00%)
+   n2: 1664 0x48C4EC0: _XReadEvents (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
+    n1: 1456 0x48C51D0: XWindowEvent (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
+     n1: 1456 0x4049C5: mlx_int_wait_first_expose (in /home/vlevy/42_projects/cub3d/cub3D)
+      n1: 1456 0x40470D: mlx_new_window (in /home/vlevy/42_projects/cub3d/cub3D)
+       n1: 1456 0x4028D3: exec_init (in /home/vlevy/42_projects/cub3d/cub3D)
+        n0: 1456 0x40256C: main (in /home/vlevy/42_projects/cub3d/cub3D)
+    n0: 208 in 1 place, below massif's threshold (1.00%)
+ n1: 5684 0x4CFC4FB: xcb_connect_to_fd (in /usr/lib/x86_64-linux-gnu/libxcb.so.1.1.0)
+  n1: 5684 0x4CFCE6B: xcb_connect_to_display_with_auth_info (in /usr/lib/x86_64-linux-gnu/libxcb.so.1.1.0)
+   n1: 5684 0x48BEEE9: _XConnectXCB (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
+    n1: 5684 0x48AEB68: XOpenDisplay (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
+     n1: 5684 0x404497: mlx_init (in /home/vlevy/42_projects/cub3d/cub3D)
+      n0: 5684 0x40254A: main (in /home/vlevy/42_projects/cub3d/cub3D)
+ n0: 4821 in 49 places, all below massif's threshold (1.00%)
+ n1: 4704 0x48AEB31: XOpenDisplay (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
+  n1: 4704 0x404497: mlx_init (in /home/vlevy/42_projects/cub3d/cub3D)
+   n0: 4704 0x40254A: main (in /home/vlevy/42_projects/cub3d/cub3D)
+ n1: 4096 0x490D13E: _XkbReadGetMapReply (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
+  n1: 4096 0x490D41E: XkbGetUpdatedMap (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
+   n1: 4096 0x490D4F4: XkbGetMap (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
+    n1: 4096 0x490D542: ??? (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
+     n1: 4096 0x490D8AF: XkbKeycodeToKeysym (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
+      n1: 4096 0x406037: mlx_int_param_KeyPress (in /home/vlevy/42_projects/cub3d/cub3D)
+       n1: 4096 0x404895: mlx_loop (in /home/vlevy/42_projects/cub3d/cub3D)
+        n0: 4096 0x40256C: main (in /home/vlevy/42_projects/cub3d/cub3D)
+ n1: 2304 0x402659: init_map (in /home/vlevy/42_projects/cub3d/cub3D)
+  n1: 2304 0x4028B8: exec_init (in /home/vlevy/42_projects/cub3d/cub3D)
+   n0: 2304 0x40256C: main (in /home/vlevy/42_projects/cub3d/cub3D)
+ n1: 2048 0x490C914: _XkbReadGetMapReply (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
+  n1: 2048 0x490D41E: XkbGetUpdatedMap (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
+   n1: 2048 0x490D4F4: XkbGetMap (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
+    n1: 2048 0x490D542: ??? (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
+     n1: 2048 0x490D8AF: XkbKeycodeToKeysym (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
+      n1: 2048 0x406037: mlx_int_param_KeyPress (in /home/vlevy/42_projects/cub3d/cub3D)
+       n1: 2048 0x404895: mlx_loop (in /home/vlevy/42_projects/cub3d/cub3D)
+        n0: 2048 0x40256C: main (in /home/vlevy/42_projects/cub3d/cub3D)
+ n1: 2016 0x490C7DD: _XkbReadGetMapReply (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
+  n1: 2016 0x490D41E: XkbGetUpdatedMap (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
+   n1: 2016 0x490D4F4: XkbGetMap (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
+    n1: 2016 0x490D542: ??? (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
+     n1: 2016 0x490D8AF: XkbKeycodeToKeysym (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
+      n1: 2016 0x406037: mlx_int_param_KeyPress (in /home/vlevy/42_projects/cub3d/cub3D)
+       n1: 2016 0x404895: mlx_loop (in /home/vlevy/42_projects/cub3d/cub3D)
+        n0: 2016 0x40256C: main (in /home/vlevy/42_projects/cub3d/cub3D)
+ n1: 1120 0x4912619: XkbAllocClientMap (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
+  n1: 1120 0x490CEB7: _XkbReadGetMapReply (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
+   n1: 1120 0x490D41E: XkbGetUpdatedMap (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
+    n1: 1120 0x490D4F4: XkbGetMap (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
+     n1: 1120 0x490D542: ??? (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
+      n1: 1120 0x490D8AF: XkbKeycodeToKeysym (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
+       n1: 1120 0x406037: mlx_int_param_KeyPress (in /home/vlevy/42_projects/cub3d/cub3D)
+        n1: 1120 0x404895: mlx_loop (in /home/vlevy/42_projects/cub3d/cub3D)
+         n0: 1120 0x40256C: main (in /home/vlevy/42_projects/cub3d/cub3D)
+ n1: 936 0x404630: mlx_new_window (in /home/vlevy/42_projects/cub3d/cub3D)
+  n1: 936 0x4028D3: exec_init (in /home/vlevy/42_projects/cub3d/cub3D)
+   n0: 936 0x40256C: main (in /home/vlevy/42_projects/cub3d/cub3D)
+#-----------
+snapshot=31
+#-----------
+time=14762136616
+mem_heap_B=88265
+mem_heap_extra_B=1887
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=32
+#-----------
+time=15127721060
+mem_heap_B=88265
+mem_heap_extra_B=1903
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=33
+#-----------
+time=15663636676
+mem_heap_B=88265
+mem_heap_extra_B=1903
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=34
+#-----------
+time=16006195878
+mem_heap_B=88265
+mem_heap_extra_B=1887
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=35
+#-----------
+time=16414324908
+mem_heap_B=89097
+mem_heap_extra_B=1935
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=36
+#-----------
+time=16863716201
+mem_heap_B=92217
+mem_heap_extra_B=2039
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=37
+#-----------
+time=17314495763
+mem_heap_B=95337
+mem_heap_extra_B=2159
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=38
+#-----------
+time=17765205605
+mem_heap_B=98457
+mem_heap_extra_B=2279
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=39
+#-----------
+time=18215961263
+mem_heap_B=101577
+mem_heap_extra_B=2399
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=40
+#-----------
+time=18441351346
+mem_heap_B=103241
+mem_heap_extra_B=2463
+mem_stacks_B=0
+heap_tree=detailed
+n12: 103241 (heap allocation functions) malloc/new/new[], --alloc-fns, etc.
+ n1: 25168 0x48C0FAE: _XEnq (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
+  n3: 25168 0x48C3BB6: ??? (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
+   n1: 20592 0x48C540C: _XReply (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
+    n1: 20592 0x48C577E: XSync (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
+     n1: 20592 0x404C17: mlx_int_new_xshm_image (in /home/vlevy/42_projects/cub3d/cub3D)
+      n2: 20592 0x404E52: mlx_new_image (in /home/vlevy/42_projects/cub3d/cub3D)
+       n2: 19760 0x402DC9: compute_image (in /home/vlevy/42_projects/cub3d/cub3D)
+        n1: 19552 0x40424B: handle_key (in /home/vlevy/42_projects/cub3d/cub3D)
+         n1: 19552 0x404895: mlx_loop (in /home/vlevy/42_projects/cub3d/cub3D)
+          n0: 19552 0x40256C: main (in /home/vlevy/42_projects/cub3d/cub3D)
+        n0: 208 in 1 place, below massif's threshold (1.00%)
+       n0: 832 in 1 place, below massif's threshold (1.00%)
+   n2: 2912 0x48C4F01: _XReadEvents (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
+    n1: 2080 0x48C51D0: XWindowEvent (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
+     n1: 2080 0x4049C5: mlx_int_wait_first_expose (in /home/vlevy/42_projects/cub3d/cub3D)
+      n1: 2080 0x40470D: mlx_new_window (in /home/vlevy/42_projects/cub3d/cub3D)
+       n1: 2080 0x4028D3: exec_init (in /home/vlevy/42_projects/cub3d/cub3D)
+        n0: 2080 0x40256C: main (in /home/vlevy/42_projects/cub3d/cub3D)
+    n0: 832 in 1 place, below massif's threshold (1.00%)
+   n2: 1664 0x48C4EC0: _XReadEvents (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
+    n1: 1456 0x48C51D0: XWindowEvent (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
+     n1: 1456 0x4049C5: mlx_int_wait_first_expose (in /home/vlevy/42_projects/cub3d/cub3D)
+      n1: 1456 0x40470D: mlx_new_window (in /home/vlevy/42_projects/cub3d/cub3D)
+       n1: 1456 0x4028D3: exec_init (in /home/vlevy/42_projects/cub3d/cub3D)
+        n0: 1456 0x40256C: main (in /home/vlevy/42_projects/cub3d/cub3D)
+    n0: 208 in 1 place, below massif's threshold (1.00%)
+ n1: 21168 0x4CFC204: xcb_connect_to_fd (in /usr/lib/x86_64-linux-gnu/libxcb.so.1.1.0)
+  n1: 21168 0x4CFCE6B: xcb_connect_to_display_with_auth_info (in /usr/lib/x86_64-linux-gnu/libxcb.so.1.1.0)
+   n1: 21168 0x48BEEE9: _XConnectXCB (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
+    n1: 21168 0x48AEB68: XOpenDisplay (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
+     n1: 21168 0x404497: mlx_init (in /home/vlevy/42_projects/cub3d/cub3D)
+      n0: 21168 0x40254A: main (in /home/vlevy/42_projects/cub3d/cub3D)
+ n1: 16384 0x48AEEBE: XOpenDisplay (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
+  n1: 16384 0x404497: mlx_init (in /home/vlevy/42_projects/cub3d/cub3D)
+   n0: 16384 0x40254A: main (in /home/vlevy/42_projects/cub3d/cub3D)
+ n1: 12768 0x48AF290: XOpenDisplay (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
+  n1: 12768 0x404497: mlx_init (in /home/vlevy/42_projects/cub3d/cub3D)
+   n0: 12768 0x40254A: main (in /home/vlevy/42_projects/cub3d/cub3D)
+ n0: 5781 in 50 places, all below massif's threshold (1.00%)
+ n1: 5684 0x4CFC4FB: xcb_connect_to_fd (in /usr/lib/x86_64-linux-gnu/libxcb.so.1.1.0)
+  n1: 5684 0x4CFCE6B: xcb_connect_to_display_with_auth_info (in /usr/lib/x86_64-linux-gnu/libxcb.so.1.1.0)
+   n1: 5684 0x48BEEE9: _XConnectXCB (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
+    n1: 5684 0x48AEB68: XOpenDisplay (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
+     n1: 5684 0x404497: mlx_init (in /home/vlevy/42_projects/cub3d/cub3D)
+      n0: 5684 0x40254A: main (in /home/vlevy/42_projects/cub3d/cub3D)
+ n1: 4704 0x48AEB31: XOpenDisplay (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
+  n1: 4704 0x404497: mlx_init (in /home/vlevy/42_projects/cub3d/cub3D)
+   n0: 4704 0x40254A: main (in /home/vlevy/42_projects/cub3d/cub3D)
+ n1: 4096 0x490D13E: _XkbReadGetMapReply (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
+  n1: 4096 0x490D41E: XkbGetUpdatedMap (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
+   n1: 4096 0x490D4F4: XkbGetMap (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
+    n1: 4096 0x490D542: ??? (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
+     n1: 4096 0x490D8AF: XkbKeycodeToKeysym (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
+      n1: 4096 0x406037: mlx_int_param_KeyPress (in /home/vlevy/42_projects/cub3d/cub3D)
+       n1: 4096 0x404895: mlx_loop (in /home/vlevy/42_projects/cub3d/cub3D)
+        n0: 4096 0x40256C: main (in /home/vlevy/42_projects/cub3d/cub3D)
+ n1: 2304 0x402659: init_map (in /home/vlevy/42_projects/cub3d/cub3D)
+  n1: 2304 0x4028B8: exec_init (in /home/vlevy/42_projects/cub3d/cub3D)
+   n0: 2304 0x40256C: main (in /home/vlevy/42_projects/cub3d/cub3D)
+ n1: 2048 0x490C914: _XkbReadGetMapReply (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
+  n1: 2048 0x490D41E: XkbGetUpdatedMap (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
+   n1: 2048 0x490D4F4: XkbGetMap (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
+    n1: 2048 0x490D542: ??? (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
+     n1: 2048 0x490D8AF: XkbKeycodeToKeysym (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
+      n1: 2048 0x406037: mlx_int_param_KeyPress (in /home/vlevy/42_projects/cub3d/cub3D)
+       n1: 2048 0x404895: mlx_loop (in /home/vlevy/42_projects/cub3d/cub3D)
+        n0: 2048 0x40256C: main (in /home/vlevy/42_projects/cub3d/cub3D)
+ n1: 2016 0x490C7DD: _XkbReadGetMapReply (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
+  n1: 2016 0x490D41E: XkbGetUpdatedMap (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
+   n1: 2016 0x490D4F4: XkbGetMap (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
+    n1: 2016 0x490D542: ??? (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
+     n1: 2016 0x490D8AF: XkbKeycodeToKeysym (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
+      n1: 2016 0x406037: mlx_int_param_KeyPress (in /home/vlevy/42_projects/cub3d/cub3D)
+       n1: 2016 0x404895: mlx_loop (in /home/vlevy/42_projects/cub3d/cub3D)
+        n0: 2016 0x40256C: main (in /home/vlevy/42_projects/cub3d/cub3D)
+ n1: 1120 0x4912619: XkbAllocClientMap (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
+  n1: 1120 0x490CEB7: _XkbReadGetMapReply (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
+   n1: 1120 0x490D41E: XkbGetUpdatedMap (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
+    n1: 1120 0x490D4F4: XkbGetMap (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
+     n1: 1120 0x490D542: ??? (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
+      n1: 1120 0x490D8AF: XkbKeycodeToKeysym (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
+       n1: 1120 0x406037: mlx_int_param_KeyPress (in /home/vlevy/42_projects/cub3d/cub3D)
+        n1: 1120 0x404895: mlx_loop (in /home/vlevy/42_projects/cub3d/cub3D)
+         n0: 1120 0x40256C: main (in /home/vlevy/42_projects/cub3d/cub3D)
+#-----------
+snapshot=41
+#-----------
+time=18890321444
+mem_heap_B=106361
+mem_heap_extra_B=2583
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=42
+#-----------
+time=19333720403
+mem_heap_B=109481
+mem_heap_extra_B=2703
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=43
+#-----------
+time=19765228297
+mem_heap_B=112601
+mem_heap_extra_B=2823
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=44
+#-----------
+time=20172207345
+mem_heap_B=115721
+mem_heap_extra_B=2943
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=45
+#-----------
+time=20554094726
+mem_heap_B=116761
+mem_heap_extra_B=2983
+mem_stacks_B=0
+heap_tree=detailed
+n11: 116761 (heap allocation functions) malloc/new/new[], --alloc-fns, etc.
+ n1: 38688 0x48C0FAE: _XEnq (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
+  n3: 38688 0x48C3BB6: ??? (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
+   n1: 34112 0x48C540C: _XReply (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
+    n1: 34112 0x48C577E: XSync (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
+     n1: 34112 0x404C17: mlx_int_new_xshm_image (in /home/vlevy/42_projects/cub3d/cub3D)
+      n2: 34112 0x404E52: mlx_new_image (in /home/vlevy/42_projects/cub3d/cub3D)
+       n2: 33280 0x402DC9: compute_image (in /home/vlevy/42_projects/cub3d/cub3D)
+        n1: 33072 0x40424B: handle_key (in /home/vlevy/42_projects/cub3d/cub3D)
+         n1: 33072 0x404895: mlx_loop (in /home/vlevy/42_projects/cub3d/cub3D)
+          n0: 33072 0x40256C: main (in /home/vlevy/42_projects/cub3d/cub3D)
+        n0: 208 in 1 place, below massif's threshold (1.00%)
+       n0: 832 in 1 place, below massif's threshold (1.00%)
+   n2: 2912 0x48C4F01: _XReadEvents (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
+    n1: 2080 0x48C51D0: XWindowEvent (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
+     n1: 2080 0x4049C5: mlx_int_wait_first_expose (in /home/vlevy/42_projects/cub3d/cub3D)
+      n1: 2080 0x40470D: mlx_new_window (in /home/vlevy/42_projects/cub3d/cub3D)
+       n1: 2080 0x4028D3: exec_init (in /home/vlevy/42_projects/cub3d/cub3D)
+        n0: 2080 0x40256C: main (in /home/vlevy/42_projects/cub3d/cub3D)
+    n0: 832 in 1 place, below massif's threshold (1.00%)
+   n2: 1664 0x48C4EC0: _XReadEvents (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
+    n1: 1456 0x48C51D0: XWindowEvent (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
+     n1: 1456 0x4049C5: mlx_int_wait_first_expose (in /home/vlevy/42_projects/cub3d/cub3D)
+      n1: 1456 0x40470D: mlx_new_window (in /home/vlevy/42_projects/cub3d/cub3D)
+       n1: 1456 0x4028D3: exec_init (in /home/vlevy/42_projects/cub3d/cub3D)
+        n0: 1456 0x40256C: main (in /home/vlevy/42_projects/cub3d/cub3D)
+    n0: 208 in 1 place, below massif's threshold (1.00%)
+ n1: 21168 0x4CFC204: xcb_connect_to_fd (in /usr/lib/x86_64-linux-gnu/libxcb.so.1.1.0)
+  n1: 21168 0x4CFCE6B: xcb_connect_to_display_with_auth_info (in /usr/lib/x86_64-linux-gnu/libxcb.so.1.1.0)
+   n1: 21168 0x48BEEE9: _XConnectXCB (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
+    n1: 21168 0x48AEB68: XOpenDisplay (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
+     n1: 21168 0x404497: mlx_init (in /home/vlevy/42_projects/cub3d/cub3D)
+      n0: 21168 0x40254A: main (in /home/vlevy/42_projects/cub3d/cub3D)
+ n1: 16384 0x48AEEBE: XOpenDisplay (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
+  n1: 16384 0x404497: mlx_init (in /home/vlevy/42_projects/cub3d/cub3D)
+   n0: 16384 0x40254A: main (in /home/vlevy/42_projects/cub3d/cub3D)
+ n1: 12768 0x48AF290: XOpenDisplay (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
+  n1: 12768 0x404497: mlx_init (in /home/vlevy/42_projects/cub3d/cub3D)
+   n0: 12768 0x40254A: main (in /home/vlevy/42_projects/cub3d/cub3D)
+ n0: 6901 in 51 places, all below massif's threshold (1.00%)
+ n1: 5684 0x4CFC4FB: xcb_connect_to_fd (in /usr/lib/x86_64-linux-gnu/libxcb.so.1.1.0)
+  n1: 5684 0x4CFCE6B: xcb_connect_to_display_with_auth_info (in /usr/lib/x86_64-linux-gnu/libxcb.so.1.1.0)
+   n1: 5684 0x48BEEE9: _XConnectXCB (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
+    n1: 5684 0x48AEB68: XOpenDisplay (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
+     n1: 5684 0x404497: mlx_init (in /home/vlevy/42_projects/cub3d/cub3D)
+      n0: 5684 0x40254A: main (in /home/vlevy/42_projects/cub3d/cub3D)
+ n1: 4704 0x48AEB31: XOpenDisplay (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
+  n1: 4704 0x404497: mlx_init (in /home/vlevy/42_projects/cub3d/cub3D)
+   n0: 4704 0x40254A: main (in /home/vlevy/42_projects/cub3d/cub3D)
+ n1: 4096 0x490D13E: _XkbReadGetMapReply (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
+  n1: 4096 0x490D41E: XkbGetUpdatedMap (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
+   n1: 4096 0x490D4F4: XkbGetMap (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
+    n1: 4096 0x490D542: ??? (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
+     n1: 4096 0x490D8AF: XkbKeycodeToKeysym (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
+      n1: 4096 0x406037: mlx_int_param_KeyPress (in /home/vlevy/42_projects/cub3d/cub3D)
+       n1: 4096 0x404895: mlx_loop (in /home/vlevy/42_projects/cub3d/cub3D)
+        n0: 4096 0x40256C: main (in /home/vlevy/42_projects/cub3d/cub3D)
+ n1: 2304 0x402659: init_map (in /home/vlevy/42_projects/cub3d/cub3D)
+  n1: 2304 0x4028B8: exec_init (in /home/vlevy/42_projects/cub3d/cub3D)
+   n0: 2304 0x40256C: main (in /home/vlevy/42_projects/cub3d/cub3D)
+ n1: 2048 0x490C914: _XkbReadGetMapReply (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
+  n1: 2048 0x490D41E: XkbGetUpdatedMap (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
+   n1: 2048 0x490D4F4: XkbGetMap (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
+    n1: 2048 0x490D542: ??? (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
+     n1: 2048 0x490D8AF: XkbKeycodeToKeysym (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
+      n1: 2048 0x406037: mlx_int_param_KeyPress (in /home/vlevy/42_projects/cub3d/cub3D)
+       n1: 2048 0x404895: mlx_loop (in /home/vlevy/42_projects/cub3d/cub3D)
+        n0: 2048 0x40256C: main (in /home/vlevy/42_projects/cub3d/cub3D)
+ n1: 2016 0x490C7DD: _XkbReadGetMapReply (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
+  n1: 2016 0x490D41E: XkbGetUpdatedMap (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
+   n1: 2016 0x490D4F4: XkbGetMap (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
+    n1: 2016 0x490D542: ??? (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
+     n1: 2016 0x490D8AF: XkbKeycodeToKeysym (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
+      n1: 2016 0x406037: mlx_int_param_KeyPress (in /home/vlevy/42_projects/cub3d/cub3D)
+       n1: 2016 0x404895: mlx_loop (in /home/vlevy/42_projects/cub3d/cub3D)
+        n0: 2016 0x40256C: main (in /home/vlevy/42_projects/cub3d/cub3D)
+#-----------
+snapshot=46
+#-----------
+time=21223461369
+mem_heap_B=116761
+mem_heap_extra_B=2983
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=47
+#-----------
+time=21681755885
+mem_heap_B=116761
+mem_heap_extra_B=2983
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=48
+#-----------
+time=22140006288
+mem_heap_B=116761
+mem_heap_extra_B=2983
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=49
+#-----------
+time=22598305815
+mem_heap_B=116761
+mem_heap_extra_B=2983
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=50
+#-----------
+time=22827443872
+mem_heap_B=116761
+mem_heap_extra_B=2983
+mem_stacks_B=0
+heap_tree=detailed
+n11: 116761 (heap allocation functions) malloc/new/new[], --alloc-fns, etc.
+ n1: 38688 0x48C0FAE: _XEnq (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
+  n3: 38688 0x48C3BB6: ??? (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
+   n1: 34112 0x48C540C: _XReply (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
+    n1: 34112 0x48C577E: XSync (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
+     n1: 34112 0x404C17: mlx_int_new_xshm_image (in /home/vlevy/42_projects/cub3d/cub3D)
+      n2: 34112 0x404E52: mlx_new_image (in /home/vlevy/42_projects/cub3d/cub3D)
+       n2: 33280 0x402DC9: compute_image (in /home/vlevy/42_projects/cub3d/cub3D)
+        n1: 33072 0x40424B: handle_key (in /home/vlevy/42_projects/cub3d/cub3D)
+         n1: 33072 0x404895: mlx_loop (in /home/vlevy/42_projects/cub3d/cub3D)
+          n0: 33072 0x40256C: main (in /home/vlevy/42_projects/cub3d/cub3D)
+        n0: 208 in 1 place, below massif's threshold (1.00%)
+       n0: 832 in 1 place, below massif's threshold (1.00%)
+   n2: 2912 0x48C4F01: _XReadEvents (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
+    n1: 2080 0x48C51D0: XWindowEvent (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
+     n1: 2080 0x4049C5: mlx_int_wait_first_expose (in /home/vlevy/42_projects/cub3d/cub3D)
+      n1: 2080 0x40470D: mlx_new_window (in /home/vlevy/42_projects/cub3d/cub3D)
+       n1: 2080 0x4028D3: exec_init (in /home/vlevy/42_projects/cub3d/cub3D)
+        n0: 2080 0x40256C: main (in /home/vlevy/42_projects/cub3d/cub3D)
+    n0: 832 in 1 place, below massif's threshold (1.00%)
+   n2: 1664 0x48C4EC0: _XReadEvents (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
+    n1: 1456 0x48C51D0: XWindowEvent (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
+     n1: 1456 0x4049C5: mlx_int_wait_first_expose (in /home/vlevy/42_projects/cub3d/cub3D)
+      n1: 1456 0x40470D: mlx_new_window (in /home/vlevy/42_projects/cub3d/cub3D)
+       n1: 1456 0x4028D3: exec_init (in /home/vlevy/42_projects/cub3d/cub3D)
+        n0: 1456 0x40256C: main (in /home/vlevy/42_projects/cub3d/cub3D)
+    n0: 208 in 1 place, below massif's threshold (1.00%)
+ n1: 21168 0x4CFC204: xcb_connect_to_fd (in /usr/lib/x86_64-linux-gnu/libxcb.so.1.1.0)
+  n1: 21168 0x4CFCE6B: xcb_connect_to_display_with_auth_info (in /usr/lib/x86_64-linux-gnu/libxcb.so.1.1.0)
+   n1: 21168 0x48BEEE9: _XConnectXCB (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
+    n1: 21168 0x48AEB68: XOpenDisplay (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
+     n1: 21168 0x404497: mlx_init (in /home/vlevy/42_projects/cub3d/cub3D)
+      n0: 21168 0x40254A: main (in /home/vlevy/42_projects/cub3d/cub3D)
+ n1: 16384 0x48AEEBE: XOpenDisplay (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
+  n1: 16384 0x404497: mlx_init (in /home/vlevy/42_projects/cub3d/cub3D)
+   n0: 16384 0x40254A: main (in /home/vlevy/42_projects/cub3d/cub3D)
+ n1: 12768 0x48AF290: XOpenDisplay (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
+  n1: 12768 0x404497: mlx_init (in /home/vlevy/42_projects/cub3d/cub3D)
+   n0: 12768 0x40254A: main (in /home/vlevy/42_projects/cub3d/cub3D)
+ n0: 6901 in 51 places, all below massif's threshold (1.00%)
+ n1: 5684 0x4CFC4FB: xcb_connect_to_fd (in /usr/lib/x86_64-linux-gnu/libxcb.so.1.1.0)
+  n1: 5684 0x4CFCE6B: xcb_connect_to_display_with_auth_info (in /usr/lib/x86_64-linux-gnu/libxcb.so.1.1.0)
+   n1: 5684 0x48BEEE9: _XConnectXCB (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
+    n1: 5684 0x48AEB68: XOpenDisplay (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
+     n1: 5684 0x404497: mlx_init (in /home/vlevy/42_projects/cub3d/cub3D)
+      n0: 5684 0x40254A: main (in /home/vlevy/42_projects/cub3d/cub3D)
+ n1: 4704 0x48AEB31: XOpenDisplay (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
+  n1: 4704 0x404497: mlx_init (in /home/vlevy/42_projects/cub3d/cub3D)
+   n0: 4704 0x40254A: main (in /home/vlevy/42_projects/cub3d/cub3D)
+ n1: 4096 0x490D13E: _XkbReadGetMapReply (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
+  n1: 4096 0x490D41E: XkbGetUpdatedMap (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
+   n1: 4096 0x490D4F4: XkbGetMap (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
+    n1: 4096 0x490D542: ??? (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
+     n1: 4096 0x490D8AF: XkbKeycodeToKeysym (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
+      n1: 4096 0x406037: mlx_int_param_KeyPress (in /home/vlevy/42_projects/cub3d/cub3D)
+       n1: 4096 0x404895: mlx_loop (in /home/vlevy/42_projects/cub3d/cub3D)
+        n0: 4096 0x40256C: main (in /home/vlevy/42_projects/cub3d/cub3D)
+ n1: 2304 0x402659: init_map (in /home/vlevy/42_projects/cub3d/cub3D)
+  n1: 2304 0x4028B8: exec_init (in /home/vlevy/42_projects/cub3d/cub3D)
+   n0: 2304 0x40256C: main (in /home/vlevy/42_projects/cub3d/cub3D)
+ n1: 2048 0x490C914: _XkbReadGetMapReply (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
+  n1: 2048 0x490D41E: XkbGetUpdatedMap (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
+   n1: 2048 0x490D4F4: XkbGetMap (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
+    n1: 2048 0x490D542: ??? (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
+     n1: 2048 0x490D8AF: XkbKeycodeToKeysym (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
+      n1: 2048 0x406037: mlx_int_param_KeyPress (in /home/vlevy/42_projects/cub3d/cub3D)
+       n1: 2048 0x404895: mlx_loop (in /home/vlevy/42_projects/cub3d/cub3D)
+        n0: 2048 0x40256C: main (in /home/vlevy/42_projects/cub3d/cub3D)
+ n1: 2016 0x490C7DD: _XkbReadGetMapReply (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
+  n1: 2016 0x490D41E: XkbGetUpdatedMap (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
+   n1: 2016 0x490D4F4: XkbGetMap (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
+    n1: 2016 0x490D542: ??? (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
+     n1: 2016 0x490D8AF: XkbKeycodeToKeysym (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
+      n1: 2016 0x406037: mlx_int_param_KeyPress (in /home/vlevy/42_projects/cub3d/cub3D)
+       n1: 2016 0x404895: mlx_loop (in /home/vlevy/42_projects/cub3d/cub3D)
+        n0: 2016 0x40256C: main (in /home/vlevy/42_projects/cub3d/cub3D)
+#-----------
+snapshot=51
+#-----------
+time=23056566769
+mem_heap_B=116761
+mem_heap_extra_B=2983
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=52
+#-----------
+time=23285695754
+mem_heap_B=116761
+mem_heap_extra_B=2983
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=53
+#-----------
+time=23514835657
+mem_heap_B=116761
+mem_heap_extra_B=2983
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=54
+#-----------
+time=23743998761
+mem_heap_B=116761
+mem_heap_extra_B=2983
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=55
+#-----------
+time=23973117461
+mem_heap_B=116761
+mem_heap_extra_B=2983
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=56
+#-----------
+time=24202240343
+mem_heap_B=116761
+mem_heap_extra_B=2983
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=57
+#-----------
+time=24431370148
+mem_heap_B=116761
+mem_heap_extra_B=2983
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=58
+#-----------
+time=24660511917
+mem_heap_B=116761
+mem_heap_extra_B=2983
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=59
+#-----------
+time=24889677269
+mem_heap_B=116761
+mem_heap_extra_B=2983
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=60
+#-----------
+time=25118795918
+mem_heap_B=116761
+mem_heap_extra_B=2983
+mem_stacks_B=0
+heap_tree=detailed
+n11: 116761 (heap allocation functions) malloc/new/new[], --alloc-fns, etc.
+ n1: 38688 0x48C0FAE: _XEnq (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
+  n3: 38688 0x48C3BB6: ??? (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
+   n1: 34112 0x48C540C: _XReply (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
+    n1: 34112 0x48C577E: XSync (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
+     n1: 34112 0x404C17: mlx_int_new_xshm_image (in /home/vlevy/42_projects/cub3d/cub3D)
+      n2: 34112 0x404E52: mlx_new_image (in /home/vlevy/42_projects/cub3d/cub3D)
+       n2: 33280 0x402DC9: compute_image (in /home/vlevy/42_projects/cub3d/cub3D)
+        n1: 33072 0x40424B: handle_key (in /home/vlevy/42_projects/cub3d/cub3D)
+         n1: 33072 0x404895: mlx_loop (in /home/vlevy/42_projects/cub3d/cub3D)
+          n0: 33072 0x40256C: main (in /home/vlevy/42_projects/cub3d/cub3D)
+        n0: 208 in 1 place, below massif's threshold (1.00%)
+       n0: 832 in 1 place, below massif's threshold (1.00%)
+   n2: 2912 0x48C4F01: _XReadEvents (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
+    n1: 2080 0x48C51D0: XWindowEvent (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
+     n1: 2080 0x4049C5: mlx_int_wait_first_expose (in /home/vlevy/42_projects/cub3d/cub3D)
+      n1: 2080 0x40470D: mlx_new_window (in /home/vlevy/42_projects/cub3d/cub3D)
+       n1: 2080 0x4028D3: exec_init (in /home/vlevy/42_projects/cub3d/cub3D)
+        n0: 2080 0x40256C: main (in /home/vlevy/42_projects/cub3d/cub3D)
+    n0: 832 in 1 place, below massif's threshold (1.00%)
+   n2: 1664 0x48C4EC0: _XReadEvents (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
+    n1: 1456 0x48C51D0: XWindowEvent (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
+     n1: 1456 0x4049C5: mlx_int_wait_first_expose (in /home/vlevy/42_projects/cub3d/cub3D)
+      n1: 1456 0x40470D: mlx_new_window (in /home/vlevy/42_projects/cub3d/cub3D)
+       n1: 1456 0x4028D3: exec_init (in /home/vlevy/42_projects/cub3d/cub3D)
+        n0: 1456 0x40256C: main (in /home/vlevy/42_projects/cub3d/cub3D)
+    n0: 208 in 1 place, below massif's threshold (1.00%)
+ n1: 21168 0x4CFC204: xcb_connect_to_fd (in /usr/lib/x86_64-linux-gnu/libxcb.so.1.1.0)
+  n1: 21168 0x4CFCE6B: xcb_connect_to_display_with_auth_info (in /usr/lib/x86_64-linux-gnu/libxcb.so.1.1.0)
+   n1: 21168 0x48BEEE9: _XConnectXCB (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
+    n1: 21168 0x48AEB68: XOpenDisplay (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
+     n1: 21168 0x404497: mlx_init (in /home/vlevy/42_projects/cub3d/cub3D)
+      n0: 21168 0x40254A: main (in /home/vlevy/42_projects/cub3d/cub3D)
+ n1: 16384 0x48AEEBE: XOpenDisplay (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
+  n1: 16384 0x404497: mlx_init (in /home/vlevy/42_projects/cub3d/cub3D)
+   n0: 16384 0x40254A: main (in /home/vlevy/42_projects/cub3d/cub3D)
+ n1: 12768 0x48AF290: XOpenDisplay (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
+  n1: 12768 0x404497: mlx_init (in /home/vlevy/42_projects/cub3d/cub3D)
+   n0: 12768 0x40254A: main (in /home/vlevy/42_projects/cub3d/cub3D)
+ n0: 6901 in 51 places, all below massif's threshold (1.00%)
+ n1: 5684 0x4CFC4FB: xcb_connect_to_fd (in /usr/lib/x86_64-linux-gnu/libxcb.so.1.1.0)
+  n1: 5684 0x4CFCE6B: xcb_connect_to_display_with_auth_info (in /usr/lib/x86_64-linux-gnu/libxcb.so.1.1.0)
+   n1: 5684 0x48BEEE9: _XConnectXCB (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
+    n1: 5684 0x48AEB68: XOpenDisplay (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
+     n1: 5684 0x404497: mlx_init (in /home/vlevy/42_projects/cub3d/cub3D)
+      n0: 5684 0x40254A: main (in /home/vlevy/42_projects/cub3d/cub3D)
+ n1: 4704 0x48AEB31: XOpenDisplay (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
+  n1: 4704 0x404497: mlx_init (in /home/vlevy/42_projects/cub3d/cub3D)
+   n0: 4704 0x40254A: main (in /home/vlevy/42_projects/cub3d/cub3D)
+ n1: 4096 0x490D13E: _XkbReadGetMapReply (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
+  n1: 4096 0x490D41E: XkbGetUpdatedMap (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
+   n1: 4096 0x490D4F4: XkbGetMap (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
+    n1: 4096 0x490D542: ??? (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
+     n1: 4096 0x490D8AF: XkbKeycodeToKeysym (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
+      n1: 4096 0x406037: mlx_int_param_KeyPress (in /home/vlevy/42_projects/cub3d/cub3D)
+       n1: 4096 0x404895: mlx_loop (in /home/vlevy/42_projects/cub3d/cub3D)
+        n0: 4096 0x40256C: main (in /home/vlevy/42_projects/cub3d/cub3D)
+ n1: 2304 0x402659: init_map (in /home/vlevy/42_projects/cub3d/cub3D)
+  n1: 2304 0x4028B8: exec_init (in /home/vlevy/42_projects/cub3d/cub3D)
+   n0: 2304 0x40256C: main (in /home/vlevy/42_projects/cub3d/cub3D)
+ n1: 2048 0x490C914: _XkbReadGetMapReply (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
+  n1: 2048 0x490D41E: XkbGetUpdatedMap (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
+   n1: 2048 0x490D4F4: XkbGetMap (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
+    n1: 2048 0x490D542: ??? (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
+     n1: 2048 0x490D8AF: XkbKeycodeToKeysym (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
+      n1: 2048 0x406037: mlx_int_param_KeyPress (in /home/vlevy/42_projects/cub3d/cub3D)
+       n1: 2048 0x404895: mlx_loop (in /home/vlevy/42_projects/cub3d/cub3D)
+        n0: 2048 0x40256C: main (in /home/vlevy/42_projects/cub3d/cub3D)
+ n1: 2016 0x490C7DD: _XkbReadGetMapReply (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
+  n1: 2016 0x490D41E: XkbGetUpdatedMap (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
+   n1: 2016 0x490D4F4: XkbGetMap (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
+    n1: 2016 0x490D542: ??? (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
+     n1: 2016 0x490D8AF: XkbKeycodeToKeysym (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
+      n1: 2016 0x406037: mlx_int_param_KeyPress (in /home/vlevy/42_projects/cub3d/cub3D)
+       n1: 2016 0x404895: mlx_loop (in /home/vlevy/42_projects/cub3d/cub3D)
+        n0: 2016 0x40256C: main (in /home/vlevy/42_projects/cub3d/cub3D)
+#-----------
+snapshot=61
+#-----------
+time=25347919314
+mem_heap_B=116761
+mem_heap_extra_B=2983
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=62
+#-----------
+time=25577050237
+mem_heap_B=116761
+mem_heap_extra_B=2983
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=63
+#-----------
+time=25806193744
+mem_heap_B=116761
+mem_heap_extra_B=2983
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=64
+#-----------
+time=26076524130
+mem_heap_B=116761
+mem_heap_extra_B=2983
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=65
+#-----------
+time=26326830579
+mem_heap_B=116761
+mem_heap_extra_B=2983
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=66
+#-----------
+time=26556103985
+mem_heap_B=116761
+mem_heap_extra_B=2983
+mem_stacks_B=0
+heap_tree=empty
