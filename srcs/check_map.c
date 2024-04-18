@@ -6,7 +6,7 @@
 /*   By: lgernido <lgernido@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/17 09:37:18 by lgernido          #+#    #+#             */
-/*   Updated: 2024/04/18 13:09:15 by lgernido         ###   ########.fr       */
+/*   Updated: 2024/04/18 13:45:53 by lgernido         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ int	valid_map(char *str)
 	{
 		if (str[i] != '0' && str[i] != '1' && str[i] != '2' && str[i] != 'N'
 			&& str[i] != 'S' && str[i] != 'W' && str[i] != 'E' && str[i] != '\0'
-			&& str[i] != ' ')
+			&& str[i] != '\n' && str[i] != ' ')
 			return (1);
 		else
 			i++;
@@ -90,7 +90,7 @@ t_parser	*check_map(t_parser *infos, char **tab)
 	{
 		if (check_id(tab[i]) == 7)
 		{
-			if (valid_map(tab[i]))
+			if (valid_map(tab[i]) == 1)
 				error_exit("Invalid map file\n", infos);
 			else
 			{
