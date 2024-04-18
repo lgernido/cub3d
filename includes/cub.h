@@ -156,6 +156,7 @@ void			cam_rot(t_cub *cub, double rot_index);
 
 // Close window
 int				kill_cross(t_cub *param);
+int				handle_mouse(t_cub *cub);
 
 //==========================================================================//
 //clean_exit.c

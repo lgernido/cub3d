@@ -32,6 +32,7 @@ void	exec_init(t_cub	*cub)
 	compute_image(cub);
 	mlx_hook(cub->display.win, KeyPress, KeyPressMask, handle_key, cub);
 	mlx_hook(cub->display.win, 17, 0, kill_cross, cub);
+	mlx_loop_hook(cub->display.mlx, handle_mouse, cub);
 	mlx_loop(cub->display.mlx);
 }
 
