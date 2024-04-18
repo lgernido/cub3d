@@ -4,7 +4,7 @@
 SRC_FOLDER	= srcs/
 
 SRC_FILES	= main.c mlx_init.c parse_file.c check_map.c fill_struct.c clean_all.c \
-parse_colors.c
+parse_colors.c utils.c init_struct.c
 
 BUILD = build/
 

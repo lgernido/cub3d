@@ -6,13 +6,13 @@
 /*   By: lgernido <lgernido@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/17 11:15:03 by lgernido          #+#    #+#             */
-/*   Updated: 2024/04/17 15:42:32 by lgernido         ###   ########.fr       */
+/*   Updated: 2024/04/18 10:17:30 by lgernido         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub.h"
 
-int	check_id(char *str, t_cub *infos)
+int	check_id(char *str)
 {
 	int	i;
 
@@ -33,47 +33,23 @@ int	check_id(char *str, t_cub *infos)
 			return (5);
 		else if (str[i] == 'C' && str[i + 1] == ' ')
 			return (6);
-		else if (valid_map(str[i]) == 0)
-		{
-			fill_map(str, infos);
-			return (7);
-		}
 		else
-			return (0);
+			return (7);
 	}
 	return (0);
 }
 
-int	check_file(char *str, int i, t_cub *infos)
+t_parser	*fill_struct(t_parser *infos, char *str)
 {
-	int	fd;
-
-	fd = open(str + i, O_RDONLY);
-	if (fd == -1)
-	{
-		close(fd);
-		error_exit("Can't open texture file\n", infos);
-	}
-	close(fd);
-	return (fd);
-}
-t_cub	*fill_struct(t_cub *infos, char *str)
-{
-	t_text *files;
-
-	files = malloc(sizeof(t_text));
-	if (!files)
-		error_exit("MALLOC\n", infos);
-	if (check_id(str, infos) == 1)
-		files->north = check_file(str, 3, infos);
-	else if (check_id(str, infos) == 2)
-		files->south = check_file(str, 3, infos);
-	else if (check_id(str, infos) == 3)
-		files->west = check_file(str, 3, infos);
-	else if (check_id(str, infos) == 4)
-		files->east = check_file(str, 3, infos);
-	infos->texture_files = files;
-    else 
-        treat_colors(infos, str);
+	if (check_id(str) == 1)
+		infos->north = (str + 3);
+	else if (check_id(str) == 2)
+		infos->south = (str + 3);
+	else if (check_id(str) == 3)
+		infos->west = (str + 3);
+	else if (check_id(str) == 4)
+		infos->east = (str + 3);
+	else
+		treat_colors(infos, str);
 	return (infos);
 }

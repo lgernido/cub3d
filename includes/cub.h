@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   cub.h                                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: luciegernidos <luciegernidos@student.42    +#+  +:+       +#+        */
+/*   By: lgernido <lgernido@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/16 11:43:27 by lgernido          #+#    #+#             */
-/*   Updated: 2024/04/17 18:40:48 by luciegernid      ###   ########.fr       */
+/*   Updated: 2024/04/18 10:17:49 by lgernido         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,13 +42,17 @@ typedef enum e_dir
 	WEST
 }			t_dir;
 
-typedef struct s_text
+typedef struct s_parser
 {
-	int		north;
-	int		south;
-	int		west;
-	int		east;
-}			t_text;
+	char	**tab;
+	char	**map;
+	char	*north;
+	char	*south;
+	char	*west;
+	char	*east;
+	int		floor;
+	int		ceiling;
+}			t_parser;
 
 typedef struct s_point
 {
@@ -84,9 +88,6 @@ typedef struct s_cub
 	int ceiling;      // color of the ceiling.
 						// Last row should be NULL. After last valid member of row,
 	// one more shoul be set as -1.
-	t_text	*texture_files;
-	char	**tab;
-	char	**map_str;
 	int		*map[];
 }			t_cub;
 
@@ -100,39 +101,45 @@ int			main(int argc, char **argv);
 t_data		ft_mlx_init(t_data *data);
 int			handle_error(void);
 
+// init_struct.c
+
+t_parser	*init_struct(t_parser *parser);
+
 // parse_file.c
-void		check_file_format(char *str, t_cub *infos);
-void		error_exit(char *str, t_cub *cub);
+void		check_file_format(char *str, t_parser *infos);
+void		error_exit(char *str, t_parser *infos);
 void		check_params(int argc, char **argv);
 char		**read_file(int file);
 
 // check_map.c
 
 int			valid_map(char c);
-void		check_map(t_cub *infos, char **tab);
+t_parser	*check_map(t_parser *infos, char **tab);
 int			check_side_wall(char *str);
 int			check_walls(char *str);
-void		fill_map(char *str, t_cub *infos);
+void		fill_map(char *str, t_parser *infos);
+int			**fill_real_map(char **map, t_parser *infos);
 
 // fill_struct.c
 
-int			check_id(char *str, t_cub *infos);
-int			check_file(char *str, int i, t_cub *infos);
-t_cub		*fill_struct(t_cub *infos, char *str);
+int			check_id(char *str);
+int			check_file(char *str, int i, t_parser *infos);
+t_parser	*fill_struct(t_parser *infos, char *str);
 
 // parse_colors.c
 
-void treat_colors(t_cub *infos, char *str);
-int parse_color(char *str, int i);
-int		give_me_color(char *str, int i);
+void		treat_colors(t_parser *infos, char *str);
+int			parse_color(char *str, int i);
+int			give_me_color(char *str, int i);
 
 // clean_all.c
 
-void		clean_all(t_cub *infos);
-void		clean_map_str(t_cub *infos);
-void		clean_tab(t_cub *infos);
+void		clean_all(t_parser *infos);
+void		clean_map_str(t_parser *infos);
+void		clean_tab(t_parser *infos);
 
 // utils.c
 void		handle_space(char **map);
+size_t		ft_map_size(char **str);
 
 #endif

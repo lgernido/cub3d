@@ -6,22 +6,22 @@
 /*   By: lgernido <lgernido@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/16 12:09:34 by lgernido          #+#    #+#             */
-/*   Updated: 2024/04/17 16:02:08 by lgernido         ###   ########.fr       */
+/*   Updated: 2024/04/18 10:10:25 by lgernido         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub.h"
 
-void	error_exit(char *str, t_cub *cub)
+void	error_exit(char *str, t_parser *infos)
 {
-	perror("Error\n");
-	perror(str);
-	if (cub)
-		clean_all(cub);
+	ft_putstr_fd("Error\n", 2);
+	ft_putstr_fd(str, 2);
+	if (infos)
+		clean_all(infos);
 	exit(1);
 }
 
-void	check_file_format(char *str, t_cub *infos)
+void	check_file_format(char *str, t_parser *infos)
 {
 	int	i;
 
@@ -56,22 +56,35 @@ char	**read_file(int file)
 
 void	check_params(int argc, char **argv)
 {
-	int		map;
-	t_cub	*infos;
+	int			map;
+	t_parser	*infos;
+	int			i;
 
-	infos = malloc(sizeof(t_cub));
-	if (!infos)
-		error_exit("MALLOC\n", infos);
+	infos = NULL;
+	infos = init_struct(infos);
 	if (argc == 2)
 	{
 		check_file_format(argv[1], infos);
 		map = open(argv[1], O_RDONLY);
 		if (map == -1)
-			error_exit("Map couldn't be opened\n", infos);
+			error_exit("Parameters file couldn't be opened\n", infos);
 		infos->tab = read_file(map);
 		if (!infos->tab)
 			error_exit("MALLOC\n", infos);
-		check_map(infos, infos->tab);
-		infos->map = fill_map(infos->map_str, infos);
+		infos = check_map(infos, infos->tab);
+		// fill_real_map(infos->map, infos);
+		i = 0;
+		while (infos->map[i] != NULL)
+		{
+			printf("%s\n", infos->map[i]);
+			i++;
+		}
+		printf("\n\n");
+		printf("infos.north: %s\n", infos->north);
+		printf("infos.south: %s\n", infos->south);
+		printf("infos.west: %s\n", infos->west);
+		printf("infos.east: %s\n", infos->east);
+		printf("infos.floor: %d\n", infos->floor);
+		printf("infos.ceiling: %d\n", infos->ceiling);
 	}
 }

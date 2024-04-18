@@ -6,7 +6,7 @@
 /*   By: lgernido <lgernido@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/17 09:37:18 by lgernido          #+#    #+#             */
-/*   Updated: 2024/04/17 16:01:09 by lgernido         ###   ########.fr       */
+/*   Updated: 2024/04/18 10:41:48 by lgernido         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,14 +52,14 @@ int	check_side_wall(char *str)
 	return (0);
 }
 
-void	fill_map(char *str, t_cub *infos)
+void	fill_map(char *str, t_parser *infos)
 {
 	int	i;
 
 	i = 0;
-	while (infos->map_str[i] != NULL)
+	while (infos->map[i] != NULL)
 		i++;
-	infos->map_str[i] = ft_strdup(str);
+	infos->map[i] = ft_strdup(str);
 	if (i == 0)
 	{
 		if (check_walls(str) == 1)
@@ -69,39 +69,50 @@ void	fill_map(char *str, t_cub *infos)
 		error_exit("Invalid map\n", infos);
 }
 
-void	check_map(t_cub *infos, char **tab)
+t_parser	*check_map(t_parser *infos, char **tab)
 {
 	int	i;
 
 	i = 0;
-	infos->map_str = (char **)malloc(sizeof(char *) * 100);
-	if (!infos->map_str)
+	infos->map = (char **)malloc(sizeof(char *) * 100);
+	if (!infos->map)
 		error_exit("MALLOC\n", infos);
 	while (tab[i] != NULL)
 	{
-		if (check_id(tab[i], infos) == 0)
+		if (check_id(tab[i]) == 0)
 			error_exit("Invalid map file\n", infos);
+		else if (check_id(tab[i]) == 7 && valid_map(*tab[i]) == 0)
+			fill_map(tab[i], infos);
 		else
 			fill_struct(infos, tab[i]);
 		i++;
 	}
 	printf("map ok\n");
+	return (infos);
 }
-int	**fill_map(char **map, t_cub *infos)
+
+int	**fill_real_map(char **map, t_parser *infos)
 {
-	int i;
+	int		**real_map;
+	size_t	map_size;
 
-	int **real_map;
-	int map_size;
-
+	int i, j;
 	i = 0;
-	map_size = // faire une fonction de con;
-		real_map = (int **)malloc(sizeof(int *) * map_size);
+	map_size = ft_map_size(map);
+	real_map = (int **)malloc(sizeof(int *) * map_size);
 	if (!real_map)
-		error_exit("MALLOC\n");
+		error_exit("MALLOC\n", infos);
 	while (map[i])
 	{
-		real_map[i] = atoi(map[i]);
+		j = 0;
+		real_map[i] = (int *)malloc(sizeof(int) * ft_strlen(map[i]));
+		if (!real_map[i])
+			error_exit("MALLOC\n", infos);
+		while (map[i][j])
+		{
+			real_map[i][j] = atoi(map[i] + j);
+			j++;
+		}
 		i++;
 	}
 	return (real_map);
