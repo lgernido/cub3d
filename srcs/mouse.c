@@ -11,14 +11,6 @@
 /* ************************************************************************** */
 
 #include "cub.h"
-#include "mlx.h"
-
-double	get_rot_factor(int difference)
-{
-	const double	ret = ((double)difference / (double)WIDTH) * 3.5;
-
-	return (ret);
-}
 
 int	check_coord(int x, int y, int *prev_x)
 {
@@ -51,7 +43,7 @@ int	handle_mouse(t_cub *cub)
 	mlx_mouse_get_pos(cub->display.mlx, cub->display.win, &x, &y);
 	if (check_coord(x, y, &prev_x) == 0)
 		return (0);
-	rot_factor = get_rot_factor(abs(prev_x - x));
+	rot_factor = ((double)abs(prev_x - x) / (double)WIDTH) * 3.5;
 	if (x > prev_x)
 		cam_rot(cub, -rot_factor);
 	else
