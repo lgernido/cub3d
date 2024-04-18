@@ -6,7 +6,7 @@
 /*   By: lgernido <lgernido@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/16 12:09:34 by lgernido          #+#    #+#             */
-/*   Updated: 2024/04/18 11:41:08 by lgernido         ###   ########.fr       */
+/*   Updated: 2024/04/18 12:41:57 by lgernido         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,7 +59,7 @@ void	check_params(int argc, char **argv)
 	int			map;
 	t_parser	*infos;
 	int			i;
-	int			**real_map;
+	// int			**real_map;
 
 	infos = NULL;
 	infos = init_struct(infos);
@@ -73,7 +73,7 @@ void	check_params(int argc, char **argv)
 		if (!infos->tab)
 			error_exit("MALLOC\n", infos);
 		infos = check_map(infos, infos->tab);
-		real_map = fill_real_map(infos->map, infos);
+		//real_map = fill_real_map(infos->map, infos);
 		i = 0;
 		while (infos->map[i] != NULL)
 		{

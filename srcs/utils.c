@@ -6,7 +6,7 @@
 /*   By: lgernido <lgernido@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/17 15:22:08 by lgernido          #+#    #+#             */
-/*   Updated: 2024/04/18 11:54:54 by lgernido         ###   ########.fr       */
+/*   Updated: 2024/04/18 12:18:37 by lgernido         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,8 +45,8 @@ size_t	ft_map_size(char **str)
 
 t_dir	find_direction(char **map)
 {
-	int i;
-	int j;
+	int	i;
+	int	j;
 
 	i = 0;
 	while (map[i])

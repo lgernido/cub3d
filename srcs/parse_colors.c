@@ -6,7 +6,7 @@
 /*   By: lgernido <lgernido@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/17 15:39:47 by lgernido          #+#    #+#             */
-/*   Updated: 2024/04/18 10:54:22 by lgernido         ###   ########.fr       */
+/*   Updated: 2024/04/18 12:19:14 by lgernido         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,7 @@
 t_rgb	parse_color(char *str, int i, t_rgb *surface)
 {
 	if (str[i])
+	{
 		if (ft_atoi(str + i) >= 0 && ft_atoi(str + i) <= 255)
 		{
 			surface->r = ft_atoi(str + i);
@@ -37,6 +38,7 @@ t_rgb	parse_color(char *str, int i, t_rgb *surface)
 				}
 			}
 		}
+	}
 	return (*surface);
 }
 

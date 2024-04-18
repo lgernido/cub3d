@@ -6,7 +6,7 @@
 /*   By: lgernido <lgernido@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/16 11:43:27 by lgernido          #+#    #+#             */
-/*   Updated: 2024/04/18 11:50:20 by lgernido         ###   ########.fr       */
+/*   Updated: 2024/04/18 12:54:35 by lgernido         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -120,7 +120,7 @@ char		**read_file(int file);
 
 // check_map.c
 
-int			valid_map(char c);
+int			valid_map(char *str);
 t_parser	*check_map(t_parser *infos, char **tab);
 int			check_side_wall(char *str);
 int			check_walls(char *str);

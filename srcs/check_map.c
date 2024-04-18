@@ -6,19 +6,27 @@
 /*   By: lgernido <lgernido@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/17 09:37:18 by lgernido          #+#    #+#             */
-/*   Updated: 2024/04/18 11:56:20 by lgernido         ###   ########.fr       */
+/*   Updated: 2024/04/18 13:09:15 by lgernido         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <cub.h>
 
-int	valid_map(char c)
+int	valid_map(char *str)
 {
-	if (c != '1' && c != '2' && c != 'N' && c != 'S' && c != 'W' && c != 'E'
-		&& c != '\0')
-		return (1);
-	else
-		return (0);
+	int	i;
+
+	i = 0;
+	while (str[i])
+	{
+		if (str[i] != '0' && str[i] != '1' && str[i] != '2' && str[i] != 'N'
+			&& str[i] != 'S' && str[i] != 'W' && str[i] != 'E' && str[i] != '\0'
+			&& str[i] != ' ')
+			return (1);
+		else
+			i++;
+	}
+	return (0);
 }
 
 int	check_walls(char *str)
@@ -80,15 +88,21 @@ t_parser	*check_map(t_parser *infos, char **tab)
 		error_exit("MALLOC\n", infos);
 	while (tab[i] != NULL)
 	{
-		if (check_id(tab[i]) == 0)
-			error_exit("Invalid map file\n", infos);
-		else if (check_id(tab[i]) == 7 && valid_map(*tab[i]) == 0)
-			fill_map(tab[i], infos);
+		if (check_id(tab[i]) == 7)
+		{
+			if (valid_map(tab[i]))
+				error_exit("Invalid map file\n", infos);
+			else
+			{
+				fill_map(tab[i], infos);
+			}
+		}
 		else
 			fill_struct(infos, tab[i]);
 		i++;
 	}
 	dir = find_direction(infos->map);
+	printf("map ok\n");
 	return (infos);
 }
 
@@ -96,8 +110,9 @@ int	**fill_real_map(char **map, t_parser *infos)
 {
 	int		**real_map;
 	size_t	map_size;
+	int		i;
+	int		j;
 
-	int i, j;
 	i = 0;
 	map_size = ft_map_size(map);
 	real_map = (int **)malloc(sizeof(int *) * map_size);
