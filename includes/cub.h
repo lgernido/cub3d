@@ -6,7 +6,7 @@
 /*   By: lgernido <lgernido@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/16 11:43:27 by lgernido          #+#    #+#             */
-/*   Updated: 2024/04/18 10:17:49 by lgernido         ###   ########.fr       */
+/*   Updated: 2024/04/18 11:50:20 by lgernido         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,6 +42,13 @@ typedef enum e_dir
 	WEST
 }			t_dir;
 
+typedef struct s_rgb
+{
+	int		r;
+	int		g;
+	int		b;
+}			t_rgb;
+
 typedef struct s_parser
 {
 	char	**tab;
@@ -50,8 +57,8 @@ typedef struct s_parser
 	char	*south;
 	char	*west;
 	char	*east;
-	int		floor;
-	int		ceiling;
+	t_rgb	floor;
+	t_rgb	ceiling;
 }			t_parser;
 
 typedef struct s_point
@@ -129,8 +136,7 @@ t_parser	*fill_struct(t_parser *infos, char *str);
 // parse_colors.c
 
 void		treat_colors(t_parser *infos, char *str);
-int			parse_color(char *str, int i);
-int			give_me_color(char *str, int i);
+t_rgb		parse_color(char *str, int i, t_rgb *surface);
 
 // clean_all.c
 
@@ -141,5 +147,6 @@ void		clean_tab(t_parser *infos);
 // utils.c
 void		handle_space(char **map);
 size_t		ft_map_size(char **str);
+t_dir		find_direction(char **map);
 
 #endif

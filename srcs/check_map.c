@@ -6,7 +6,7 @@
 /*   By: lgernido <lgernido@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/17 09:37:18 by lgernido          #+#    #+#             */
-/*   Updated: 2024/04/18 10:41:48 by lgernido         ###   ########.fr       */
+/*   Updated: 2024/04/18 11:56:20 by lgernido         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,7 +71,8 @@ void	fill_map(char *str, t_parser *infos)
 
 t_parser	*check_map(t_parser *infos, char **tab)
 {
-	int	i;
+	int		i;
+	t_dir	dir;
 
 	i = 0;
 	infos->map = (char **)malloc(sizeof(char *) * 100);
@@ -87,7 +88,7 @@ t_parser	*check_map(t_parser *infos, char **tab)
 			fill_struct(infos, tab[i]);
 		i++;
 	}
-	printf("map ok\n");
+	dir = find_direction(infos->map);
 	return (infos);
 }
 

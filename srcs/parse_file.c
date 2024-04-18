@@ -6,7 +6,7 @@
 /*   By: lgernido <lgernido@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/16 12:09:34 by lgernido          #+#    #+#             */
-/*   Updated: 2024/04/18 10:10:25 by lgernido         ###   ########.fr       */
+/*   Updated: 2024/04/18 11:41:08 by lgernido         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,6 +59,7 @@ void	check_params(int argc, char **argv)
 	int			map;
 	t_parser	*infos;
 	int			i;
+	int			**real_map;
 
 	infos = NULL;
 	infos = init_struct(infos);
@@ -72,7 +73,7 @@ void	check_params(int argc, char **argv)
 		if (!infos->tab)
 			error_exit("MALLOC\n", infos);
 		infos = check_map(infos, infos->tab);
-		// fill_real_map(infos->map, infos);
+		real_map = fill_real_map(infos->map, infos);
 		i = 0;
 		while (infos->map[i] != NULL)
 		{
@@ -84,7 +85,15 @@ void	check_params(int argc, char **argv)
 		printf("infos.south: %s\n", infos->south);
 		printf("infos.west: %s\n", infos->west);
 		printf("infos.east: %s\n", infos->east);
-		printf("infos.floor: %d\n", infos->floor);
-		printf("infos.ceiling: %d\n", infos->ceiling);
+		printf("Couleur du sol : R: %d, G: %d, B: %d\n", infos->floor.r,
+			infos->floor.g, infos->floor.b);
+		printf("Couleur du plafond : R: %d, G: %d, B: %d\n", infos->ceiling.r,
+			infos->ceiling.g, infos->ceiling.b);
+		// i = 0;
+		// while (real_map[i] != NULL)
+		// {
+		// 	printf("%d\n", real_map[i]);
+		// 	i++;
+		// }
 	}
 }
