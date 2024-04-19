@@ -6,7 +6,7 @@
 /*   By: lgernido <lgernido@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/17 15:22:08 by lgernido          #+#    #+#             */
-/*   Updated: 2024/04/19 11:45:20 by lgernido         ###   ########.fr       */
+/*   Updated: 2024/04/19 14:36:05 by lgernido         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ char	**handle_space(char **map)
 		j = 0;
 		while (map[i][j])
 		{
-			if (ft_is_space(map[i][j]))
+			if (map[i][j] == ' ')
 				map[i][j] = '1';
 			j++;
 		}
@@ -69,9 +69,10 @@ t_dir	find_direction(char **map)
 	}
 	return (-1);
 }
+
 int	check_file(char *str, t_parser *infos)
 {
-	int fd;
+	int	fd;
 
 	fd = open(str, O_RDONLY);
 	if (fd == -1)

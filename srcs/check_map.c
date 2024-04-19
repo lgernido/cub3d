@@ -6,7 +6,7 @@
 /*   By: lgernido <lgernido@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/17 09:37:18 by lgernido          #+#    #+#             */
-/*   Updated: 2024/04/19 13:42:14 by lgernido         ###   ########.fr       */
+/*   Updated: 2024/04/19 14:37:12 by lgernido         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -96,6 +96,8 @@ void	map_format(char **str, t_parser *infos)
 
 	i = 0;
 	map_size = ft_map_size(str);
+	map_position(infos);
+	str = handle_space(str);
 	while (str[i])
 	{
 		if (i == 0 || i == map_size - 1)
@@ -111,5 +113,4 @@ void	map_format(char **str, t_parser *infos)
 		}
 		i++;
 	}
-	map_position(infos);
 }

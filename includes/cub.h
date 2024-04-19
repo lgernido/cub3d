@@ -6,7 +6,7 @@
 /*   By: lgernido <lgernido@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/16 11:43:27 by lgernido          #+#    #+#             */
-/*   Updated: 2024/04/19 12:49:55 by lgernido         ###   ########.fr       */
+/*   Updated: 2024/04/19 14:04:27 by lgernido         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -152,6 +152,5 @@ int			check_file(char *str, t_parser *infos);
 char		**handle_space(char **map);
 size_t		ft_map_size(char **str);
 t_dir		find_direction(char **map);
-int			easy_atoi(char c);
 
 #endif

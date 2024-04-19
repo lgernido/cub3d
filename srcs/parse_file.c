@@ -6,7 +6,7 @@
 /*   By: lgernido <lgernido@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/16 12:09:34 by lgernido          #+#    #+#             */
-/*   Updated: 2024/04/19 13:32:07 by lgernido         ###   ########.fr       */
+/*   Updated: 2024/04/19 14:33:05 by lgernido         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -77,31 +77,25 @@ void	check_params(int argc, char **argv)
 			error_exit("MALLOC\n", infos);
 		infos = check_map(infos, infos->tab);
 		direction = find_direction(infos->map);
-		// i = 0;
-		// while (infos->map[i] != NULL)
-		// {
-		// 	printf("%s\n", infos->map[i]);
-		// 	i++;
-		// }
-		// printf("\n\n");
-		// printf("infos.north: %s\n", infos->north);
-		// printf("infos.south: %s\n", infos->south);
-		// printf("infos.west: %s\n", infos->west);
-		// printf("infos.east: %s\n", infos->east);
-		// printf("Couleur du sol : R: %d, G: %d, B: %d\n", infos->floor.r,
-		// 	infos->floor.g, infos->floor.b);
-		// printf("Couleur du plafond : R: %d, G: %d, B: %d\n",
-		// infos->ceiling.r,
-		// 	infos->ceiling.g, infos->ceiling.b);
-		// printf("Orientation : %d\n", direction);
 		i = 0;
-		while (infos->tab[i])
+		while (infos->map[i] != NULL)
 		{
-			printf("%s", infos->tab[i]);
+			printf("%s\n", infos->map[i]);
 			i++;
 		}
+		printf("\n\n");
+		printf("infos.north: %s\n", infos->north);
+		printf("infos.south: %s\n", infos->south);
+		printf("infos.west: %s\n", infos->west);
+		printf("infos.east: %s\n", infos->east);
+		printf("Couleur du sol : R: %d, G: %d, B: %d\n", infos->floor.r,
+			infos->floor.g, infos->floor.b);
+		printf("Couleur du plafond : R: %d, G: %d, B: %d\n", infos->ceiling.r,
+			infos->ceiling.g, infos->ceiling.b);
+		printf("Orientation : %d\n", direction);
 	}
 }
+
 // void	to_cub(t_parser *infos, t_cub *cub)
 // {
 // 	t_cub	*cub;
@@ -110,5 +104,5 @@ void	check_params(int argc, char **argv)
 // 	if (!cub)
 // 		error_exit("MALLOC\n");
 // 	cub->dir = find_direction(infos->map);
-// 	cub->
+// 	cub->map = infos->map;
 // }
