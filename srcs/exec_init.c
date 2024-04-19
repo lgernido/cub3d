@@ -27,12 +27,13 @@ void	exec_init(t_cub	*cub)
 	cub->main_img.addr = mlx_get_data_addr(cub->main_img.img,
 			&cub->main_img.bits_per_pixel, &cub->main_img.line_length,
 			&cub->main_img.endian);
+	init_mini_map(cub);
 	init_texture(cub);
 	init_cub_var(cub);
 	compute_image(cub);
+	mlx_loop_hook(cub->display.mlx, handle_mouse, cub);
 	mlx_hook(cub->display.win, KeyPress, KeyPressMask, handle_key, cub);
 	mlx_hook(cub->display.win, 17, 0, kill_cross, cub);
-	mlx_loop_hook(cub->display.mlx, handle_mouse, cub);
 	mlx_loop(cub->display.mlx);
 }
 
@@ -89,6 +90,7 @@ void	draw_floor_and_ceilling(t_cub *cub)
 void	compute_image(t_cub *cub)
 {
 	t_raycaster	current_values;
+	t_raw_point coord;
 	int			i;
 
 	i = 0;
@@ -103,8 +105,13 @@ void	compute_image(t_cub *cub)
 		push_line(cub, &current_values, i);
 		++i;
 	}
+	coord.x = (int)cub->pos.x;
+	coord.y = (int)cub->pos.y;
+	draw_mini_map(cub, 64, 64, coord);
 	mlx_put_image_to_window(cub->display.mlx, cub->display.win,
 		cub->main_img.img, 0, 0);
+	mlx_put_image_to_window(cub->display.mlx, cub->display.win,
+		cub->mini_map.img, 25, 25);
 	mlx_destroy_image(cub->display.mlx, cub->main_img.img);
 	cub->main_img.img = mlx_new_image(cub->display.mlx, WIDTH, HEIGHT);
 	if (cub->main_img.img == NULL)

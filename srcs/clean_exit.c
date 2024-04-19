@@ -26,12 +26,12 @@ void	clean_display(t_data *display)
 	}
 }
 
-void	clean_texture(t_img *textures, t_data *display)
+void	clean_texture(t_img *textures, t_data *display, int size_of_tab)
 {
 	int	i;
 
 	i = 0;
-	while (i < 4)
+	while (i < size_of_tab)
 	{
 		if (textures[i].img != NULL)
 			mlx_destroy_image(display->mlx, textures[i].img);
@@ -54,15 +54,14 @@ void	clean_map(int	**map)
 
 void	clean_all(t_cub *cub, int error_code)
 {
-	clean_texture(cub->texture, &cub->display);
+	clean_texture(cub->texture, &cub->display, 4);
+	clean_texture(cub->mini_map_texture, &cub->display, 4);
 	if (cub->main_img.img != NULL)
-	{
 		mlx_destroy_image(cub->display.mlx, cub->main_img.img);
-	}
+	if (cub->mini_map.img != NULL)
+		mlx_destroy_image(cub->display.mlx, cub->mini_map.img);
 	if (cub->map != NULL)
-	{
 		clean_map(cub->map);
-	}
 	clean_display(&cub->display);
 	exit(error_code);
 }

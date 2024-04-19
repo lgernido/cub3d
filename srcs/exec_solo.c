@@ -42,7 +42,7 @@ int worldMap[24][24]=
 
 void	init_cub_var(t_cub *cub)
 {
-	cub->pos.x = 22.5;
+	cub->pos.x = 15.5;
 	cub->pos.y = 12.5;
 	cub->dir.x = -1;
 	cub->dir.y = 0;
@@ -57,10 +57,11 @@ void init_map(t_cub *cub)
 {
 	cub->map = malloc(25 * sizeof(int *));
 	for (int i = 0; i < 24; ++i) {
-		cub->map[i] = malloc(24 * sizeof(int));
+		cub->map[i] = malloc(25 * sizeof(int));
 		for (int j = 0; j < 24; ++j) {
 			cub->map[i][j] = worldMap[i][j];
 		}
+		cub->map[i][24] = -1;
 	}
 	cub->map[24] = NULL;
 	return ;
@@ -68,8 +69,9 @@ void init_map(t_cub *cub)
 
 void	init_texture(t_cub *cub)
 {
-	int	i = 0;
+	int	i;
 
+	i = 0;
 	while (i < 4)
 	{
 		cub->texture[i].line_length = TEXTURE_SIZE;
@@ -90,4 +92,3 @@ void	init_texture(t_cub *cub)
 			&cub->texture[3].line_length, &cub->texture[3].endian);
 	cub->texture[3].addr = mlx_get_data_addr(cub->texture[3].img, &cub->texture[3].bits_per_pixel, &cub->texture[3].line_length, &cub->texture[3].endian);
 }
-

@@ -27,7 +27,9 @@
 
 # define WIDTH 1150
 # define HEIGHT 920
-# define TEXTURE_SIZE 256
+# define TEXTURE_SIZE 64
+# define MINIMAP 144
+# define MINIMAP_PIX 16
 
 //==========================================================================//
 /*STRUCTURES*/
@@ -37,6 +39,13 @@ typedef enum e_dir {
 	EAST,
 	WEST
 }						t_dir;
+
+typedef enum e_mini_map {
+	EMPTY,
+	WALL,
+	VOID,
+	PLAYER
+}						t_mini_map;
 
 typedef struct s_point {
 	double	x;
@@ -81,6 +90,8 @@ typedef struct s_raycaster {
 typedef struct s_cub {
 	t_img	texture[4]; // All textures should be stored here as images
 	t_img	main_img; // Not relevant for parsing
+	t_img	mini_map;
+	t_img	mini_map_texture[4];
 	t_data	display; // Not relevant for parsing.
 	t_point	pos; // First position of the player.
 	t_dir		p_dir; // Start directon of the player.
@@ -124,6 +135,12 @@ void			compute_vector_length(t_raycaster *current_values);
 
 // Return the range in which the wall should be displayed on screen.
 void			get_y_range(t_raycaster *current_values);
+
+//==========================================================================//
+//mini_map.c
+
+void			init_mini_map(t_cub *cub);
+void			draw_mini_map(t_cub *cub, int x_sub_square, int y_sub_square, t_raw_point coord);
 
 //==========================================================================//
 
