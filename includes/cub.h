@@ -6,7 +6,7 @@
 /*   By: lgernido <lgernido@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/16 11:43:27 by lgernido          #+#    #+#             */
-/*   Updated: 2024/04/19 08:24:29 by lgernido         ###   ########.fr       */
+/*   Updated: 2024/04/19 12:49:55 by lgernido         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,7 @@
 # include <math.h>
 # include <stdio.h>
 # include <stdlib.h>
+# include <string.h>
 # include <sys/stat.h>
 # include <sys/types.h>
 # include <unistd.h>
@@ -95,7 +96,7 @@ typedef struct s_cub
 	int ceiling;      // color of the ceiling.
 						// Last row should be NULL. After last valid member of row,
 	// one more shoul be set as -1.
-	int		*map[];
+	char	*map[];
 }			t_cub;
 
 //==========================================================================//
@@ -124,16 +125,15 @@ int			valid_map(char *str);
 int			check_side_wall(char *str);
 int			check_walls(char *str);
 void		map_format(char **str, t_parser *infos);
+int			map_position(t_parser *infos);
 
 // fill_map.c
 t_parser	*check_map(t_parser *infos, char **tab);
 void		fill_map(char *str, t_parser *infos);
-int			**fill_real_map(char **map, t_parser *infos);
 
 // fill_struct.c
 
 int			check_id(char *str);
-int			check_file(char *str, int i, t_parser *infos);
 t_parser	*fill_struct(t_parser *infos, char *str);
 
 // parse_colors.c
@@ -148,8 +148,10 @@ void		clean_map_str(t_parser *infos);
 void		clean_tab(t_parser *infos);
 
 // utils.c
-void		handle_space(char **map);
+int			check_file(char *str, t_parser *infos);
+char		**handle_space(char **map);
 size_t		ft_map_size(char **str);
 t_dir		find_direction(char **map);
+int			easy_atoi(char c);
 
 #endif

@@ -6,13 +6,13 @@
 /*   By: lgernido <lgernido@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/17 15:22:08 by lgernido          #+#    #+#             */
-/*   Updated: 2024/04/18 12:18:37 by lgernido         ###   ########.fr       */
+/*   Updated: 2024/04/19 11:45:20 by lgernido         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub.h"
 
-void	handle_space(char **map)
+char	**handle_space(char **map)
 {
 	int	i;
 	int	j;
@@ -29,6 +29,7 @@ void	handle_space(char **map)
 		}
 		i++;
 	}
+	return (map);
 }
 
 size_t	ft_map_size(char **str)
@@ -67,4 +68,17 @@ t_dir	find_direction(char **map)
 		i++;
 	}
 	return (-1);
+}
+int	check_file(char *str, t_parser *infos)
+{
+	int fd;
+
+	fd = open(str, O_RDONLY);
+	if (fd == -1)
+	{
+		error_exit("Texture file can't be opened\n", infos);
+		return (1);
+	}
+	close(fd);
+	return (0);
 }

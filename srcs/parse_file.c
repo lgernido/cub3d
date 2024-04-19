@@ -6,7 +6,7 @@
 /*   By: lgernido <lgernido@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/16 12:09:34 by lgernido          #+#    #+#             */
-/*   Updated: 2024/04/18 12:41:57 by lgernido         ###   ########.fr       */
+/*   Updated: 2024/04/19 13:32:07 by lgernido         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,23 +35,26 @@ void	check_file_format(char *str, t_parser *infos)
 
 char	**read_file(int file)
 {
-	char	**infos;
+	char	**tab;
 	char	*line;
 	int		i;
 
 	i = 0;
-	infos = (char **)malloc(sizeof(char *) * 100);
-	if (!infos)
+	tab = (char **)malloc(sizeof(char *) * 100);
+	if (!tab)
 		return (NULL);
 	line = get_next_line(file);
 	while (line != NULL)
 	{
-		infos[i] = line;
-		i++;
+		if (line[0] != '\n')
+		{
+			tab[i] = line;
+			i++;
+		}
 		line = get_next_line(file);
 	}
-	infos[i] = NULL;
-	return (infos);
+	tab[i] = NULL;
+	return (tab);
 }
 
 void	check_params(int argc, char **argv)
@@ -59,7 +62,7 @@ void	check_params(int argc, char **argv)
 	int			map;
 	t_parser	*infos;
 	int			i;
-	// int			**real_map;
+	t_dir		direction;
 
 	infos = NULL;
 	infos = init_struct(infos);
@@ -73,27 +76,39 @@ void	check_params(int argc, char **argv)
 		if (!infos->tab)
 			error_exit("MALLOC\n", infos);
 		infos = check_map(infos, infos->tab);
-		//real_map = fill_real_map(infos->map, infos);
-		i = 0;
-		while (infos->map[i] != NULL)
-		{
-			printf("%s\n", infos->map[i]);
-			i++;
-		}
-		printf("\n\n");
-		printf("infos.north: %s\n", infos->north);
-		printf("infos.south: %s\n", infos->south);
-		printf("infos.west: %s\n", infos->west);
-		printf("infos.east: %s\n", infos->east);
-		printf("Couleur du sol : R: %d, G: %d, B: %d\n", infos->floor.r,
-			infos->floor.g, infos->floor.b);
-		printf("Couleur du plafond : R: %d, G: %d, B: %d\n", infos->ceiling.r,
-			infos->ceiling.g, infos->ceiling.b);
+		direction = find_direction(infos->map);
 		// i = 0;
-		// while (real_map[i] != NULL)
+		// while (infos->map[i] != NULL)
 		// {
-		// 	printf("%d\n", real_map[i]);
+		// 	printf("%s\n", infos->map[i]);
 		// 	i++;
 		// }
+		// printf("\n\n");
+		// printf("infos.north: %s\n", infos->north);
+		// printf("infos.south: %s\n", infos->south);
+		// printf("infos.west: %s\n", infos->west);
+		// printf("infos.east: %s\n", infos->east);
+		// printf("Couleur du sol : R: %d, G: %d, B: %d\n", infos->floor.r,
+		// 	infos->floor.g, infos->floor.b);
+		// printf("Couleur du plafond : R: %d, G: %d, B: %d\n",
+		// infos->ceiling.r,
+		// 	infos->ceiling.g, infos->ceiling.b);
+		// printf("Orientation : %d\n", direction);
+		i = 0;
+		while (infos->tab[i])
+		{
+			printf("%s", infos->tab[i]);
+			i++;
+		}
 	}
 }
+// void	to_cub(t_parser *infos, t_cub *cub)
+// {
+// 	t_cub	*cub;
+
+// 	cub = malloc(sizeof(t_cub));
+// 	if (!cub)
+// 		error_exit("MALLOC\n");
+// 	cub->dir = find_direction(infos->map);
+// 	cub->
+// }
