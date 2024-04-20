@@ -213,6 +213,8 @@ int				handle_mouse(t_cub *cub);
 //clean_exit.c
 void			clean_cub(t_cub *cub, int error_code);
 int				verify_texture(char *path, char *dimension_string);
+int				open_wall_text(t_cub *cub, t_img *texture_dest,
+					char *texture_path);
 
 // Functon for testing solo exec
 void			init_cub_var(t_cub *cub);
@@ -259,6 +261,7 @@ int				count_colors(char *str, t_parser *infos);
 void			clean_all(t_parser *infos);
 void			clean_map_str(t_parser *infos);
 void			clean_tab(t_parser *infos);
+void			really_clean_all(t_parser *info, t_cub *cub);
 
 // utils.c
 int				check_file(char *str, t_parser *infos);

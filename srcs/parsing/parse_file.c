@@ -77,7 +77,7 @@ void	check_params(int argc, char **argv, t_cub *cub)
 		count_params(infos->tab, infos);
 		infos = check_map(infos, infos->tab);
 		direction = find_direction(infos->map);
-		// cub = to_cub(infos, cub);
+		cub = to_cub(infos, cub);
 		i = 0;
 		while (infos->map[i] != NULL)
 		{
@@ -97,6 +97,7 @@ void	check_params(int argc, char **argv, t_cub *cub)
 		printf("cube direction %d\n", cub->p_dir);
 		printf("cube position :  x:%f, y:%f\n", cub->pos.x, cub->pos.y);
 	}
+	clean_all(infos);
 }
 
 t_cub	*to_cub(t_parser *infos, t_cub *cub)
@@ -106,10 +107,14 @@ t_cub	*to_cub(t_parser *infos, t_cub *cub)
 	i = 0;
 	cub->p_dir = find_direction(infos->map);
 	player_position(infos, cub);
-	while (infos->map[i] != NULL)
-	{
-		fill_cub(infos->map[i], cub);
-		i++;
-	}
+	verify_texture(infos->north, EXPECTED_TEXT);
+	verify_texture(infos->south, EXPECTED_TEXT);
+	verify_texture(infos->east, EXPECTED_TEXT);
+	verify_texture(infos->west, EXPECTED_TEXT);
+	// while (infos->map[i] != NULL)
+	// {
+	// 	fill_cub(infos->map[i], cub);
+	// 	i++;
+	// }
 	return (cub);
 }

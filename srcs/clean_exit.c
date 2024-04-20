@@ -61,7 +61,8 @@ void	clean_cub(t_cub *cub, int error_code)
 		mlx_destroy_image(cub->display.mlx, cub->main_img.img);
 	if (cub->mini_map.img != NULL)
 		mlx_destroy_image(cub->display.mlx, cub->mini_map.img);
-	clean_map(cub->map);
+	if (cub->map != NULL)
+		clean_map(cub->map);
 	clean_display(&cub->display);
 	if (error_code == 1)
 	{

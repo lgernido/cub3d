@@ -18,14 +18,22 @@ int	main(int argc, char **argv)
 {
 	t_cub	cub;
 
+	if (argc < 2)
+	{
+		ft_putendl_fd("Error", 2);
+		ft_putendl_fd("No map.", 2);
+		return (1);
+	}
+	if (argc > 2)
+	{
+		ft_putendl_fd("Error", 2);
+		ft_putendl_fd("Too many arguments.", 2);
+		return (1);
+	}
 	ft_bzero(&cub, sizeof (t_cub));
-	// data = ft_mlx_init(&data); --> Not necessary at min, will be done
-	// after parsing. Only mlx need to be init so texture images can refer to it.
 	check_params(argc, argv, &cub);
 	cub.display.mlx = mlx_init();
 	if (cub.display.mlx == NULL)
 		clean_cub(&cub, 1);
-	exec_init(&cub);
-	// parse
-	
+	// exec_init(&cub);
 }

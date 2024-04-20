@@ -50,3 +50,9 @@ void	clean_all(t_parser *infos)
 	clean_map_str(infos);
 	free(infos);
 }
+
+void	really_clean_all(t_parser *info, t_cub *cub)
+{
+	clean_all(info);
+	clean_cub(cub, 1);
+}

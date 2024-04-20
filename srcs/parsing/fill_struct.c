@@ -70,8 +70,8 @@ int	player_position(t_parser *infos, t_cub *cub)
 		{
 			if (ft_strchr("NSEW", infos->map[i][j]))
 			{
-				cub->pos.x = (double)j + 0.5;
-				cub->pos.y = (double)i + 0.5;
+				cub->pos.x = (double)i + 0.5;
+				cub->pos.y = (double)j + 0.5;
 				infos->map[i][j] = '0';
 			}
 			j++;
