@@ -6,7 +6,7 @@
 /*   By: lgernido <lgernido@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/16 12:09:34 by lgernido          #+#    #+#             */
-/*   Updated: 2024/04/19 14:33:05 by lgernido         ###   ########.fr       */
+/*   Updated: 2024/04/20 10:12:21 by lgernido         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,11 +46,8 @@ char	**read_file(int file)
 	line = get_next_line(file);
 	while (line != NULL)
 	{
-		if (line[0] != '\n')
-		{
-			tab[i] = line;
-			i++;
-		}
+		tab[i] = line;
+		i++;
 		line = get_next_line(file);
 	}
 	tab[i] = NULL;

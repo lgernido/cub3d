@@ -6,7 +6,7 @@
 /*   By: lgernido <lgernido@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/19 08:16:35 by lgernido          #+#    #+#             */
-/*   Updated: 2024/04/19 13:33:10 by lgernido         ###   ########.fr       */
+/*   Updated: 2024/04/20 11:22:10 by lgernido         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,8 +19,8 @@ void	fill_map(char *str, t_parser *infos)
 	i = 0;
 	while (infos->map[i] != NULL)
 		i++;
-	if (str[0] != '\0' && str[0] != '\n')
-		infos->map[i] = ft_strdup(str);
+	str = handle_space(str);
+	infos->map[i] = ft_strdup(str);
 }
 
 t_parser	*check_map(t_parser *infos, char **tab)
@@ -39,8 +39,10 @@ t_parser	*check_map(t_parser *infos, char **tab)
 	{
 		if (check_id(tab[i]) == 7)
 		{
-			if (valid_map(tab[i]) == 1)
+			if (valid_map(tab[i], infos) == 1)
 				error_exit("Invalid map file\n", infos);
+			else if (check_id(tab[i + 1]) == 8)
+				error_exit("Map is separated\n", infos);
 			else
 				fill_map(tab[i], infos);
 		}

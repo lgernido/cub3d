@@ -6,7 +6,7 @@
 /*   By: lgernido <lgernido@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/17 09:37:18 by lgernido          #+#    #+#             */
-/*   Updated: 2024/04/19 14:37:12 by lgernido         ###   ########.fr       */
+/*   Updated: 2024/04/20 11:58:37 by lgernido         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,42 +14,38 @@
 
 int	map_position(t_parser *infos)
 {
-	int	first_line;
 	int	i;
+	int	j;
 
-	first_line = 0;
 	i = 0;
-	while (infos->tab[i] != NULL)
+	while (infos->tab[i])
 	{
-		if (valid_map(infos->tab[i]) == 0 && check_walls(infos->tab[i]))
+		j = 0;
+		while (infos->tab[i][j])
 		{
-			first_line = i;
-			break ;
+			j++;
 		}
-		else
-			i++;
-	}
-	i = 0;
-	while (infos->tab[i] != NULL)
-	{
-		if (check_id(infos->tab[i]) >= 1 && check_id(infos->tab[i]) <= 6
-			&& i > first_line)
-			error_exit("Parameters after map\n", infos);
 		i++;
 	}
+	if (valid_map(infos->tab[i - 1], infos))
+		error_exit("Map not at the end of file\n", infos);
 	return (0);
 }
 
-int	valid_map(char *str)
+int	valid_map(char *str, t_parser *infos)
 {
 	int	i;
 
 	i = 0;
 	while (str && str[i])
 	{
-		if (str[i] != '0' && str[i] != '1' && str[i] != 'N' && str[i] != 'S'
-			&& str[i] != 'W' && str[i] != 'E' && str[i] != '\0'
-			&& str[i] != '\n' && str[i] != ' ')
+		if (str[0] == '\n')
+		{
+			error_exit("Invalid map file\n", infos);
+		}
+		else if (str[i] != '0' && str[i] != '1' && str[i] != 'N'
+			&& str[i] != 'S' && str[i] != 'W' && str[i] != 'E' && str[i] != '\0'
+			&& str[i] != ' ' && str[i] != '\n')
 			return (1);
 		else
 			i++;
@@ -97,7 +93,6 @@ void	map_format(char **str, t_parser *infos)
 	i = 0;
 	map_size = ft_map_size(str);
 	map_position(infos);
-	str = handle_space(str);
 	while (str[i])
 	{
 		if (i == 0 || i == map_size - 1)

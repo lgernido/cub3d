@@ -6,7 +6,7 @@
 /*   By: lgernido <lgernido@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/17 11:15:03 by lgernido          #+#    #+#             */
-/*   Updated: 2024/04/19 12:48:28 by lgernido         ###   ########.fr       */
+/*   Updated: 2024/04/20 10:54:29 by lgernido         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ int	check_id(char *str)
 	i = 0;
 	if (str && str[i])
 	{
-		if (str[i] == ' ' || str[i] == '\n')
+		if (!ft_strncmp(str, "\n", 1))
 			return (8);
 		else if (str[i] == 'N' && str[i + 1] == 'O')
 			return (1);
@@ -49,7 +49,7 @@ t_parser	*fill_struct(t_parser *infos, char *str)
 		infos->west = (str + 3);
 	else if (check_id(str) == 4)
 		infos->east = (str + 3);
-	else
+	else if (check_id(str) == 5 || check_id(str) == 6)
 		treat_colors(infos, str);
 	return (infos);
 }

@@ -6,30 +6,24 @@
 /*   By: lgernido <lgernido@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/17 15:22:08 by lgernido          #+#    #+#             */
-/*   Updated: 2024/04/19 14:36:05 by lgernido         ###   ########.fr       */
+/*   Updated: 2024/04/20 10:24:03 by lgernido         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub.h"
 
-char	**handle_space(char **map)
+char	*handle_space(char *str)
 {
 	int	i;
-	int	j;
 
 	i = 0;
-	while (map[i])
+	while (str[i])
 	{
-		j = 0;
-		while (map[i][j])
-		{
-			if (map[i][j] == ' ')
-				map[i][j] = '1';
-			j++;
-		}
+		if (str[i] == ' ')
+			str[i] = '1';
 		i++;
 	}
-	return (map);
+	return (str);
 }
 
 size_t	ft_map_size(char **str)
