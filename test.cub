@@ -3,7 +3,8 @@ SO textures/jul2.xpm
 EA textures/jul4.xpm
 WE textures/jul3.xpm
 F 220,100,0
-C 225,30,0
+C 225,30,14
+
 
 11111111111111111111111111
 100000000110000000000001
