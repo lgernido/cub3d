@@ -15,6 +15,8 @@
 
 void	open_image(t_cub *cub, char *path, t_mini_map tex)
 {
+	if (verify_texture(path, EXPECTED_MINI) == 0)
+		clean_all(cub, 1);
 	cub->mini_map_texture[tex].img = mlx_xpm_file_to_image(
 			cub->display.mlx, path,
 			&cub->mini_map_texture[tex].line_length,

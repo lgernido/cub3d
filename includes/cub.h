@@ -23,14 +23,18 @@
 # include "mlx.h"
 # include <stdio.h>
 # include <stdlib.h>
+# include <errno.h>
+# include <string.h>
 # include <fcntl.h>
 # include <unistd.h>
 
 # define WIDTH 1150
 # define HEIGHT 920
-# define TEXTURE_SIZE 64
+# define TEXTURE_SIZE 256
 # define MINIMAP 144
 # define MINIMAP_PIX 16
+# define EXPECTED_TEXT "\"256 256"
+# define EXPECTED_MINI "\"16 16"
 
 //==========================================================================//
 /*STRUCTURES*/
@@ -182,6 +186,7 @@ int				handle_mouse(t_cub *cub);
 //==========================================================================//
 //clean_exit.c
 void			clean_all(t_cub *cub, int error_code);
+int				verify_texture(char *path, char *dimension_string);
 
 // Functon for testing solo exec
 void	init_cub_var(t_cub *cub);

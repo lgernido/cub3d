@@ -28,6 +28,7 @@ void	exec_init(t_cub	*cub)
 			&cub->main_img.bits_per_pixel, &cub->main_img.line_length,
 			&cub->main_img.endian);
 	init_mini_map(cub);
+	verify_texture("textures/jul1.xpm", "\"256 256");
 	init_texture(cub);
 	init_cub_var(cub);
 	compute_image(cub);
