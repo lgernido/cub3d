@@ -6,7 +6,7 @@
 /*   By: lgernido <lgernido@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/16 11:43:27 by lgernido          #+#    #+#             */
-/*   Updated: 2024/04/20 10:37:50 by lgernido         ###   ########.fr       */
+/*   Updated: 2024/04/20 13:17:15 by lgernido         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -118,6 +118,7 @@ void		check_file_format(char *str, t_parser *infos);
 void		error_exit(char *str, t_parser *infos);
 void		check_params(int argc, char **argv);
 char		**read_file(int file);
+t_cub		*to_cub(t_parser *infos, t_cub *cub);
 
 // check_map.c
 
@@ -135,11 +136,13 @@ void		fill_map(char *str, t_parser *infos);
 
 int			check_id(char *str);
 t_parser	*fill_struct(t_parser *infos, char *str);
+int			player_position(t_parser *infos, t_cub *cub);
+void		fill_cub(char *str, t_cub *cub);
 
 // parse_colors.c
 
 void		treat_colors(t_parser *infos, char *str);
-t_rgb		parse_color(char *str, int i, t_rgb *surface);
+t_rgb		parse_color(char *str, int i, t_rgb *surface, t_parser *infos);
 
 // clean_all.c
 

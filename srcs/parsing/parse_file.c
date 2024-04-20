@@ -6,7 +6,7 @@
 /*   By: lgernido <lgernido@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/16 12:09:34 by lgernido          #+#    #+#             */
-/*   Updated: 2024/04/20 10:12:21 by lgernido         ###   ########.fr       */
+/*   Updated: 2024/04/20 14:04:49 by lgernido         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ void	check_file_format(char *str, t_parser *infos)
 	while (str[i] != '\0')
 		i++;
 	if (str[i - 1] != 'b' || str[i - 2] != 'u' || str[i - 3] != 'c' || str[i
-		- 4] != '.')
+			- 4] != '.')
 		error_exit("Wrong file extension\n", infos);
 }
 
@@ -58,11 +58,15 @@ void	check_params(int argc, char **argv)
 {
 	int			map;
 	t_parser	*infos;
-	int			i;
 	t_dir		direction;
+	t_cub		*cub;
+	int			i;
 
 	infos = NULL;
 	infos = init_struct(infos);
+	cub = malloc(sizeof(t_cub));
+	if (!cub)
+		error_exit("MALLOC\n", infos);
 	if (argc == 2)
 	{
 		check_file_format(argv[1], infos);
@@ -74,10 +78,11 @@ void	check_params(int argc, char **argv)
 			error_exit("MALLOC\n", infos);
 		infos = check_map(infos, infos->tab);
 		direction = find_direction(infos->map);
+		cub = to_cub(infos, cub);
 		i = 0;
 		while (infos->map[i] != NULL)
 		{
-			printf("%s\n", infos->map[i]);
+			printf("%s", infos->map[i]);
 			i++;
 		}
 		printf("\n\n");
@@ -90,16 +95,22 @@ void	check_params(int argc, char **argv)
 		printf("Couleur du plafond : R: %d, G: %d, B: %d\n", infos->ceiling.r,
 			infos->ceiling.g, infos->ceiling.b);
 		printf("Orientation : %d\n", direction);
+		printf("cube direction %d\n", cub->p_dir);
+		printf("cube position :  x:%f, y:%f\n", cub->pos.x, cub->pos.y);
 	}
 }
 
-// void	to_cub(t_parser *infos, t_cub *cub)
-// {
-// 	t_cub	*cub;
+t_cub	*to_cub(t_parser *infos, t_cub *cub)
+{
+	int	i;
 
-// 	cub = malloc(sizeof(t_cub));
-// 	if (!cub)
-// 		error_exit("MALLOC\n");
-// 	cub->dir = find_direction(infos->map);
-// 	cub->map = infos->map;
-// }
+	i = 0;
+	cub->p_dir = find_direction(infos->map);
+	player_position(infos, cub);
+	while (infos->map[i] != NULL)
+	{
+		fill_cub(infos->map[i], cub);
+		i++;
+	}
+	return (cub);
+}

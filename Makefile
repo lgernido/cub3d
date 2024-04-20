@@ -3,8 +3,11 @@
 
 SRC_FOLDER	= srcs/
 
-SRC_FILES	= main.c mlx_init.c parse_file.c check_map.c fill_struct.c clean_all.c \
-parse_colors.c utils.c init_struct.c fill_map.c
+SRC_FILES	= main.c mlx_init.c $(PARSING_FILES)
+
+PARSING_DIR = parsing/
+PARSING_FILES = $(addprefix $(PARSING_DIR), parse_file.c check_map.c fill_struct.c clean_all.c \
+parse_colors.c utils.c init_struct.c fill_map.c)
 
 BUILD = build/
 
@@ -48,6 +51,7 @@ $(NAME): $(OBJ_FILES) $(INCLUDES)
 
 build/%.o: srcs/%.c
 	@mkdir -p ${BUILD}
+	@mkdir -p $(BUILD)/$(PARSING_DIR)
 	@echo "$(YELLOW)Compilation de $*$(RESET)"
 	@$(CC) $(CFLAGS) -I$(INCLUDE_PATH) -I$(LIBFT_PATH) -I/usr/include -I$(MLX_PATH) -c $< -o $@
 

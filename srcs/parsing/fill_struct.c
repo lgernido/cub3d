@@ -6,7 +6,7 @@
 /*   By: lgernido <lgernido@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/17 11:15:03 by lgernido          #+#    #+#             */
-/*   Updated: 2024/04/20 10:54:29 by lgernido         ###   ########.fr       */
+/*   Updated: 2024/04/20 12:33:04 by lgernido         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,4 +52,28 @@ t_parser	*fill_struct(t_parser *infos, char *str)
 	else if (check_id(str) == 5 || check_id(str) == 6)
 		treat_colors(infos, str);
 	return (infos);
+}
+
+int	player_position(t_parser *infos, t_cub *cub)
+{
+	int	i;
+	int	j;
+
+	i = 0;
+	while (infos->map[i])
+	{
+		j = 0;
+		while (infos->map[i][j])
+		{
+			if (ft_strchr("NSEW", infos->map[i][j]))
+			{
+				cub->pos.x = (double)j + 0.5;
+				cub->pos.y = (double)i + 0.5;
+				infos->map[i][j] = '0';
+			}
+			j++;
+		}
+		i++;
+	}
+	return (0);
 }

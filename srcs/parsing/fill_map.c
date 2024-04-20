@@ -6,7 +6,7 @@
 /*   By: lgernido <lgernido@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/19 08:16:35 by lgernido          #+#    #+#             */
-/*   Updated: 2024/04/20 11:22:10 by lgernido         ###   ########.fr       */
+/*   Updated: 2024/04/20 13:48:44 by lgernido         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,23 +26,20 @@ void	fill_map(char *str, t_parser *infos)
 t_parser	*check_map(t_parser *infos, char **tab)
 {
 	int	i;
-	int	j;
 
 	i = 0;
-	j = 0;
 	infos->map = (char **)malloc(sizeof(char *) * 100);
 	if (!infos->map)
 		error_exit("MALLOC\n", infos);
-	while (j < 100)
-		infos->map[j++] = NULL;
-	while (tab[i] != NULL)
+	while (i < 100)
+		infos->map[i++] = NULL;
+	i = 0;
+	while (tab[i])
 	{
 		if (check_id(tab[i]) == 7)
 		{
-			if (valid_map(tab[i], infos) == 1)
+			if (valid_map(tab[i], infos) == 1 || check_id(tab[i + 1]) == 8)
 				error_exit("Invalid map file\n", infos);
-			else if (check_id(tab[i + 1]) == 8)
-				error_exit("Map is separated\n", infos);
 			else
 				fill_map(tab[i], infos);
 		}
@@ -53,4 +50,15 @@ t_parser	*check_map(t_parser *infos, char **tab)
 	infos->map[i] = "\0";
 	map_format(infos->map, infos);
 	return (infos);
+}
+
+void	fill_cub(char *str, t_cub *cub)
+{
+	int	i;
+
+	i = 0;
+	while (cub->map[i] != NULL)
+		i++;
+	cub->map[i] = ft_strdup(str);
+	i++;
 }
