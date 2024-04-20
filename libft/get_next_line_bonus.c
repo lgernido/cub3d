@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   get_next_line_bonus.c                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: vlevy <vlevy@student.42.fr>                +#+  +:+       +#+        */
+/*   By: lgernido <lgernido@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/16 19:03:27 by vlevy             #+#    #+#             */
-/*   Updated: 2023/11/25 17:38:11 by vlevy            ###   ########.fr       */
+/*   Updated: 2024/04/17 09:00:56 by lgernido         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,8 @@
 
 static char	*fill_str(char *stash, char *str, t_clist *lst, int lst_size)
 {
-	t_clist		*temp_node;
-	int			len;
+	t_clist	*temp_node;
+	int		len;
 
 	temp_node = lst;
 	len = ft_strlen_cs(stash, '\n', 1);
@@ -43,7 +43,7 @@ char	*update_stash(char *stash, t_clist *temp_str_node)
 	char	*temp_str;
 	int		len_to_trim;
 
-	temp_str = malloc(BUFFER_SIZE + 1 * sizeof (char));
+	temp_str = malloc(BUFFER_SIZE + 1 * sizeof(char));
 	if (temp_str == NULL)
 		return (NULL);
 	if (temp_str_node != NULL)
@@ -57,8 +57,8 @@ char	*update_stash(char *stash, t_clist *temp_str_node)
 	{
 		ft_memset(temp_str, 0, BUFFER_SIZE + 1);
 		len_to_trim = ft_strlen_cs(stash, '\n', 1);
-		ft_strncat(temp_str, stash + len_to_trim, BUFFER_SIZE
-			- len_to_trim + 1);
+		ft_strncat(temp_str, stash + len_to_trim, BUFFER_SIZE - len_to_trim
+			+ 1);
 		ft_memset(stash, 0, BUFFER_SIZE + 1);
 		ft_strncat(stash, temp_str, BUFFER_SIZE + 1);
 	}
@@ -68,10 +68,10 @@ char	*update_stash(char *stash, t_clist *temp_str_node)
 
 char	*handle_eol(int lst_size, char *stash, t_clist *lst)
 {
-	t_clist		*tmp;
-	char		*str;
-	int			i;
-	int			len;
+	t_clist	*tmp;
+	char	*str;
+	int		i;
+	int		len;
 
 	i = 0;
 	tmp = lst;
@@ -84,7 +84,7 @@ char	*handle_eol(int lst_size, char *stash, t_clist *lst)
 	len = ft_strlen_cs(stash, '\n', 1) + i + ((lst_size - 1) * BUFFER_SIZE);
 	if (len == 0)
 		return (ft_lst_clear(&lst));
-	str = malloc((len + 1) * sizeof (char));
+	str = malloc((len + 1) * sizeof(char));
 	if (str == NULL)
 		return (ft_lst_clear(&lst));
 	ft_memset(str, 0, len + 1);
@@ -98,13 +98,13 @@ char	*read_till_eol(char *str, char *stash, t_clist *lst, int fd)
 	int		lst_size;
 	char	*buff;
 
-	buff = malloc(BUFFER_SIZE + 1 * sizeof (char));
+	buff = malloc(BUFFER_SIZE + 1 * sizeof(char));
 	if (buff == NULL)
 		return (NULL);
 	lst_size = 0;
 	ft_memset(buff, 0, BUFFER_SIZE + 1);
-	while (BUFFER_SIZE == read(fd, buff, BUFFER_SIZE)
-		&& ft_strlen_cs(buff, '\n', 0) == BUFFER_SIZE)
+	while (BUFFER_SIZE == read(fd, buff, BUFFER_SIZE) && ft_strlen_cs(buff,
+			'\n', 0) == BUFFER_SIZE)
 	{
 		if (update_lst(&lst, buff))
 			return (ft_lst_clear(&lst));
@@ -121,10 +121,10 @@ char	*read_till_eol(char *str, char *stash, t_clist *lst, int fd)
 
 char	*get_next_line(int fd)
 {
-	char						*str;
-	static char					stash[FD_CAP][BUFFER_SIZE + 1];
-	t_clist						*lst;
-	int							stash_len;
+	char		*str;
+	static char	stash[FD_CAP][BUFFER_SIZE + 1];
+	t_clist		*lst;
+	int			stash_len;
 
 	if (fd < 0 || BUFFER_SIZE <= 0)
 		return (NULL);

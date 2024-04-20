@@ -1,31 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   mlx_init.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lgernido <lgernido@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/04/16 11:50:31 by lgernido          #+#    #+#             */
-/*   Updated: 2024/04/19 14:27:58 by lgernido         ###   ########.fr       */
+/*   Created: 2024/04/16 11:49:11 by lgernido          #+#    #+#             */
+/*   Updated: 2024/04/17 11:29:44 by lgernido         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub.h"
-#include "libft.h"
-#include "mlx.h"
 
-int	main(int argc, char **argv)
+int	handle_error(void)
 {
-	t_cub	cub;
+	printf("Erreur avec la MLX\n");
+	exit(1);
+}
 
-	ft_bzero(&cub, sizeof (t_cub));
-	// data = ft_mlx_init(&data); --> Not necessary at min, will be done
-	// after parsing. Only mlx need to be init so texture images can refer to it.
-	check_params(argc, argv);
-	cub.display.mlx = mlx_init();
-	if (cub.display.mlx == NULL)
-		clean_all(&cub, 1);
-	exec_init(&cub);
-	// parse
-	
+t_data	ft_mlx_init(t_data *data)
+{
+	data->mlx = mlx_init();
+	if (!data->mlx)
+		handle_error();
+	data->win = mlx_new_window(data->mlx, WIDTH, HEIGHT, "cub3d");
+	if (!data->win)
+	{
+		mlx_destroy_display(data->mlx);
+		free(data->mlx);
+		handle_error();
+	}
+	return (*data);
 }

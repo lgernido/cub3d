@@ -1,31 +1,52 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   clean_all.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lgernido <lgernido@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/04/16 11:50:31 by lgernido          #+#    #+#             */
-/*   Updated: 2024/04/19 14:27:58 by lgernido         ###   ########.fr       */
+/*   Created: 2024/04/17 14:17:56 by lgernido          #+#    #+#             */
+/*   Updated: 2024/04/18 14:05:37 by lgernido         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub.h"
-#include "libft.h"
-#include "mlx.h"
 
-int	main(int argc, char **argv)
+void	clean_tab(t_parser *infos)
 {
-	t_cub	cub;
+	int	i;
 
-	ft_bzero(&cub, sizeof (t_cub));
-	// data = ft_mlx_init(&data); --> Not necessary at min, will be done
-	// after parsing. Only mlx need to be init so texture images can refer to it.
-	check_params(argc, argv);
-	cub.display.mlx = mlx_init();
-	if (cub.display.mlx == NULL)
-		clean_all(&cub, 1);
-	exec_init(&cub);
-	// parse
-	
+	if (infos->tab)
+	{
+		i = 0;
+		while (infos->tab[i])
+		{
+			free(infos->tab[i]);
+			i++;
+		}
+		free(infos->tab);
+	}
+}
+
+void	clean_map_str(t_parser *infos)
+{
+	int	i;
+
+	if (infos->map)
+	{
+		i = 0;
+		while (infos->map[i])
+		{
+			free(infos->map[i]);
+			i++;
+		}
+		free(infos->map);
+	}
+}
+
+void	clean_all(t_parser *infos)
+{
+	clean_tab(infos);
+	clean_map_str(infos);
+	free(infos);
 }

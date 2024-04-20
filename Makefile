@@ -2,14 +2,17 @@
 #### SOURCES
 
 SRC_FOLDER	= srcs/
-SRC_FOLDER_BONUS = srcs/bonus/
 
 SRC_FILES	= main.c exec_init.c clean_exit.c drawing_utils.c handle_keyboard.c\
 						draw_line.c exec_solo.c raycaster.c mouse.c mini_map_init.c\
 						draw_mini_map.c verify_texture.c
 
+SRC_FILES	= main.c mlx_init.c $(PARSING_FILES)
 
-SRC_FILES_BONUS = 
+PARSING_DIR = parsing/
+PARSING_FILES = $(addprefix $(PARSING_DIR), parse_file.c check_map.c fill_struct.c clean_all.c \
+parse_colors.c utils.c init_struct.c fill_map.c)
+
 BUILD = build/
 
 
@@ -44,14 +47,15 @@ RESET	=	\033[0m
 #### RULES
 
 $(NAME): $(OBJ_FILES) $(INCLUDES)
-	# @make -C $(LIBFT_PATH) --no-print-directory -s
+	@make -C $(LIBFT_PATH) --no-print-directory -s
 	@make -C $(MLX_PATH) --no-print-directory -s
-	@$(CC) $(CFLAGS) $(OBJ_FILES) libft.a $(MLX_INCLUDE) -o $(NAME)
+	@$(CC) $(CFLAGS) $(OBJ_FILES) $(MLX_INCLUDE) $(LIBFT) -o $(NAME)
 	@echo "$(MAGENTA)Les fichiers modifiés sont: $?$(RESET)"
 	@echo "$(GREEN)Compilation réussie !$(RESET)"
 
 build/%.o: srcs/%.c
 	@mkdir -p ${BUILD}
+	@mkdir -p $(BUILD)/$(PARSING_DIR)
 	@echo "$(YELLOW)Compilation de $*$(RESET)"
 	@$(CC) $(CFLAGS) -I$(INCLUDE_PATH) -I$(LIBFT_PATH) -I/usr/include -I$(MLX_PATH) -c $< -o $@
 
@@ -59,7 +63,6 @@ all : $(NAME)
 
 clean :
 	@rm -rf ${BUILD}
-	@#@rm -f *.txt
 	@rm -f *.o ${OBJ_FILES_BONUS}
 	@make clean -C $(LIBFT_PATH) --no-print-directory -s
 	@make clean -C $(MLX_PATH) --no-print-directory -s
@@ -67,17 +70,9 @@ clean :
 
 fclean : clean
 	@rm -f ${NAME}
-	#@make fclean -C $(LIBFT_PATH) --no-print-directory -s
+	@make fclean -C $(LIBFT_PATH) --no-print-directory -s
 	@echo "$(GREEN) Nettoyage terminé $(RESET)"
 
-bonus : $(OBJ_FILES_BONUS)
-	@make -C $(LIBFT_PATH) --no-print-directory -s
-	@make -C $(MLX_PATH) --no-print-directory -s
-	@$(CC) $(CFLAGS) $(OBJ_FILES_BONUS) -o $(NAME)
-	@echo "$(MAGENTA)Les fichiers modifiés sont: $?$(RESET)"
-	@echo "$(GREEN)Compilation réussie !$(RESET)"
-
- 
 re : fclean all
 
 .PHONY : all clean fclean re
