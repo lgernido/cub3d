@@ -6,7 +6,7 @@
 /*   By: lgernido <lgernido@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/16 12:09:34 by lgernido          #+#    #+#             */
-/*   Updated: 2024/04/20 14:04:49 by lgernido         ###   ########.fr       */
+/*   Updated: 2024/04/20 14:38:18 by lgernido         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -76,6 +76,7 @@ void	check_params(int argc, char **argv)
 		infos->tab = read_file(map);
 		if (!infos->tab)
 			error_exit("MALLOC\n", infos);
+		count_params(infos->tab, infos);
 		infos = check_map(infos, infos->tab);
 		direction = find_direction(infos->map);
 		cub = to_cub(infos, cub);

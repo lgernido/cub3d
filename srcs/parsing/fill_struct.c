@@ -6,7 +6,7 @@
 /*   By: lgernido <lgernido@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/17 11:15:03 by lgernido          #+#    #+#             */
-/*   Updated: 2024/04/20 12:33:04 by lgernido         ###   ########.fr       */
+/*   Updated: 2024/04/20 14:37:57 by lgernido         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,7 +50,10 @@ t_parser	*fill_struct(t_parser *infos, char *str)
 	else if (check_id(str) == 4)
 		infos->east = (str + 3);
 	else if (check_id(str) == 5 || check_id(str) == 6)
-		treat_colors(infos, str);
+	{
+		if (!count_colors(str, infos))
+			treat_colors(infos, str);
+	}
 	return (infos);
 }
 
@@ -75,5 +78,23 @@ int	player_position(t_parser *infos, t_cub *cub)
 		}
 		i++;
 	}
+	return (0);
+}
+
+int	count_params(char **tab, t_parser *infos)
+{
+	int	i;
+	int	params;
+
+	i = 0;
+	params = 0;
+	while (tab[i])
+	{
+		if (check_id(tab[i]) >= 1 && check_id(tab[i]) <= 6)
+			params++;
+		i++;
+	}
+	if (params != 6)
+		error_exit("Invalid number of parameters\n", infos);
 	return (0);
 }

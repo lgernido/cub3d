@@ -6,7 +6,7 @@
 /*   By: lgernido <lgernido@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/17 15:39:47 by lgernido          #+#    #+#             */
-/*   Updated: 2024/04/20 13:37:09 by lgernido         ###   ########.fr       */
+/*   Updated: 2024/04/20 14:37:53 by lgernido         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,4 +48,24 @@ void	treat_colors(t_parser *infos, char *str)
 	{
 		infos->ceiling = parse_color(str, 2, &infos->ceiling, infos);
 	}
+}
+
+int	count_colors(char *str, t_parser *infos)
+{
+	int	commas;
+	int	i;
+
+	commas = 0;
+	i = 0;
+	while (str[i])
+	{
+		if (str[i] == ',')
+			commas++;
+		if (str[i] == ',' && !ft_isdigit(str[i + 1]))
+			error_exit("Invalid rgb input\n", infos);
+		i++;
+	}
+	if (commas != 2)
+		error_exit("Invalid rgb input\n", infos);
+	return (0);
 }
