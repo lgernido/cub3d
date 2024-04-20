@@ -3,15 +3,14 @@
 
 SRC_FOLDER	= srcs/
 
-SRC_FILES	= main.c exec_init.c clean_exit.c drawing_utils.c handle_keyboard.c\
-						draw_line.c exec_solo.c raycaster.c mouse.c mini_map_init.c\
-						draw_mini_map.c verify_texture.c
-
-SRC_FILES	= main.c mlx_init.c $(PARSING_FILES)
 
 PARSING_DIR = parsing/
 PARSING_FILES = $(addprefix $(PARSING_DIR), parse_file.c check_map.c fill_struct.c clean_all.c \
 parse_colors.c utils.c init_struct.c fill_map.c)
+
+SRC_FILES	= main.c exec_init.c clean_exit.c drawing_utils.c handle_keyboard.c\
+						draw_line.c exec_solo.c raycaster.c mouse.c mini_map_init.c\
+						draw_mini_map.c verify_texture.c $(PARSING_FILES)
 
 BUILD = build/
 

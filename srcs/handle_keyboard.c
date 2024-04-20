@@ -16,7 +16,7 @@
 
 int	kill_cross(t_cub *param)
 {
-	clean_all(param, 0);
+	clean_cub(param, 0);
 	return (0);
 }
 
@@ -77,7 +77,7 @@ void	cam_rot(t_cub *cub, double rot_index)
 int	handle_key(int key, t_cub *cub)
 {
 	if (key == XK_Escape)
-		clean_all(cub, 0);
+		clean_cub(cub, 0);
 	if (key == XK_w)
 		go_ns(cub, 1.);
 	if (key == XK_s)

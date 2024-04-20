@@ -17,19 +17,16 @@
 
 void	exec_init(t_cub	*cub)
 {
-	init_map(cub);
 	cub->display.win = mlx_new_window(cub->display.mlx, WIDTH, HEIGHT, "cub");
 	if (cub->display.win == NULL)
-		clean_all(cub, 1);
+		clean_cub(cub, 1);
 	cub->main_img.img = mlx_new_image(cub->display.mlx, WIDTH, HEIGHT);
 	if (cub->main_img.img == NULL)
-		clean_all(cub, 1);
+		clean_cub(cub, 1);
 	cub->main_img.addr = mlx_get_data_addr(cub->main_img.img,
 			&cub->main_img.bits_per_pixel, &cub->main_img.line_length,
 			&cub->main_img.endian);
 	init_mini_map(cub);
-	verify_texture("textures/jul1.xpm", "\"256 256");
-	init_texture(cub);
 	init_cub_var(cub);
 	compute_image(cub);
 	mlx_loop_hook(cub->display.mlx, handle_mouse, cub);
@@ -97,7 +94,7 @@ void	push_image(t_cub *cub)
 	mlx_destroy_image(cub->display.mlx, cub->main_img.img);
 	cub->main_img.img = mlx_new_image(cub->display.mlx, WIDTH, HEIGHT);
 	if (cub->main_img.img == NULL)
-		clean_all(cub, 1);
+		clean_cub(cub, 1);
 	cub->main_img.addr = mlx_get_data_addr(cub->main_img.img,
 			&cub->main_img.bits_per_pixel,
 			&cub->main_img.line_length, &cub->main_img.endian);

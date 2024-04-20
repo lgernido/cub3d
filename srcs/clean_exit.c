@@ -11,6 +11,7 @@
 /* ************************************************************************** */
 
 #include "cub.h"
+#include "libft.h"
 #include "mlx.h"
 
 void	clean_display(t_data *display)
@@ -39,7 +40,7 @@ void	clean_texture(t_img *textures, t_data *display, int size_of_tab)
 	}
 }
 
-void	clean_map(int	**map)
+void	clean_map(char **map)
 {
 	int	i;
 
@@ -52,7 +53,7 @@ void	clean_map(int	**map)
 	free(map);
 }
 
-void	clean_all(t_cub *cub, int error_code)
+void	clean_cub(t_cub *cub, int error_code)
 {
 	clean_texture(cub->texture, &cub->display, 4);
 	clean_texture(cub->mini_map_texture, &cub->display, 4);
@@ -60,8 +61,12 @@ void	clean_all(t_cub *cub, int error_code)
 		mlx_destroy_image(cub->display.mlx, cub->main_img.img);
 	if (cub->mini_map.img != NULL)
 		mlx_destroy_image(cub->display.mlx, cub->mini_map.img);
-	if (cub->map != NULL)
-		clean_map(cub->map);
+	clean_map(cub->map);
 	clean_display(&cub->display);
+	if (error_code == 1)
+	{
+		ft_putendl_fd("Error", 2);
+		ft_putendl_fd("Minilibx Fault.", 2);
+	}
 	exit(error_code);
 }

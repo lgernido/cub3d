@@ -13,6 +13,24 @@
 #include "cub.h"
 #include "libft.h"
 
+int	continue_verify(char *path, char *dimension_string, char *line)
+{
+	if (line == NULL)
+	{
+		ft_putendl_fd("Error", 2);
+		printf("cub3D: %s: Wrong texture format.\n", path);
+		return (0);
+	}
+	if (ft_strncmp(dimension_string, line, ft_strlen(dimension_string)) != 0)
+	{
+		ft_putendl_fd("Error", 2);
+		printf("cub3D: %s: Wrong texture format.\n", path);
+		return (0);
+	}
+	free (line);
+	return (1);
+}
+
 int	verify_texture(char *path, char *dimension_string)
 {
 	int		fd;
@@ -22,6 +40,7 @@ int	verify_texture(char *path, char *dimension_string)
 	fd = open(path, O_RDONLY);
 	if (fd == -1)
 	{
+		ft_putendl_fd("Error", 2);
 		printf("cub3D: %s: %s\n", path, strerror(errno));
 		return (0);
 	}
@@ -34,10 +53,5 @@ int	verify_texture(char *path, char *dimension_string)
 		line = get_next_line(fd);
 		++i;
 	}
-	if (ft_strncmp(dimension_string, line, ft_strlen(dimension_string)) != 0)
-	{
-		printf("cub3D: %s: Wrong texture format.\n", path);
-		return (0);
-	}
-	return (1);
+	return (continue_verify(path, dimension_string, line));
 }

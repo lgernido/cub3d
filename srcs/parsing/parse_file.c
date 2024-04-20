@@ -28,6 +28,8 @@ void	check_file_format(char *str, t_parser *infos)
 	i = 0;
 	while (str[i] != '\0')
 		i++;
+	if (i < 4)
+		error_exit("Wrong file extension\n", infos);
 	if (str[i - 1] != 'b' || str[i - 2] != 'u' || str[i - 3] != 'c' || str[i
 			- 4] != '.')
 		error_exit("Wrong file extension\n", infos);
@@ -54,19 +56,15 @@ char	**read_file(int file)
 	return (tab);
 }
 
-void	check_params(int argc, char **argv)
+void	check_params(int argc, char **argv, t_cub *cub)
 {
 	int			map;
 	t_parser	*infos;
 	t_dir		direction;
-	t_cub		*cub;
 	int			i;
 
 	infos = NULL;
 	infos = init_struct(infos);
-	cub = malloc(sizeof(t_cub));
-	if (!cub)
-		error_exit("MALLOC\n", infos);
 	if (argc == 2)
 	{
 		check_file_format(argv[1], infos);
@@ -79,7 +77,7 @@ void	check_params(int argc, char **argv)
 		count_params(infos->tab, infos);
 		infos = check_map(infos, infos->tab);
 		direction = find_direction(infos->map);
-		cub = to_cub(infos, cub);
+		// cub = to_cub(infos, cub);
 		i = 0;
 		while (infos->map[i] != NULL)
 		{
