@@ -42,7 +42,7 @@ int worldMap[24][24]=
 
 void	init_cub_var(t_cub *cub)
 {
-	cub->pos.x = 15.5;
+	cub->pos.x = 1.5;
 	cub->pos.y = 12.5;
 	cub->dir.x = -1;
 	cub->dir.y = 0;
@@ -50,7 +50,7 @@ void	init_cub_var(t_cub *cub)
 	cub->fov.y = 0.66;
 	cub->floor = colormap(0, 182, 182, 182);
 	cub->ceiling = colormap(0, 92, 92, 92);
-	cam_rot(cub, 3.14159);
+	// cam_rot(cub, 3.14159);
 }
 
 void init_map(t_cub *cub)

@@ -23,6 +23,7 @@
 # include "mlx.h"
 # include <stdio.h>
 # include <stdlib.h>
+# include <fcntl.h>
 # include <unistd.h>
 
 # define WIDTH 1150
@@ -140,7 +141,10 @@ void			get_y_range(t_raycaster *current_values);
 //mini_map.c
 
 void			init_mini_map(t_cub *cub);
-void			draw_mini_map(t_cub *cub, int x_sub_square, int y_sub_square, t_raw_point coord);
+void			draw_mini_map(t_cub *cub, int x_sub_square, int y_sub_square,
+					t_raw_point coord);
+void			draw_rec(t_cub *cub, int x_sub_square, int y_sub_square,
+					t_raw_point coord);
 
 //==========================================================================//
 

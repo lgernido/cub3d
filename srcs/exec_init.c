@@ -87,10 +87,25 @@ void	draw_floor_and_ceilling(t_cub *cub)
 	}
 }
 
+void	push_image(t_cub *cub)
+{
+	mlx_put_image_to_window(cub->display.mlx, cub->display.win,
+		cub->main_img.img, 0, 0);
+	mlx_put_image_to_window(cub->display.mlx, cub->display.win,
+		cub->mini_map.img, 25, 25);
+	mlx_destroy_image(cub->display.mlx, cub->main_img.img);
+	cub->main_img.img = mlx_new_image(cub->display.mlx, WIDTH, HEIGHT);
+	if (cub->main_img.img == NULL)
+		clean_all(cub, 1);
+	cub->main_img.addr = mlx_get_data_addr(cub->main_img.img,
+			&cub->main_img.bits_per_pixel,
+			&cub->main_img.line_length, &cub->main_img.endian);
+}
+
 void	compute_image(t_cub *cub)
 {
 	t_raycaster	current_values;
-	t_raw_point coord;
+	t_raw_point	coord;
 	int			i;
 
 	i = 0;
@@ -108,15 +123,5 @@ void	compute_image(t_cub *cub)
 	coord.x = (int)cub->pos.x;
 	coord.y = (int)cub->pos.y;
 	draw_mini_map(cub, 64, 64, coord);
-	mlx_put_image_to_window(cub->display.mlx, cub->display.win,
-		cub->main_img.img, 0, 0);
-	mlx_put_image_to_window(cub->display.mlx, cub->display.win,
-		cub->mini_map.img, 25, 25);
-	mlx_destroy_image(cub->display.mlx, cub->main_img.img);
-	cub->main_img.img = mlx_new_image(cub->display.mlx, WIDTH, HEIGHT);
-	if (cub->main_img.img == NULL)
-		clean_all(cub, 1);
-	cub->main_img.addr = mlx_get_data_addr(cub->main_img.img,
-			&cub->main_img.bits_per_pixel,
-			&cub->main_img.line_length, &cub->main_img.endian);
+	push_image(cub);
 }
