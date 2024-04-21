@@ -97,7 +97,7 @@ void	check_params(int argc, char **argv, t_cub *cub)
 		printf("cube direction %d\n", cub->p_dir);
 		printf("cube position :  x:%f, y:%f\n", cub->pos.x, cub->pos.y);
 	}
-	clean_all(infos);
+	really_clean_all(infos, cub);
 }
 
 t_cub	*to_cub(t_parser *infos, t_cub *cub)
