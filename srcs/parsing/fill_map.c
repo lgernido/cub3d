@@ -21,6 +21,8 @@ void	fill_map(char *str, t_parser *infos)
 		i++;
 	str = handle_space(str);
 	infos->map[i] = ft_strdup(str);
+	if (infos->map[i] == NULL)
+		error_exit("MALLOC\n", infos);
 }
 
 t_parser	*check_map(t_parser *infos, char **tab)
@@ -28,12 +30,9 @@ t_parser	*check_map(t_parser *infos, char **tab)
 	int	i;
 
 	i = 0;
-	infos->map = (char **)malloc(sizeof(char *) * 100);
+	infos->map = (char **)ft_calloc(sizeof(char *), infos->number_of_line);
 	if (!infos->map)
 		error_exit("MALLOC\n", infos);
-	while (i < 100)
-		infos->map[i++] = NULL;
-	i = 0;
 	while (tab[i])
 	{
 		if (check_id(tab[i]) == 7)
@@ -47,7 +46,7 @@ t_parser	*check_map(t_parser *infos, char **tab)
 			fill_struct(infos, tab[i]);
 		i++;
 	}
-	infos->map[i] = "\0";
+	// infos->map[i] = "\0";
 	map_format(infos->map, infos);
 	return (infos);
 }

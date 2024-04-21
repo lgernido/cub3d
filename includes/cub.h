@@ -75,6 +75,7 @@ typedef struct s_parser
 	char	*east;
 	t_rgb	floor;
 	t_rgb	ceiling;
+	int		number_of_line;
 }			t_parser;
 
 typedef struct s_point
@@ -227,7 +228,7 @@ t_parser		*init_struct(t_parser *parser);
 void			check_file_format(char *str, t_parser *infos);
 void			error_exit(char *str, t_parser *infos);
 void			check_params(int argc, char **argv, t_cub *cub);
-char			**read_file(int file);
+char			**read_file(int file, char *path, t_parser *infos);
 t_cub			*to_cub(t_parser *infos, t_cub *cub);
 
 // check_map.c
@@ -268,5 +269,6 @@ int				check_file(char *str, t_parser *infos);
 char			*handle_space(char *str);
 size_t			ft_map_size(char **str);
 t_dir			find_direction(char **map);
+int				get_number_of_lines(int *fd, char *path);
 
 #endif

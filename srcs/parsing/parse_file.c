@@ -35,24 +35,26 @@ void	check_file_format(char *str, t_parser *infos)
 		error_exit("Wrong file extension\n", infos);
 }
 
-char	**read_file(int file)
+char	**read_file(int file, char *path, t_parser *infos)
 {
 	char	**tab;
 	char	*line;
 	int		i;
 
 	i = 0;
-	tab = (char **)malloc(sizeof(char *) * 100);
+	infos->number_of_line = get_number_of_lines(&file, path);
+	if (infos->number_of_line == -1)
+		error_exit("Parameters file couldn't be opened\n", infos);
+	tab = (char **)ft_calloc(sizeof(char *), infos->number_of_line);
 	if (!tab)
 		return (NULL);
-	line = get_next_line(file);
+	line = get_next_line(file, 0);
 	while (line != NULL)
 	{
 		tab[i] = line;
 		i++;
-		line = get_next_line(file);
+		line = get_next_line(file, 0);
 	}
-	tab[i] = NULL;
 	return (tab);
 }
 
@@ -71,7 +73,7 @@ void	check_params(int argc, char **argv, t_cub *cub)
 		map = open(argv[1], O_RDONLY);
 		if (map == -1)
 			error_exit("Parameters file couldn't be opened\n", infos);
-		infos->tab = read_file(map);
+		infos->tab = read_file(map, argv[1], infos);
 		if (!infos->tab)
 			error_exit("MALLOC\n", infos);
 		count_params(infos->tab, infos);

@@ -119,13 +119,15 @@ char	*read_till_eol(char *str, char *stash, t_clist *lst, int fd)
 	return (str);
 }
 
-char	*get_next_line(int fd)
+char	*get_next_line(int fd, int flag)
 {
 	char		*str;
 	static char	stash[FD_CAP][BUFFER_SIZE + 1];
 	t_clist		*lst;
 	int			stash_len;
 
+	if (flag == -2)
+		return (ft_bzero(&stash[fd], BUFFER_SIZE), NULL);
 	if (fd < 0 || BUFFER_SIZE <= 0)
 		return (NULL);
 	str = NULL;

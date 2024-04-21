@@ -53,7 +53,6 @@ int	verify_texture(char *path, char *dimension_string)
 	if (fd == -1)
 	{
 		ft_putendl_fd("Error", 2);
-		printf("cub3D: %s: %s\n", path, strerror(errno));
 		return (0);
 	}
 	i = 0;
@@ -62,10 +61,11 @@ int	verify_texture(char *path, char *dimension_string)
 	{
 		if (line != NULL)
 			free(line);
-		line = get_next_line(fd);
+		line = get_next_line(fd, 0);
 		++i;
 	}
 	close (fd);
+	get_next_line(fd, -2);
 	return (continue_verify(path, dimension_string, line));
 }
 

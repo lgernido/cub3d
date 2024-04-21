@@ -104,7 +104,7 @@ void				ft_lstiter(t_list *lst, void (*f)(void *));
 t_list				*ft_lstmap(t_list *lst, void *(*f)(void *),
 						void (*del)(void *));
 
-char				*get_next_line(int fd);
+char				*get_next_line(int fd, int flag);
 char				*read_till_eol(char *str, char *stash, t_clist *lst,
 						int fd);
 void				ft_strncat(char *dest, char *src, int n);

@@ -11,6 +11,7 @@
 /* ************************************************************************** */
 
 #include "cub.h"
+#include "libft.h"
 
 char	*handle_space(char *str)
 {
@@ -76,4 +77,27 @@ int	check_file(char *str, t_parser *infos)
 	}
 	close(fd);
 	return (0);
+}
+
+int	get_number_of_lines(int *fd, char *path)
+{
+	size_t	i;
+	char	*line;
+
+	i = 0;
+	line = (void *)1;
+	while (line != NULL)
+	{
+		line = get_next_line(*fd, 0);
+		if (line != NULL)
+			free (line);
+		++i;
+	}
+	get_next_line(*fd, -2);
+	close(*fd);
+	*fd = open(path, O_RDONLY);
+	if (*fd == -1)
+		return (-1);
+	printf("i : %ld\n", i);
+	return (i + 1);
 }
