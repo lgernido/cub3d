@@ -51,8 +51,8 @@ void	clean_all(t_parser *infos)
 	free(infos);
 }
 
-void	really_clean_all(t_parser *info, t_cub *cub)
+void	really_clean_all(t_parser *info, t_cub *cub, int code)
 {
 	clean_all(info);
-	clean_cub(cub, 1);
+	clean_cub(cub, code);
 }

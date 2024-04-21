@@ -46,7 +46,6 @@ t_parser	*check_map(t_parser *infos, char **tab)
 			fill_struct(infos, tab[i]);
 		i++;
 	}
-	// infos->map[i] = "\0";
 	map_format(infos->map, infos);
 	return (infos);
 }
@@ -60,4 +59,11 @@ void	fill_cub(char *str, t_cub *cub)
 		i++;
 	cub->map[i] = ft_strdup(str);
 	i++;
+}
+
+int	skip_spaces(char *str, int i)
+{
+	while (str[i] && str[i] != '\n' && str[i] == ' ')
+		++i;
+	return (i);
 }

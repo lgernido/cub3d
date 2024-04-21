@@ -39,30 +39,15 @@ size_t	ft_map_size(char **str)
 	return (size);
 }
 
-t_dir	find_direction(char **map)
+t_dir	find_direction(char c)
 {
-	int	i;
-	int	j;
-
-	i = 0;
-	while (map[i])
-	{
-		j = 0;
-		while (map[i][j] != '\0')
-		{
-			if (map[i][j] == 'N')
-				return (NORTH);
-			else if (map[i][j] == 'S')
-				return (SOUTH);
-			else if (map[i][j] == 'W')
-				return (WEST);
-			else if (map[i][j] == 'E')
-				return (EAST);
-			j++;
-		}
-		i++;
-	}
-	return (-1);
+	if (c == 'N')
+		return (NORTH);
+	else if (c == 'S')
+		return (SOUTH);
+	else if (c == 'W')
+		return (WEST);
+	return (EAST);
 }
 
 int	check_file(char *str, t_parser *infos)

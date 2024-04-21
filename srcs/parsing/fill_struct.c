@@ -11,6 +11,7 @@
 /* ************************************************************************** */
 
 #include "cub.h"
+#include "libft.h"
 
 int	check_id(char *str)
 {
@@ -42,19 +43,25 @@ int	check_id(char *str)
 t_parser	*fill_struct(t_parser *infos, char *str)
 {
 	if (check_id(str) == 1)
-		infos->north = (str + 3);
+		check_txt(infos, &infos->north, str);
 	else if (check_id(str) == 2)
-		infos->south = (str + 3);
+		check_txt(infos, &infos->south, str);
 	else if (check_id(str) == 3)
-		infos->west = (str + 3);
+		check_txt(infos, &infos->west, str);
 	else if (check_id(str) == 4)
-		infos->east = (str + 3);
-	else if (check_id(str) == 5 || check_id(str) == 6)
-	{
-		if (!count_colors(str, infos))
-			treat_colors(infos, str);
-	}
+		check_txt(infos, &infos->east, str);
+	else if (check_id(str) == 5)
+		treat_colors(infos, str, &infos->floor);
+	else if (check_id(str) == 6)
+		treat_colors(infos, str, &infos->ceiling);
 	return (infos);
+}
+
+void	double_pos_error(t_parser *infos, t_cub *cub)
+{
+	ft_putendl_fd("Error", 2);
+	ft_putendl_fd("Multiple player postion", 2);
+	really_clean_all(infos, cub, 2);
 }
 
 int	player_position(t_parser *infos, t_cub *cub)
@@ -70,8 +77,11 @@ int	player_position(t_parser *infos, t_cub *cub)
 		{
 			if (ft_strchr("NSEW", infos->map[i][j]))
 			{
+				if (cub->pos.x != 0.0)
+					double_pos_error(infos, cub);
 				cub->pos.x = (double)i + 0.5;
 				cub->pos.y = (double)j + 0.5;
+				cub->p_dir = find_direction(infos->map[i][j]);
 				infos->map[i][j] = '0';
 			}
 			j++;

@@ -12,60 +12,44 @@
 
 #include "cub.h"
 
-t_rgb	parse_color(char *str, int i, t_rgb *surface, t_parser *infos)
+int	get_color(t_parser *infos, char *str, int *color, int i)
 {
-	if (!str[i] || ft_atoi(str + i) < 0 || ft_atoi(str + i) > 255)
-		error_exit("Invalid color\n", infos);
-	surface->r = ft_atoi(str + i);
-	while (str[i] && str[i] >= '0' && str[i] <= '9')
-		i++;
-	if (!str[i] || str[i] != ',')
-		error_exit("Invalid color\n", infos);
-	i++;
-	if (!str[i] || ft_atoi(str + i) < 0 || ft_atoi(str + i) > 255)
-		error_exit("Invalid color\n", infos);
-	surface->g = ft_atoi(str + i);
-	while (str[i] && str[i] >= '0' && str[i] <= '9')
-		i++;
-	if (!str[i] || str[i] != ',')
-		error_exit("Invalid color\n", infos);
-	i++;
-	if (!str[i] || ft_atoi(str + i) < 0 || ft_atoi(str + i) > 255)
-		error_exit("Invalid color\n", infos);
-	surface->b = ft_atoi(str + i);
-	while (str[i] && str[i] >= '0' && str[i] <= '9')
-		i++;
-	return (*surface);
+	int	dec;
+
+	dec = 0;
+	while (ft_isdigit(str[i]))
+	{
+		++i;
+		++dec;
+	}
+	if (dec == 0 || dec > 3)
+	{
+		printf("%c %d %d\n", str[i], dec, i);
+		error_exit("Bad color identifiiiiiiier\n", infos);
+	}
+	*color = ft_atoi(&str[i - dec]);
+	if (*color < 0 || dec > 255)
+		error_exit("Bad color identifier\n", infos);
+	i = skip_spaces(str, i);
+	return (i);
 }
 
-void	treat_colors(t_parser *infos, char *str)
+void	treat_colors(t_parser *infos, char *str, t_rgb *color)
 {
-	if (check_id(str) == 5)
-	{
-		infos->floor = parse_color(str, 2, &infos->floor, infos);
-	}
-	else if (check_id(str) == 6)
-	{
-		infos->ceiling = parse_color(str, 2, &infos->ceiling, infos);
-	}
-}
-
-int	count_colors(char *str, t_parser *infos)
-{
-	int	commas;
 	int	i;
 
-	commas = 0;
-	i = 0;
-	while (str[i])
-	{
-		if (str[i] == ',')
-			commas++;
-		if (str[i] == ',' && !ft_isdigit(str[i + 1]))
-			error_exit("Invalid rgb input\n", infos);
-		i++;
-	}
-	if (commas != 2)
-		error_exit("Invalid rgb input\n", infos);
-	return (0);
+	if (color->r != -1)
+		error_exit("Redefinition of color\n", infos);
+	i = skip_spaces(str, 1);
+	i = get_color(infos, str, &color->r, i);
+	if (str[i] != ',')
+		error_exit("Bad color formatting\n", infos);
+	i = skip_spaces(str, i + 1);
+	i = get_color(infos, str, &color->g, i);
+	if (str[i] != ',')
+		error_exit("Bad color formatting\n", infos);
+	i = skip_spaces(str, i + 1);
+	i = get_color(infos, str, &color->b, i);
+	if (str[i] != '\n')
+		error_exit("Bad color formatting\n", infos);
 }

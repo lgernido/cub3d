@@ -223,6 +223,7 @@ void			init_cub_var(t_cub *cub);
 // init_struct.c
 
 t_parser		*init_struct(t_parser *parser);
+void			check_txt(t_parser *info, char **text, char *str);
 
 // parse_file.c
 void			check_file_format(char *str, t_parser *infos);
@@ -234,7 +235,7 @@ t_cub			*to_cub(t_parser *infos, t_cub *cub);
 // check_map.c
 
 int				valid_map(char *str, t_parser *infos);
-int				check_side_wall(char *str);
+int				check_side_wall(char **map, int line);
 int				check_walls(char *str);
 void			map_format(char **str, t_parser *infos);
 int				map_position(t_parser *infos);
@@ -242,6 +243,7 @@ int				map_position(t_parser *infos);
 // fill_map.c
 t_parser		*check_map(t_parser *infos, char **tab);
 void			fill_map(char *str, t_parser *infos);
+int				skip_spaces(char *str, int i);
 
 // fill_struct.c
 
@@ -253,22 +255,21 @@ int				count_params(char **tab, t_parser *infos);
 
 // parse_colors.c
 
-void			treat_colors(t_parser *infos, char *str);
+void			treat_colors(t_parser *infos, char *str, t_rgb *color);
 t_rgb			parse_color(char *str, int i, t_rgb *surface, t_parser *infos);
-int				count_colors(char *str, t_parser *infos);
 
 // clean_all.c
 
 void			clean_all(t_parser *infos);
 void			clean_map_str(t_parser *infos);
 void			clean_tab(t_parser *infos);
-void			really_clean_all(t_parser *info, t_cub *cub);
+void			really_clean_all(t_parser *info, t_cub *cub, int code);
 
 // utils.c
 int				check_file(char *str, t_parser *infos);
 char			*handle_space(char *str);
 size_t			ft_map_size(char **str);
-t_dir			find_direction(char **map);
+t_dir			find_direction(char c);
 int				get_number_of_lines(int *fd, char *path);
 
 #endif

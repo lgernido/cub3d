@@ -69,18 +69,27 @@ int	check_walls(char *str)
 	return (1);
 }
 
-int	check_side_wall(char *str)
+int	check_side_wall(char **map, int line)
 {
-	int	i;
+	size_t			i;
+	const size_t	upper_len = ft_strlen(map[line - 1]) - 1;
+	const size_t	lower_len = ft_strlen(map[line + 1]) - 1;
 
-	i = 0;
-	while (str[i] && str[i] == ' ')
-		i++;
-	if (str[i] != '1')
+	i = skip_spaces(map[line], 0);
+	if (map[line][i] != '1')
 		return (0);
-	while (str[i] && str[i] != '\n')
-		i++;
-	if (str[i - 1] != '1')
+	while (map[line][i] && map[line][i] != '\n')
+	{
+		if (map[line][i] == '0' || map[line][i] == 'N' || map[line][i] == 'S'
+				|| map[line][i] == 'W' || map[line][i] == 'E')
+		{
+			if (upper_len <= i || upper_len <= i + 1
+				|| lower_len <= i || lower_len <= i + 1)
+				return (0);
+		}
+		++i;
+	}
+	if (map[line][i - 1] != '1' && map[line][i - 1] != ' ')
 		return (0);
 	return (1);
 }
@@ -102,7 +111,7 @@ void	map_format(char **str, t_parser *infos)
 				error_exit("Invalid walls\n", infos);
 			}
 		}
-		else if (!check_side_wall(str[i]))
+		else if (!check_side_wall(str, i))
 		{
 			error_exit("Invalid walls\n", infos);
 		}

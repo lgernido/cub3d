@@ -26,11 +26,21 @@ t_parser	*init_struct(t_parser *parser)
 	parser->south = NULL;
 	parser->west = NULL;
 	parser->east = NULL;
-	parser->floor.r = 0;
-	parser->floor.g = 0;
-	parser->floor.b = 0;
-	parser->ceiling.r = 0;
-	parser->ceiling.g = 0;
-	parser->ceiling.b = 0;
+	parser->floor.r = -1;
+	parser->floor.g = -1;
+	parser->floor.b = -1;
+	parser->ceiling.r = -1;
+	parser->ceiling.g = -1;
+	parser->ceiling.b = -1;
 	return (parser);
+}
+
+void	check_txt(t_parser *info, char **text, char *str)
+{
+	size_t	i;
+
+	if (*text != NULL)
+		error_exit("Redefinition of texture\n", info);
+	i = skip_spaces(str, 2);
+	*text = &str[i];
 }
