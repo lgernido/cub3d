@@ -47,10 +47,7 @@ int	valid_map(char *str, t_parser *infos)
 		else if (str[i] != '0' && str[i] != '1' && str[i] != 'N'
 			&& str[i] != 'S' && str[i] != 'W' && str[i] != 'E' && str[i] != '\0'
 			&& str[i] != ' ' && str[i] != '\n')
-		{
-			printf("Char i don't like : %d\n", str[i]);
 			return (1);
-		}
 		else
 			i++;
 	}

@@ -38,7 +38,7 @@ t_parser	*check_map(t_parser *infos, char **tab)
 		if (check_id(tab[i]) == 7)
 		{
 			if (valid_map(tab[i], infos) == 1 || check_id(tab[i + 1]) == 8)
-				error_exit("Invallllllid map file\n", infos);
+				error_exit("Invalid map file\n", infos);
 			else
 				fill_map(tab[i], infos);
 		}
