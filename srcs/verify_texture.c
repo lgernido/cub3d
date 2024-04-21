@@ -32,23 +32,12 @@ int	continue_verify(char *path, char *dimension_string, char *line)
 	return (1);
 }
 
-void	proper_string_end(char *str)
-{
-	size_t	i;
-
-	i = 0;
-	while (str[i] != '\0' && str[i] > 32 && str[i] < 126)
-		++i;
-	str[i] = '\0';
-}
-
 int	verify_texture(char *path, char *dimension_string)
 {
 	int		fd;
 	char	*line;
 	int		i;
 
-	proper_string_end(path);
 	fd = open(path, O_RDONLY);
 	if (fd == -1)
 	{

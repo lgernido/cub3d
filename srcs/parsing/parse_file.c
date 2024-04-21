@@ -17,7 +17,7 @@ void	error_exit(char *str, t_parser *infos)
 	ft_putstr_fd("Error\n", 2);
 	ft_putstr_fd(str, 2);
 	if (infos)
-		clean_all(infos);
+		clean_all(infos, 0);
 	exit(1);
 }
 
@@ -58,62 +58,24 @@ char	**read_file(int file, char *path, t_parser *infos)
 	return (tab);
 }
 
-void	check_params(int argc, char **argv, t_cub *cub)
+void	check_params(char **argv, t_cub *cub)
 {
 	int			map;
 	t_parser	*infos;
-	int			i;
 
 	infos = NULL;
 	infos = init_struct(infos);
-	if (argc == 2)
-	{
-		check_file_format(argv[1], infos);
-		map = open(argv[1], O_RDONLY);
-		if (map == -1)
-			error_exit("Parameters file couldn't be opened\n", infos);
-		infos->tab = read_file(map, argv[1], infos);
-		if (!infos->tab)
-			error_exit("MALLOC\n", infos);
-		count_params(infos->tab, infos);
-		infos = check_map(infos, infos->tab);
-		cub = to_cub(infos, cub);
-		i = 0;
-		while (infos->map[i] != NULL)
-		{
-			printf("%s", infos->map[i]);
-			i++;
-		}
-		printf("\n\n");
-		printf("infos.north: %s\n", infos->north);
-		printf("infos.south: %s\n", infos->south);
-		printf("infos.west: %s\n", infos->west);
-		printf("infos.east: %s\n", infos->east);
-		printf("Couleur du sol : R: %d, G: %d, B: %d\n", infos->floor.r,
-			infos->floor.g, infos->floor.b);
-		printf("Couleur du plafond : R: %d, G: %d, B: %d\n", infos->ceiling.r,
-			infos->ceiling.g, infos->ceiling.b);
-		// printf("Orientation : %d\n", direction);
-		printf("cube direction %d\n", cub->p_dir);
-		printf("cube position :  x:%f, y:%f\n", cub->pos.x, cub->pos.y);
-	}
-	really_clean_all(infos, cub, 0);
-}
-
-t_cub	*to_cub(t_parser *infos, t_cub *cub)
-{
-	int	i;
-
-	i = 0;
-	player_position(infos, cub);
-	verify_texture(infos->north, EXPECTED_TEXT);
-	verify_texture(infos->south, EXPECTED_TEXT);
-	verify_texture(infos->east, EXPECTED_TEXT);
-	verify_texture(infos->west, EXPECTED_TEXT);
-	// while (infos->map[i] != NULL)
-	// {
-	// 	fill_cub(infos->map[i], cub);
-	// 	i++;
-	// }
-	return (cub);
+	check_file_format(argv[1], infos);
+	map = open(argv[1], O_RDONLY);
+	if (map == -1)
+		error_exit("Parameters file couldn't be opened\n", infos);
+	infos->tab = read_file(map, argv[1], infos);
+	close(map);
+	if (!infos->tab)
+		error_exit("MALLOC\n", infos);
+	count_params(infos->tab, infos);
+	infos = check_map(infos, infos->tab);
+	to_cub(infos, cub);
+	clean_all(infos, 0);
+	return ;
 }

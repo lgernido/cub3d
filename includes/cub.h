@@ -34,10 +34,10 @@
 
 # define WIDTH 1150
 # define HEIGHT 920
-# define TEXTURE_SIZE 256
+# define TEXTURE_SIZE 64
 # define MINIMAP 144
 # define MINIMAP_PIX 16
-# define EXPECTED_TEXT "\"256 256"
+# define EXPECTED_TEXT "\"64 64"
 # define EXPECTED_MINI "\"16 16"
 
 //==========================================================================//
@@ -105,33 +105,32 @@ typedef struct s_data
 }			t_data;
 
 typedef struct s_raycaster {
-	double				camera; // Not a point, only x is needed.
-	t_point				vector_direction; // Which direction vector is send.
-	t_raw_point	box; // The locaton on the map in a raw value.
-	t_raw_point	step; // Only 1 or -1. Indicate the direction a vector should move.
-	t_point				dist_to_next_side; // Represent the lenght the vector 
-	int						side;
-	//need to be increment to reach the next side.
-	t_point				dist_between_sides; // Distance for translating one side to another.
-	t_raw_point				texCoord;
+	double				camera;
+	t_point				vector_direction;
+	t_raw_point			box;
+	t_raw_point			step;
+	t_point				dist_to_next_side;
+	int					side;
+	t_point				dist_between_sides;
+	t_raw_point			texcoord;
 	double				wall_to_cam_plane;
 	double				relative_coord_in_wall;
 	int					line_size[2];
 }							t_raycaster;
 
 typedef struct s_cub {
-	t_img	texture[4]; // All textures should be stored here as images
-	t_img	main_img; // Not relevant for parsing
+	t_img	texture[4];
+	t_img	main_img;
 	t_img	mini_map;
 	t_img	mini_map_texture[4];
-	t_data	display; // Not relevant for parsing.
-	t_point	pos; // First position of the player.
-	t_dir		p_dir; // Start directon of the player.
-	t_point	dir; // Not relevant for parsing.
-	t_point	fov; // not relevant for parsing.	
-	int			floor; // Color of the floor.
-	int			ceiling; // color of the ceiling.
-	char		**map;
+	t_data	display;
+	t_point	pos;
+	t_dir	p_dir;
+	t_point	dir;
+	t_point	fov;	
+	int		floor;
+	int		ceiling;
+	char	**map;
 }			t_cub;
 
 //==========================================================================//
@@ -223,14 +222,13 @@ void			init_cub_var(t_cub *cub);
 // init_struct.c
 
 t_parser		*init_struct(t_parser *parser);
-void			check_txt(t_parser *info, char **text, char *str);
 
 // parse_file.c
 void			check_file_format(char *str, t_parser *infos);
 void			error_exit(char *str, t_parser *infos);
-void			check_params(int argc, char **argv, t_cub *cub);
+void			check_params(char **argv, t_cub *cub);
 char			**read_file(int file, char *path, t_parser *infos);
-t_cub			*to_cub(t_parser *infos, t_cub *cub);
+void			to_cub(t_parser *infos, t_cub *cub);
 
 // check_map.c
 
@@ -244,6 +242,8 @@ int				map_position(t_parser *infos);
 t_parser		*check_map(t_parser *infos, char **tab);
 void			fill_map(char *str, t_parser *infos);
 int				skip_spaces(char *str, int i);
+int				is_valid_char(char c, char *charset);
+void			proper_string_end(char *str);
 
 // fill_struct.c
 
@@ -260,16 +260,16 @@ t_rgb			parse_color(char *str, int i, t_rgb *surface, t_parser *infos);
 
 // clean_all.c
 
-void			clean_all(t_parser *infos);
+void			clean_all(t_parser *infos, int to_quit);
 void			clean_map_str(t_parser *infos);
 void			clean_tab(t_parser *infos);
 void			really_clean_all(t_parser *info, t_cub *cub, int code);
 
 // utils.c
-int				check_file(char *str, t_parser *infos);
 char			*handle_space(char *str);
 size_t			ft_map_size(char **str);
 t_dir			find_direction(char c);
 int				get_number_of_lines(int *fd, char *path);
+void			check_txt(t_parser *info, char **text, char *str);
 
 #endif

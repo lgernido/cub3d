@@ -6,7 +6,7 @@ SRC_FOLDER	= srcs/
 
 PARSING_DIR = parsing/
 PARSING_FILES = $(addprefix $(PARSING_DIR), parse_file.c check_map.c fill_struct.c clean_all.c \
-parse_colors.c utils.c init_struct.c fill_map.c)
+parse_colors.c utils.c init_struct.c fill_map.c to_cub.c)
 
 SRC_FILES	= main.c exec_init.c clean_exit.c drawing_utils.c handle_keyboard.c\
 						draw_line.c exec_solo.c raycaster.c mouse.c mini_map_init.c\
@@ -23,7 +23,7 @@ OBJ_FILES_BONUS = $(addprefix $(SRC_FOLDER_BONUS), $(SRC_FILES_BONUS:%.c=%.o))
 
 NAME		= cub3D
 CC			= cc
-CFLAGS		= -Wall -Werror -Wextra -g3
+CFLAGS		= -Wall -Werror -Wextra
 
 LIBFT_PATH	= libft/
 LIBFT		= $(LIBFT_PATH)libft.a

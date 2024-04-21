@@ -50,20 +50,6 @@ t_dir	find_direction(char c)
 	return (EAST);
 }
 
-int	check_file(char *str, t_parser *infos)
-{
-	int	fd;
-
-	fd = open(str, O_RDONLY);
-	if (fd == -1)
-	{
-		error_exit("Texture file can't be opened\n", infos);
-		return (1);
-	}
-	close(fd);
-	return (0);
-}
-
 int	get_number_of_lines(int *fd, char *path)
 {
 	size_t	i;
@@ -83,6 +69,16 @@ int	get_number_of_lines(int *fd, char *path)
 	*fd = open(path, O_RDONLY);
 	if (*fd == -1)
 		return (-1);
-	printf("i : %ld\n", i);
 	return (i + 1);
+}
+
+void	check_txt(t_parser *info, char **text, char *str)
+{
+	size_t	i;
+
+	if (*text != NULL)
+		error_exit("Redefinition of texture\n", info);
+	i = skip_spaces(str, 2);
+	proper_string_end(&str[i]);
+	*text = &str[i];
 }

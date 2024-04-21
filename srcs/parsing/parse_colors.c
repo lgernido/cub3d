@@ -23,10 +23,7 @@ int	get_color(t_parser *infos, char *str, int *color, int i)
 		++dec;
 	}
 	if (dec == 0 || dec > 3)
-	{
-		printf("%c %d %d\n", str[i], dec, i);
-		error_exit("Bad color identifiiiiiiier\n", infos);
-	}
+		error_exit("Bad color identifier\n", infos);
 	*color = ft_atoi(&str[i - dec]);
 	if (*color < 0 || dec > 255)
 		error_exit("Bad color identifier\n", infos);

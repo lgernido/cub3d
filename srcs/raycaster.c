@@ -62,7 +62,7 @@ void	go_to_hit(t_cub *cub, t_raycaster *current_value)
 			current_value->box.y += current_value->step.y;
 			current_value->side = 1;
 		}
-		if (cub->map[current_value->box.x][current_value->box.y] > 0)
+		if (cub->map[current_value->box.x][current_value->box.y] == 1)
 			wall_is_hit = 1;
 	}
 }

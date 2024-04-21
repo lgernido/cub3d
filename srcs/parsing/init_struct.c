@@ -35,12 +35,16 @@ t_parser	*init_struct(t_parser *parser)
 	return (parser);
 }
 
-void	check_txt(t_parser *info, char **text, char *str)
+int	is_valid_char(char c, char *charset)
 {
-	size_t	i;
+	int	i;
 
-	if (*text != NULL)
-		error_exit("Redefinition of texture\n", info);
-	i = skip_spaces(str, 2);
-	*text = &str[i];
+	i = 0;
+	while (charset[i] != '\0')
+	{
+		if (c == charset[i])
+			return (1);
+		++i;
+	}
+	return (0);
 }

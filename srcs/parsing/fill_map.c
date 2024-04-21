@@ -38,7 +38,7 @@ t_parser	*check_map(t_parser *infos, char **tab)
 		if (check_id(tab[i]) == 7)
 		{
 			if (valid_map(tab[i], infos) == 1 || check_id(tab[i + 1]) == 8)
-				error_exit("Invalid map file\n", infos);
+				error_exit("Invallllllid map file\n", infos);
 			else
 				fill_map(tab[i], infos);
 		}
@@ -50,20 +50,19 @@ t_parser	*check_map(t_parser *infos, char **tab)
 	return (infos);
 }
 
-void	fill_cub(char *str, t_cub *cub)
-{
-	int	i;
-
-	i = 0;
-	while (cub->map[i] != NULL)
-		i++;
-	cub->map[i] = ft_strdup(str);
-	i++;
-}
-
 int	skip_spaces(char *str, int i)
 {
 	while (str[i] && str[i] != '\n' && str[i] == ' ')
 		++i;
 	return (i);
+}
+
+void	proper_string_end(char *str)
+{
+	size_t	i;
+
+	i = 0;
+	while (str[i] != '\0' && str[i] > 32 && str[i] < 126)
+		++i;
+	str[i] = '\0';
 }

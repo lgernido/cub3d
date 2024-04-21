@@ -12,7 +12,6 @@
 
 #include "cub.h"
 #include "libft.h"
-#include "mlx.h"
 
 int	main(int argc, char **argv)
 {
@@ -31,9 +30,6 @@ int	main(int argc, char **argv)
 		return (1);
 	}
 	ft_bzero(&cub, sizeof (t_cub));
-	check_params(argc, argv, &cub);
-	cub.display.mlx = mlx_init();
-	if (cub.display.mlx == NULL)
-		clean_cub(&cub, 1);
-	// exec_init(&cub);
+	check_params(argv, &cub);
+	exec_init(&cub);
 }

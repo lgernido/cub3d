@@ -44,15 +44,17 @@ void	clean_map_str(t_parser *infos)
 	}
 }
 
-void	clean_all(t_parser *infos)
+void	clean_all(t_parser *infos, int to_quit)
 {
 	clean_tab(infos);
 	clean_map_str(infos);
 	free(infos);
+	if (to_quit == 1)
+		exit(1);
 }
 
 void	really_clean_all(t_parser *info, t_cub *cub, int code)
 {
-	clean_all(info);
+	clean_all(info, 0);
 	clean_cub(cub, code);
 }
