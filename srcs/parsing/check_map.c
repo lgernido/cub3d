@@ -86,9 +86,12 @@ int	check_side_wall(char **map, int line)
 	{
 		if (map[line][i] != '1' && map[line][i] != ' ')
 		{
-			if (upper_len <= i || upper_len <= i + 1
-				|| lower_len <= i || lower_len <= i + 1)
+			if (upper_len < i || upper_len < i + 1
+				|| lower_len < i || lower_len < i + 1)
+			{
+				printf("Prob pos : x %d, y : %ld\n", line, i);
 				return (ft_putendl_fd("Error\nUnclosed map", 2), 0);
+			}
 		}
 		++i;
 	}
