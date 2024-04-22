@@ -14,18 +14,16 @@
 #include "libft.h"
 #include "mlx.h"
 
-int	continue_verify(char *path, char *dimension_string, char *line)
+int	continue_verify(char *dimension_string, char *line)
 {
 	if (line == NULL)
 	{
-		ft_putendl_fd("Error", 2);
-		printf("cub3D: %s: Wrong texture format.\n", path);
+		ft_putendl_fd("Error\nWrong texture format", 2);
 		return (0);
 	}
 	if (ft_strncmp(dimension_string, line, ft_strlen(dimension_string)) != 0)
 	{
-		ft_putendl_fd("Error", 2);
-		printf("cub3D: %s: Wrong texture format.\n", path);
+		ft_putendl_fd("Error\nWrong texture format", 2);
 		return (0);
 	}
 	free (line);
@@ -55,7 +53,7 @@ int	verify_texture(char *path, char *dimension_string)
 	}
 	close (fd);
 	get_next_line(fd, -2);
-	return (continue_verify(path, dimension_string, line));
+	return (continue_verify(dimension_string, line));
 }
 
 int	open_wall_text(t_cub *cub, t_img *texture_dest, char *texture_path)

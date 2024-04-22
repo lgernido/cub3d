@@ -16,7 +16,10 @@ BUILD = build/
 
 
 OBJ_FILES	= $(addprefix $(BUILD),$(SRC_FILES:%.c=%.o))
+
 OBJ_FILES_BONUS = $(addprefix $(SRC_FOLDER_BONUS), $(SRC_FILES_BONUS:%.c=%.o))
+
+DEPS = $(OBJ_FILES:.o=.d)
 
 ###########################################################################
 #### ARGUMENTS
@@ -24,6 +27,7 @@ OBJ_FILES_BONUS = $(addprefix $(SRC_FOLDER_BONUS), $(SRC_FILES_BONUS:%.c=%.o))
 NAME		= cub3D
 CC			= cc
 CFLAGS		= -Wall -Werror -Wextra
+OBJFLAGS = -MMD -MP
 
 LIBFT_PATH	= libft/
 LIBFT		= $(LIBFT_PATH)libft.a
@@ -56,9 +60,13 @@ build/%.o: srcs/%.c
 	@mkdir -p ${BUILD}
 	@mkdir -p $(BUILD)/$(PARSING_DIR)
 	@echo "$(YELLOW)Compilation de $*$(RESET)"
-	@$(CC) $(CFLAGS) -I$(INCLUDE_PATH) -I$(LIBFT_PATH) -I/usr/include -I$(MLX_PATH) -c $< -o $@
+	@$(CC) $(CFLAGS) $(OBJFLAGS) -I$(INCLUDE_PATH) -I$(LIBFT_PATH) -I/usr/include -I$(MLX_PATH) -c $< -o $@
+
+-include $(DEPS)
 
 all : $(NAME)
+
+bonus : all
 
 clean :
 	@rm -rf ${BUILD}
@@ -74,4 +82,4 @@ fclean : clean
 
 re : fclean all
 
-.PHONY : all clean fclean re
+.PHONY : all clean fclean re bonus

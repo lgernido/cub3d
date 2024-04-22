@@ -34,17 +34,3 @@ t_parser	*init_struct(t_parser *parser)
 	parser->ceiling.b = -1;
 	return (parser);
 }
-
-int	is_valid_char(char c, char *charset)
-{
-	int	i;
-
-	i = 0;
-	while (charset[i] != '\0')
-	{
-		if (c == charset[i])
-			return (1);
-		++i;
-	}
-	return (0);
-}

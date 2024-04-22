@@ -75,10 +75,17 @@ int	get_number_of_lines(int *fd, char *path)
 void	check_txt(t_parser *info, char **text, char *str)
 {
 	size_t	i;
+	size_t	j;
 
 	if (*text != NULL)
 		error_exit("Redefinition of texture\n", info);
 	i = skip_spaces(str, 2);
+	j = i ;
+	while (str[j] && str[j] != ' ' && str[j] != '\n')
+		j++;
+	j = skip_spaces(str, j);
+	if (str[j] != '\n')
+		error_exit("Texture : Misleading informations\n", info);
 	proper_string_end(&str[i]);
 	*text = &str[i];
 }

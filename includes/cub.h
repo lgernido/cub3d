@@ -34,10 +34,10 @@
 
 # define WIDTH 1150
 # define HEIGHT 920
-# define TEXTURE_SIZE 64
+# define TEXTURE_SIZE 256
 # define MINIMAP 144
 # define MINIMAP_PIX 16
-# define EXPECTED_TEXT "\"64 64"
+# define EXPECTED_TEXT "\"256 256"
 # define EXPECTED_MINI "\"16 16"
 
 //==========================================================================//
@@ -242,7 +242,6 @@ int				map_position(t_parser *infos);
 t_parser		*check_map(t_parser *infos, char **tab);
 void			fill_map(char *str, t_parser *infos);
 int				skip_spaces(char *str, int i);
-int				is_valid_char(char c, char *charset);
 void			proper_string_end(char *str);
 
 // fill_struct.c

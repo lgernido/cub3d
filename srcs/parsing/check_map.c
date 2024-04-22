@@ -63,11 +63,6 @@ int	check_walls(char *str)
 		i++;
 	while (str[i])
 	{
-		if (is_valid_char(str[i], "01 NSEW\n") == 0)
-		{
-			ft_putendl_fd("Error\nUnknown character found in map", 2);
-			return (0);
-		}
 		if (str[i] != '1' && str[i] != ' ' && str[i] != '\n')
 		{
 			ft_putendl_fd("Error\nUnclosed map", 2);
@@ -89,9 +84,6 @@ int	check_side_wall(char **map, int line)
 		return (0);
 	while (map[line][i] && map[line][i] != '\n')
 	{
-		if (is_valid_char(map[line][i], "01 NSEW") == 0)
-			return (ft_putendl_fd("Error\nUnknown \
-character found in map", 2), 0);
 		if (map[line][i] != '1' && map[line][i] != ' ')
 		{
 			if (upper_len <= i || upper_len <= i + 1
