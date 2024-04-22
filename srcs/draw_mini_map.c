@@ -39,7 +39,7 @@ int	should_pos_moove(t_cub *cub, int x_sub_square, int y_sub_square,
 	if (x_sub_square < 0 || y_sub_square < 0
 		|| x_sub_square > 128 || y_sub_square > 128)
 		return (0);
-	else if (cub->map[coord.x] == NULL || coord.x == -1
+	else if (coord.x == -1 || cub->map[coord.x] == NULL
 		|| coord.y < 0 || cub->map[coord.x][coord.y] == -1)
 	{
 		image_in_image(cub, x_sub_square, y_sub_square, VOID);

@@ -34,10 +34,10 @@
 
 # define WIDTH 1150
 # define HEIGHT 920
-# define TEXTURE_SIZE 256
+# define TEXTURE_SIZE 64
 # define MINIMAP 144
 # define MINIMAP_PIX 16
-# define EXPECTED_TEXT "\"256 256"
+# define EXPECTED_TEXT "\"64 64"
 # define EXPECTED_MINI "\"16 16"
 
 //==========================================================================//

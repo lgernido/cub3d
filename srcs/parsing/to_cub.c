@@ -76,7 +76,7 @@ static void	copy_map(t_cub *cub, t_parser *infos)
 	i = 0;
 	while (infos->map[i] != NULL)
 		i++;
-	cub->map = ft_calloc(i + 1, sizeof(char **));
+	cub->map = ft_calloc(i + 2, sizeof(char **));
 	if (cub->map == NULL)
 	{
 		ft_putendl_fd("Error", 2);
