@@ -6,7 +6,7 @@
 /*   By: lgernido <lgernido@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/17 11:15:03 by lgernido          #+#    #+#             */
-/*   Updated: 2024/04/20 14:37:57 by lgernido         ###   ########.fr       */
+/*   Updated: 2024/04/22 09:48:52 by lgernido         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,13 +22,13 @@ int	check_id(char *str)
 	{
 		if (!ft_strncmp(str, "\n", 1))
 			return (8);
-		else if (str[i] == 'N' && str[i + 1] == 'O')
+		else if (str[i] == 'N' && (str[i + 1] == 'O' || str[i + 1] == ' '))
 			return (1);
-		else if (str[i] == 'S' && str[i + 1] == 'O')
+		else if (str[i] == 'S' && (str[i + 1] == 'O' || str[i + 1] == ' '))
 			return (2);
-		else if (str[i] == 'W' && str[i + 1] == 'E')
+		else if (str[i] == 'W' && (str[i + 1] == 'E' || str[i + 1] == ' '))
 			return (3);
-		else if (str[i] == 'E' && str[i + 1] == 'A')
+		else if (str[i] == 'E' && (str[i + 1] == 'A' || str[i + 1] == ' '))
 			return (4);
 		else if (str[i] == 'F' && str[i + 1] == ' ')
 			return (5);
