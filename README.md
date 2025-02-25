@@ -17,5 +17,5 @@ make
 ```
 Run the programm with the following arguments. 
 ```
-./cub3D path_to_map/
+./cub3D path_to_map
 ```
